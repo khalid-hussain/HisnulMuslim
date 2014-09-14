@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="inceif_blue">#0198cd</color>
+
+    <!-- ActionBar -->
+    <color name="actionbar_bg">#34495E</color>
+    <color name="actionbar_stripe">#2C3E50</color>
+
+    <!-- Google Card -->
+    <color name="card_divider_gray">#e5e5e5</color>
+
+    <!-- Navigation Drawer -->
+    <color name="drawer_divider">#ededed</color>
+    <color name="drawer_text">#000</color>
+    <color name="drawer_text_selected">#fff</color>
+    <color name="drawer_bg">#fff</color>
+</resources>
