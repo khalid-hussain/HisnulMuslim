@@ -14,7 +14,6 @@ The following is a list of requirements I wish the app to have:
 I'm getting tired of poorly written apps.
 
 # Constraints
-The following are some constraints at the moment:
 1. App will support platforms 4.1.2 (JellyBean) and upwards. This may change later.
 
 # (Intended) Features
