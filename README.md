@@ -6,7 +6,6 @@ This repository is about an Android app which would include all the dua from His
 best Hisnul Muslim app the Play Store has ever seen, in terms of usability and performance.
 
 # Requirements
-The following is a list of requirements I wish the app to have:
 1. No Ads. The app should be given to the people free of charge with all features accessible.
 2. Must adhere to Google design guidelines in terms of icon design, font use, and to a large extent even app patterns.
 3. The Arabic text should be clear with the correct tashkeel/harakaat.
