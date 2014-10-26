@@ -1,9 +1,21 @@
 package adapters;
 
 public class Dua {
-    private int reference;
     private String title;
+    private String arabic;
+    private String translation;
+    private int reference;
+
+    private String book_reference;
+
     private String group;
+
+    public Dua (int reference, String arabic, String translation, String book_reference){
+        this.reference = reference;
+        this.arabic = arabic;
+        this.translation = translation;
+        this.book_reference = book_reference;
+    }
 
     public Dua(int reference, String group, String title){
         this.reference = reference;
@@ -30,6 +42,30 @@ public class Dua {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getArabic() {
+        return arabic;
+    }
+
+    public void setArabic(String arabic) {
+        this.arabic = arabic;
+    }
+
+    public String getTranslation() {
+        return translation;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
+    }
+
+    public String getBook_reference() {
+        return book_reference;
+    }
+
+    public void setBook_reference(String book_reference) {
+        this.book_reference = book_reference;
     }
 
     public String getGroup() {

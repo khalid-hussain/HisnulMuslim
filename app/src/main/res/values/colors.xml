@@ -3,7 +3,8 @@
     <color name="inceif_blue">#0198cd</color>
 
     <!-- ActionBar -->
-    <color name="actionbar_bg">#34495E</color>
+    <!--color name="actionbar_bg">#34495E</color>-->
+    <color name="actionbar_bg">#736353</color>
     <color name="actionbar_stripe">#2C3E50</color>
 
     <!-- Google Card -->

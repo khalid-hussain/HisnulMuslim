@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:descendantFocusability="beforeDescendants">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/selector_card_background"
+        android:descendantFocusability="afterDescendants">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"/>
+
+            <TextView
+                android:id="@+id/txtDuaNumber"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"/>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/card_divider_gray"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
+
+        <TextView
+            android:id="@+id/txtDuaArabic"
+            android:textSize="18sp"
+            android:paddingTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arabic Text"
+            android:lineSpacingExtra="15dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/card_divider_gray"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
+
+        <com.example.khalid.hisnulmuslim.TextViewEx
+            android:id="@+id/txtDuaTranslation"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="English Text"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/card_divider_gray"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
+
+        <TextView
+            android:id="@+id/txtDuaReference"
+            android:fontFamily="sans-serif-light"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Dua Reference"/>
+    </LinearLayout>
+</FrameLayout>

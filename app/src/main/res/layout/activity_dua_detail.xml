@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#750000" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/card_divider_gray">
+
+        <ListView
+            android:id="@+id/duaDetailView"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:clipToPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="5dp"
+            android:cacheColorHint="@android:color/transparent"
+            android:headerDividersEnabled="true"
+            android:footerDividersEnabled="true"/>
+    </LinearLayout>
+</FrameLayout>
