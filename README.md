@@ -28,5 +28,5 @@ bookmarked.
 4. The app should be optimized for performance.
 
 # Changelog
-26th Nov 2014: Started work on implementing Material Design.
-26th Nov 2014: Started keeping a simple changelog.
+- 26th Nov 2014: Started work on implementing Material Design.
+- 26th Nov 2014: Started keeping a simple changelog.
