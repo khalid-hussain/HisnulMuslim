@@ -1,7 +1,7 @@
 Hisnul Muslim Android App
 =========================
 
-![alt text](https://github.com/khalid-hussain/HisnulMuslim/tree/master/images/screenshot.png "Hisnul Muslim Screenshot")
+![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/screenshot.png)
 
 Assalamuʻalaikum to all Muslims and greetings to everyone else,
 
