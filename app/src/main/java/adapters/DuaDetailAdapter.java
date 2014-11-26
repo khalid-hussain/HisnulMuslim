@@ -49,10 +49,10 @@ public class DuaDetailAdapter extends com.nhaarman.listviewanimations.ArrayAdapt
                 tvDuaArabic.setText("" + p.getArabic());
             }
             if (tvDuaTranslation != null) {
-                tvDuaTranslation.setText(p.getTranslation().toString(), true);
+                tvDuaTranslation.setText(p.getTranslation());
             }
             if (tvDuaReference != null) {
-                tvDuaReference.setText(p.getBook_reference().toString());
+                tvDuaReference.setText(p.getBook_reference());
             }
         }
         return v;

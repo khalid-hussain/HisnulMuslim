@@ -1,11 +1,11 @@
 package com.example.khalid.hisnulmuslim;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -19,14 +19,14 @@ import adapters.DuaDetailAdapter;
 import database.ExternalDbOpenHelper;
 
 
-public class DuaDetail extends Activity {
+public class DuaDetail extends ActionBarActivity {
     private static final String DB_NAME = "hisnul.sqlite3";
 
     //A good practice is to define database field names as constants
     private static final String TABLE_NAME = "dua";
     private static final String GRP_ID = "grp_id";
 
-    private static final String DUA_NUMBER = "_id";
+    private static final String DUA_NUMBER = "dua_id";
     private static final String DUA_ARABIC = "ar_dua";
     private static final String DUA_TRANSLATION = "en_dua";
     private static final String DUA_REFERENCE = "en_ref";

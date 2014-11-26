@@ -1,10 +1,10 @@
 package com.example.khalid.hisnulmuslim;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +22,7 @@ import database.ExternalDbOpenHelper;
 
 //import adapters.Dua;
 
-public class DuaList extends Activity {
+public class DuaList extends ActionBarActivity {
     private static final String DB_NAME = "hisnul.sqlite3";
 
     //A good practice is to define database field names as constants

@@ -1,6 +1,8 @@
 Hisnul Muslim Android App
 =========================
 
+![alt text](https://github.com/khalid-hussain/HisnulMuslim/tree/master/images/screenshot.png "Hisnul Muslim Screenshot")
+
 Assalamuʻalaikum to all Muslims and greetings to everyone else,
 
 This repository is about an Android app which would include all the dua from Hisnul Muslim. The aim of this app is to create the
@@ -24,3 +26,7 @@ separate dua should have this feature. So, if there are 2 duas for "waking up", 
 bookmarked.
 3. Users should be able to "share" the dua on social networks (or other apps as well).
 4. The app should be optimized for performance.
+
+# Changelog
+26th Nov 2014: Started work on implementing Material Design.
+26th Nov 2014: Started keeping a simple changelog.
