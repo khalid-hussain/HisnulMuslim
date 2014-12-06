@@ -1,7 +1,7 @@
 Hisnul Muslim Android App
 =========================
 
-![alt text](https://github.com/khalid-hussain/HisnulMuslim/tree/master/images/screenshot.png "Hisnul Muslim Screenshot")
+![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/screenshot.png)
 
 Assalamuʻalaikum to all Muslims and greetings to everyone else,
 
@@ -28,6 +28,7 @@ bookmarked.
 4. The app should be optimized for performance.
 
 # Changelog
+<<<<<<< HEAD
 26th Nov 2014: Started work on implementing Material Design.
 26th Nov 2014: Started keeping a simple changelog.
 
@@ -38,3 +39,7 @@ Android Support Library
 # Credits
 [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
 [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
+=======
+- 26th Nov 2014: Started work on implementing Material Design.
+- 26th Nov 2014: Started keeping a simple changelog.
+>>>>>>> 985e2f48944217b1dfab2541c88f95a7d58d5eed
