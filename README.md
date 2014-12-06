@@ -37,7 +37,6 @@ bookmarked.
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 
 # Changelog
-===========
 - 6th Dec 2014: Updated README. A lot of refactoring underway.
 - 26th Nov 2014: Started work on implementing Material Design.
 - 26th Nov 2014: Started keeping a simple changelog.
