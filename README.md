@@ -27,19 +27,17 @@ bookmarked.
 3. Users should be able to "share" the dua on social networks (or other apps as well).
 4. The app should be optimized for performance.
 
-# Changelog
-<<<<<<< HEAD
-26th Nov 2014: Started work on implementing Material Design.
-26th Nov 2014: Started keeping a simple changelog.
 
 # Libraries Used
-Android Support Library
-[TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
+- Android Support Library
+- [TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
 
 # Credits
-[Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
-[StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
-=======
+- [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
+- [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
+
+# Changelog
+===========
+- 6th Dec 2014: Updated README. A lot of refactoring underway.
 - 26th Nov 2014: Started work on implementing Material Design.
 - 26th Nov 2014: Started keeping a simple changelog.
->>>>>>> 985e2f48944217b1dfab2541c88f95a7d58d5eed
