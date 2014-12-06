@@ -30,3 +30,11 @@ bookmarked.
 # Changelog
 26th Nov 2014: Started work on implementing Material Design.
 26th Nov 2014: Started keeping a simple changelog.
+
+# Libraries Used
+Android Support Library
+[TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
+
+# Credits
+[Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
+[StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
