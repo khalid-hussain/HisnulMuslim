@@ -4,20 +4,23 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
-import com.example.khalid.hisnulmuslim.TextViewEx;
 
-import java.util.ArrayList;
+import java.util.List;
 
-//public class DuaListAdapter extends ArrayAdapter<Dua> {
-public class DuaDetailAdapter extends com.nhaarman.listviewanimations.ArrayAdapter<Dua> {
-    private Context mContext;
+import classes.Dua;
+import classes.TextViewEx;
 
-    public DuaDetailAdapter(Context context, ArrayList<Dua> items) {
-        super(items);
-        mContext = context;
+public class DuaDetailAdapter extends ArrayAdapter<Dua> {
+    public DuaDetailAdapter(Context context, int textViewResourceId) {
+        super(context, textViewResourceId);
+    }
+
+    public DuaDetailAdapter(Context context, int resource, List<Dua> items) {
+        super(context, resource, items);
     }
 
     @Override
@@ -26,7 +29,7 @@ public class DuaDetailAdapter extends com.nhaarman.listviewanimations.ArrayAdapt
 
         if (v == null) {
             LayoutInflater vi;
-            vi = LayoutInflater.from(mContext);
+            vi = LayoutInflater.from(getContext());
             v = vi.inflate(R.layout.dua_detail_item_card, null);
         }
 
@@ -38,10 +41,6 @@ public class DuaDetailAdapter extends com.nhaarman.listviewanimations.ArrayAdapt
             TextViewEx tvDuaTranslation = (TextViewEx) v.findViewById(R.id.txtDuaTranslation);
             TextView tvDuaReference = (TextView) v.findViewById(R.id.txtDuaReference);
 
-            /*Typeface face;
-            face = Typeface.createFromAsset(getContext().getAssets(), "DroidNaskh-Regular.ttf");
-            tvDuaArabic.setTypeface(face);*/
-
             if (tvDuaNumber != null) {
                 tvDuaNumber.setText("" + p.getReference());
             }
@@ -49,10 +48,10 @@ public class DuaDetailAdapter extends com.nhaarman.listviewanimations.ArrayAdapt
                 tvDuaArabic.setText("" + p.getArabic());
             }
             if (tvDuaTranslation != null) {
-                tvDuaTranslation.setText(p.getTranslation());
+                tvDuaTranslation.setText("" + p.getTranslation());
             }
             if (tvDuaReference != null) {
-                tvDuaReference.setText(p.getBook_reference());
+                tvDuaReference.setText("" + p.getBook_reference());
             }
         }
         return v;

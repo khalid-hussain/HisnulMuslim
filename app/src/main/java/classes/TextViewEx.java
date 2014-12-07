@@ -1,4 +1,4 @@
-package com.example.khalid.hisnulmuslim;
+package classes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,13 +10,15 @@ import android.graphics.Paint.Align;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import classes.TextJustifyUtils;
+
 /*
  * 
- * com.example.khalid.hisnulmuslim.TextViewEx.java
+ * classes.TextViewEx.java
  * @author Mathew Kurian
  * 
  * !-- Requires -- !
- * com.example.khalid.hisnulmuslim.TextJustifyUtils.java
+ * classes.TextJustifyUtils.java
  * 
  * From TextJustify-Android Library v1.0.2
  * https://github.com/bluejamesbond/TextJustify-Android

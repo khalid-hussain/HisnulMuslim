@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.1"
-    // buildToolsVersion "20.0.0"
 
     defaultConfig {
         applicationId "com.example.khalid.hisnulmuslim"
@@ -14,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -26,7 +25,8 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.nhaarman.listviewanimations:library:2.6.0'
-    compile "com.android.support:appcompat-v7:21.0.+"
+    compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:cardview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.shamanland:fab:0.0.6'
 }

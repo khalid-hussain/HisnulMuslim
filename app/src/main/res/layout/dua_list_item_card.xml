@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card_view"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    card_view:cardCornerRadius="4dp">
-
-    <LinearLayout
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="15dp"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp"
-    android:paddingRight="15dp"
-    android:background="@drawable/selector_card_background"
-    android:descendantFocusability="afterDescendants">
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/txtReference"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:text="1"
-        />
+        android:textStyle="bold" />
 
     <View
         android:layout_width="15dp"
-        android:layout_height="fill_parent"/>
+        android:layout_height="fill_parent" />
 
     <TextView
         android:id="@+id/txtDuaName"
-        android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entering the Bathroom"
-        />
+        android:fontFamily="sans-serif-light"
+        android:text="Entering the Bathroom" />
 </LinearLayout>
-</android.support.v7.widget.CardView>

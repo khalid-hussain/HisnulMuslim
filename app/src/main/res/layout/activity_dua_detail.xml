@@ -1,25 +1,32 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#750000" >
+    android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ListView
+        android:id="@+id/duaDetailListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/card_divider_gray">
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:dividerHeight="5dp"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" />
 
-        <ListView
-            android:id="@+id/duaDetailView"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:clipToPadding="false"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:dividerHeight="5dp"
-            android:cacheColorHint="@android:color/transparent"
-            android:headerDividersEnabled="true"
-            android:footerDividersEnabled="true"/>
-    </LinearLayout>
-</FrameLayout>
+    <com.shamanland.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_action_favorite"
+        app:floatingActionButtonColor="@color/colorPrimary"
+        app:floatingActionButtonSize="normal" />
+    />
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package adapters;
+package classes;
 
 public class Dua {
     private String title;

@@ -1,4 +1,4 @@
-package com.example.khalid.hisnulmuslim;
+package classes;
 
 import android.graphics.Paint;
 import android.view.Gravity;
@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 /*!
  * 
- * com.example.khalid.hisnulmuslim.TextJustifyUtils.java
+ * classes.TextJustifyUtils.java
  * @author Mathew Kurian
  *  
  * From TextJustify-Android Library v1.0.2

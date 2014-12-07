@@ -4,19 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
-//public class DuaListAdapter extends ArrayAdapter<Dua> {
-public class DuaListAdapter extends com.nhaarman.listviewanimations.ArrayAdapter<Dua> {
-    private Context mContext;
+import classes.Dua;
 
-    public DuaListAdapter(Context context, ArrayList<Dua> items) {
-        super(items);
-        mContext = context;
+public class DuaGroupAdapter extends ArrayAdapter<Dua> {
+    public DuaGroupAdapter(Context context, int textViewResourceId) {
+        super(context, textViewResourceId);
+    }
+
+    public DuaGroupAdapter(Context context, int resource, List<Dua> items) {
+        super(context, resource, items);
     }
 
     @Override
@@ -25,7 +28,7 @@ public class DuaListAdapter extends com.nhaarman.listviewanimations.ArrayAdapter
 
         if (v == null) {
             LayoutInflater vi;
-            vi = LayoutInflater.from(mContext);
+            vi = LayoutInflater.from(getContext());
             v = vi.inflate(R.layout.dua_list_item_card, null);
         }
 
@@ -39,7 +42,7 @@ public class DuaListAdapter extends com.nhaarman.listviewanimations.ArrayAdapter
                 tvReference.setText("" + p.getReference());
             }
             if (tvDuaName != null) {
-                tvDuaName.setText(p.getTitle().toString());
+                tvDuaName.setText(p.getTitle());
             }
         }
         return v;
