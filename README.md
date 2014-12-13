@@ -32,12 +32,19 @@ bookmarked.
 # Libraries Used
 - Android Support Library
 - [TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
+- [Shamanland Floating Action Bar](https://github.com/shamanland/floating-action-button) (we might end up not using this)
+- [Google Material Design Icons](https://github.com/google/material-design-icons)
 
 # Credits
+- [Azhar Ali](https://www.facebook.com/md.ali.1276487)
 - [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
+- [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
+- [Font Awesome CSS Library](http://fortawesome.github.io/Font-Awesome/)
 
 # Changelog
+- 13th Dec 2014: Added 'About' activity to the app. Added 'Search' widget in DuaList activity menu. 
+								 Updated credits in README.
 - 7th Dec 2014: Uploaded refactored code. Added new screenshots.
 - 6th Dec 2014: Updated README. A lot of refactoring underway.
 - 26th Nov 2014: Started work on implementing Material Design.

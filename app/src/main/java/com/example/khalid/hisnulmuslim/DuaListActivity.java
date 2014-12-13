@@ -40,17 +40,17 @@ public class DuaListActivity extends ActionBarActivity {
 
     public void fromDBtoArrayList(ArrayList<Dua> ArrayListDuas) {
         Cursor duaGroupCursor;
-        duaGroupCursor =  database.query(myDB.TABLE_DUA_GROUP,
-                        new String[]{myDB.TABLE_DUA_GROUP_ID,
-                                     myDB.TABLE_DUA_GROUP_TITLE},
-                        null,
-                        null,
-                        null,
-                        null,
-                        myDB.TABLE_DUA_GROUP_ID);
-        
+        duaGroupCursor = database.query(myDB.TABLE_DUA_GROUP,
+                new String[]{myDB.TABLE_DUA_GROUP_ID,
+                        myDB.TABLE_DUA_GROUP_TITLE},
+                null,
+                null,
+                null,
+                null,
+                myDB.TABLE_DUA_GROUP_ID);
+
         duaGroupCursor.moveToFirst();
-        
+
         if (!duaGroupCursor.isAfterLast()) {
             do {
                 String dua_group_id = duaGroupCursor.getString(0);
@@ -66,11 +66,11 @@ public class DuaListActivity extends ActionBarActivity {
         listView = (ListView) findViewById(R.id.duaListView);
 
         DuaGroupAdapter mAdapter;
-        mAdapter = new DuaGroupAdapter( this,
-                                        R.layout.dua_list_item_card,
-                                        ArrayListDuas);
+        mAdapter = new DuaGroupAdapter(this,
+                R.layout.dua_list_item_card,
+                ArrayListDuas);
 
-        listView .setAdapter(mAdapter);
+        listView.setAdapter(mAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,7 +78,7 @@ public class DuaListActivity extends ActionBarActivity {
                                     int position, long id) {
                 Intent intent;
                 intent = new Intent(getBaseContext(),
-                                    DuaDetailActivity.class);
+                        DuaDetailActivity.class);
 
                 String dua_id = String.valueOf(position + 1);
                 String dua_title = ((Dua) ArrayListDuas.get(position)).getTitle();
@@ -103,9 +103,14 @@ public class DuaListActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show();
             return true;
-        } else if (id == R.id.action_bookmarks) {
+        }
+        else if (id == R.id.action_bookmarks) {
             Toast.makeText(this, "Bookmarks Clicked", Toast.LENGTH_SHORT).show();
             return true;
+        }
+        else if (id == R.id.action_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            this.startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
