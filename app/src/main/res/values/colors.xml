@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- ActionBar -->
-    <color name="actionbar_bg">#736353</color>
-    <color name="actionbar_stripe">#2C3E50</color>
-
     <!-- Google Card -->
     <color name="card_divider_gray">#e5e5e5</color>
-
-    <!-- Navigation Drawer -->
-    <color name="drawer_divider">#ededed</color>
-    <color name="drawer_text">#000</color>
-    <color name="drawer_text_selected">#fff</color>
-    <color name="drawer_bg">#fff</color>
 
     <!-- Material Colors -->
     <color name="red_50">#fde0dc</color>
@@ -32,4 +22,9 @@
     <color name="colorPrimary">@color/red_800</color>
     <color name="colorPrimaryDark">@color/red_900</color>
     <color name="colorAccent">@color/red_A200</color>
+
+    <!-- Extra Colors -->
+    <color name="material_main_bg">#FAFAFA</color>
+    <color name="material_sub_bg">#E9E9E9</color>
+    <color name="material_sub_bg_text">#757575</color>
 </resources>

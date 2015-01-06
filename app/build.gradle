@@ -23,10 +23,13 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.+'
-    compile 'com.android.support:cardview-v7:21.0.+'
-    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:cardview-v7:21.0.3'
+    compile 'com.android.support:recyclerview-v7:21.0.3'
     compile 'com.shamanland:fab:0.0.6'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.joanzapata.android:android-iconify:1.0.8'
 }

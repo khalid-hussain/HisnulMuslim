@@ -11,5 +11,7 @@
     <string name="title_activity_dua_detail">DuaDetail</string>
     <string name="title_activity_about">About</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_bookmarks">Bookmarks</string>
 
+    <string name="search_hint">Search Dua</string>
 </resources>

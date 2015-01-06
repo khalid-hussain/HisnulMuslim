@@ -4,32 +4,51 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 
 import java.util.List;
+import java.util.Locale;
 
 import classes.Dua;
 
-public class DuaGroupAdapter extends ArrayAdapter<Dua> {
-    public DuaGroupAdapter(Context context, int textViewResourceId) {
-        super(context, textViewResourceId);
+public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable {
+
+    public DuaGroupAdapter(Context activity) {
+        super(activity);
     }
 
-    public DuaGroupAdapter(Context context, int resource, List<Dua> items) {
-        super(context, resource, items);
+    public DuaGroupAdapter(Context activity, List<Dua> list) {
+        super(activity, list);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public Filter getFilter() {
+        // return a filter that filters data based on a constraint
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                return null;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, Filter.FilterResults results) {
+            }
+        };
+    }
+
+
+    @Override
+    public View getView(LayoutInflater inflater, int position, View convertView, ViewGroup parent) {
         View v = convertView;
 
         if (v == null) {
-            LayoutInflater vi;
-            vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.dua_list_item_card, null);
+            // LayoutInflater vi;
+            inflater = LayoutInflater.from(getContext());
+            v = inflater.inflate(R.layout.dua_list_item_card, null);
         }
 
         Dua p = getItem(position);
@@ -46,5 +65,10 @@ public class DuaGroupAdapter extends ArrayAdapter<Dua> {
             }
         }
         return v;
+    }
+
+    @Override
+    public boolean isFilteredOut(Dua dua, CharSequence constraint) {
+        return !dua.getGroup().toLowerCase(Locale.US).contains(constraint.toString().toLowerCase(Locale.US));
     }
 }

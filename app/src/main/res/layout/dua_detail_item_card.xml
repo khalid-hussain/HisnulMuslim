@@ -1,88 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:descendantFocusability="beforeDescendants">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingRight="15dp"
-        android:background="@drawable/selector_card_background"
-        android:descendantFocusability="afterDescendants">
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        card_view:cardCornerRadius="4dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="#"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#" />
+
+                <TextView
+                    android:id="@+id/txtDuaNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="1"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/card_divider_gray" />
 
             <TextView
-                android:id="@+id/txtDuaNumber"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
+                android:id="@+id/txtDuaArabic"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:lineSpacingExtra="15dp"
+                android:paddingTop="20dp"
+                android:text="Arabic Text"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/card_divider_gray" />
+
+            <classes.TextViewEx
+                android:id="@+id/txtDuaTranslation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="English Text" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/card_divider_gray" />
+
+            <TextView
+                android:id="@+id/txtDuaReference"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-light"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Dua Reference" />
         </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/card_divider_gray"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"/>
-
-        <TextView
-            android:id="@+id/txtDuaArabic"
-            android:textSize="18sp"
-            android:paddingTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Arabic Text"
-            android:lineSpacingExtra="15dp"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/card_divider_gray"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"/>
-
-        <classes.TextViewEx
-            android:id="@+id/txtDuaTranslation"
-            android:fontFamily="sans-serif-light"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="English Text"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/card_divider_gray"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"/>
-
-        <TextView
-            android:id="@+id/txtDuaReference"
-            android:fontFamily="sans-serif-light"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Dua Reference"/>
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </FrameLayout>

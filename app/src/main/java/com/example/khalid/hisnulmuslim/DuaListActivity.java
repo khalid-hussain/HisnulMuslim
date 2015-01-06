@@ -1,34 +1,40 @@
 package com.example.khalid.hisnulmuslim;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import classes.Dua;
 import adapters.DuaGroupAdapter;
+import classes.Dua;
 import database.ExternalDbOpenHelper;
 import database.mySqliteDatabase;
 
 public class DuaListActivity extends ActionBarActivity {
     private SQLiteDatabase database;
-    private ArrayList ArrayListDuas = new ArrayList<Dua>();
+    public ArrayList ArrayListDuas = new ArrayList<Dua>();
+    private DuaGroupAdapter mAdapter;
 
     private mySqliteDatabase myDB = new mySqliteDatabase();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_list);
+
+        // TextView txtQuery = (TextView) findViewById(R.id.txtQuery);
 
         ExternalDbOpenHelper dbOpenHelper;
         dbOpenHelper = new ExternalDbOpenHelper(this, myDB.DB_NAME);
@@ -65,12 +71,13 @@ public class DuaListActivity extends ActionBarActivity {
         final ListView listView;
         listView = (ListView) findViewById(R.id.duaListView);
 
-        DuaGroupAdapter mAdapter;
-        mAdapter = new DuaGroupAdapter(this,
-                R.layout.dua_list_item_card,
+        // Search Related (Filter)
+        listView.setTextFilterEnabled(true);
+
+        this.mAdapter = new DuaGroupAdapter(this,
                 ArrayListDuas);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(this.mAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -94,6 +101,12 @@ public class DuaListActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_activity_dualist, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        //searchView.setIconifiedByDefault(false);
+
         return true;
     }
 
@@ -101,17 +114,18 @@ public class DuaListActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        else if (id == R.id.action_bookmarks) {
-            Toast.makeText(this, "Bookmarks Clicked", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        else if (id == R.id.action_about) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            this.startActivity(intent);
+        } else if (id == R.id.action_bookmarks) {
+            Intent intent = new Intent(this, BookmarksActivity.class);
+            this.startActivity(intent);
+        } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
-        }
+        } /*else if (id == R.id.search) {
+            onSearchRequested();
+            return true;
+        }*/
         return super.onOptionsItemSelected(item);
     }
 }

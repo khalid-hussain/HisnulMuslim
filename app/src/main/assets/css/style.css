@@ -1,4 +1,8 @@
-.title {	
+* {
+	font-family: sans-serif-thin;
+	font-style: normal;
+}
+.title {
 	font-family: sans-serif-light;
 	font-style: normal;
 	text-align: center;

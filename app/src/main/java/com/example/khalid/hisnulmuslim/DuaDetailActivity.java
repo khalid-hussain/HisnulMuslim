@@ -9,9 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.shamanland.fab.FloatingActionButton;
-import com.shamanland.fab.ShowHideOnScroll;
-
 import java.util.ArrayList;
 
 import adapters.DuaDetailAdapter;
@@ -49,7 +46,7 @@ public class DuaDetailActivity extends ActionBarActivity {
 
         fromDBtoArrayList();
         fromArrayListToListView();
-        setFloatingActionButton();
+        //setFloatingActionButton();
 
         this.setTitle(duaTitleFromDuaListActivity);
     }
@@ -86,12 +83,12 @@ public class DuaDetailActivity extends ActionBarActivity {
         this.listView.setAdapter(mAdapter);
     }
 
-    public void setFloatingActionButton() {
+    /*public void setFloatingActionButton() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.initBackground(); // Use after setting new values
         fab.setImageResource(R.drawable.ic_action_favorite);// Standard imageView method
         this.listView.setOnTouchListener(new ShowHideOnScroll(fab));
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

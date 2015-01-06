@@ -15,8 +15,8 @@
             android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 
             <meta-data
@@ -31,6 +31,22 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
+            android:parentActivityName=".DuaListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.khalid.hisnulmuslim.DuaListActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".DuaListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.khalid.hisnulmuslim.DuaListActivity" />
+        </activity>
+        <activity
+            android:name=".BookmarksActivity"
+            android:label="@string/title_activity_bookmarks"
             android:parentActivityName=".DuaListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
