@@ -2,10 +2,11 @@ package com.example.khalid.hisnulmuslim;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
-
+import android.widget.TextView;
 
 public class AboutActivity extends ActionBarActivity {
 
@@ -14,11 +15,17 @@ public class AboutActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        String about_file_path;
+        TextView tvAboutUs = (TextView) findViewById(R.id.tvAboutUs);
+        tvAboutUs.setVerticalScrollBarEnabled(true);
+        tvAboutUs.setText(Html.fromHtml(getString(R.string.about_us)));
+        tvAboutUs.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        /*String about_file_path;
         about_file_path = "file:///android_asset/en_about.html";
 
         WebView webView = (WebView) findViewById(R.id.webView);
-        webView.loadUrl(about_file_path);
+        webView.loadUrl(about_file_path);*/
     }
 
 
