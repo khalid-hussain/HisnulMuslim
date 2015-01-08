@@ -19,14 +19,14 @@ import java.util.ArrayList;
 import adapters.DuaGroupAdapter;
 import classes.Dua;
 import database.ExternalDbOpenHelper;
-import database.mySqliteDatabase;
+import database.HisnDatabaseInfo;
 
 public class DuaListActivity extends ActionBarActivity {
     private SQLiteDatabase database;
     public ArrayList ArrayListDuas = new ArrayList<Dua>();
     private DuaGroupAdapter mAdapter;
 
-    private mySqliteDatabase myDB = new mySqliteDatabase();
+    private HisnDatabaseInfo myDB = new HisnDatabaseInfo();
 
 
     @Override
@@ -36,8 +36,8 @@ public class DuaListActivity extends ActionBarActivity {
 
         // TextView txtQuery = (TextView) findViewById(R.id.txtQuery);
 
-        ExternalDbOpenHelper dbOpenHelper;
-        dbOpenHelper = new ExternalDbOpenHelper(this, myDB.DB_NAME);
+        ExternalDbOpenHelper dbOpenHelper =
+                ExternalDbOpenHelper.getInstance(this);
         database = dbOpenHelper.openDataBase();
 
         fromDBtoArrayList(ArrayListDuas);
@@ -46,22 +46,22 @@ public class DuaListActivity extends ActionBarActivity {
 
     public void fromDBtoArrayList(ArrayList<Dua> ArrayListDuas) {
         Cursor duaGroupCursor;
-        duaGroupCursor = database.query(myDB.TABLE_DUA_GROUP,
-                new String[]{myDB.TABLE_DUA_GROUP_ID,
-                        myDB.TABLE_DUA_GROUP_TITLE},
+        duaGroupCursor = database.query(HisnDatabaseInfo.DuaGroupTable.TABLE_NAME,
+                new String[]{ HisnDatabaseInfo.DuaGroupTable._ID,
+                        HisnDatabaseInfo.DuaGroupTable.ENGLISH_TITLE},
                 null,
                 null,
                 null,
                 null,
-                myDB.TABLE_DUA_GROUP_ID);
+                HisnDatabaseInfo.DuaGroupTable._ID);
 
         duaGroupCursor.moveToFirst();
 
         if (!duaGroupCursor.isAfterLast()) {
             do {
-                String dua_group_id = duaGroupCursor.getString(0);
+                int dua_group_id = duaGroupCursor.getInt(0);
                 String dua_group_title = duaGroupCursor.getString(1);
-                ArrayListDuas.add(new Dua(Integer.parseInt(dua_group_id), dua_group_title));
+                ArrayListDuas.add(new Dua(dua_group_id, dua_group_title));
             } while (duaGroupCursor.moveToNext());
         }
         duaGroupCursor.close();
@@ -105,6 +105,18 @@ public class DuaListActivity extends ActionBarActivity {
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                mAdapter.getFilter().filter(s);
+                return true;
+            }
+        });
         //searchView.setIconifiedByDefault(false);
 
         return true;

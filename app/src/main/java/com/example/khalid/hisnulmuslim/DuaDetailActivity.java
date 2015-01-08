@@ -14,19 +14,15 @@ import java.util.ArrayList;
 import adapters.DuaDetailAdapter;
 import classes.Dua;
 import database.ExternalDbOpenHelper;
-import database.mySqliteDatabase;
+import database.HisnDatabaseInfo;
 
 
 public class DuaDetailActivity extends ActionBarActivity {
-    private static final String DB_NAME = "hisnul.sqlite3";
-
-    private mySqliteDatabase myDB = new mySqliteDatabase();
-
     private String duaIdFromDuaListActivity;
     private String duaTitleFromDuaListActivity;
 
     private SQLiteDatabase database;
-    private ArrayList duaDetails = new ArrayList<Dua>();
+    private ArrayList<Dua> duaDetails = new ArrayList<Dua>();
 
     private ListView listView;
 
@@ -41,7 +37,7 @@ public class DuaDetailActivity extends ActionBarActivity {
         duaIdFromDuaListActivity = bundle.getString("dua_id");
         duaTitleFromDuaListActivity = bundle.getString("dua_title");
 
-        ExternalDbOpenHelper dbOpenHelper = new ExternalDbOpenHelper(this, DB_NAME);
+        ExternalDbOpenHelper dbOpenHelper = ExternalDbOpenHelper.getInstance(this);
         database = dbOpenHelper.openDataBase();
 
         fromDBtoArrayList();
@@ -52,29 +48,30 @@ public class DuaDetailActivity extends ActionBarActivity {
     }
 
     public void fromDBtoArrayList(){
-        Cursor duaDetailCursor = database.query(myDB.TABLE_DUA,
-                              new String[] {myDB.TABLE_DUA_ID,
-                                            myDB.TABLE_DUA_AR,
-                                            myDB.TABLE_DUA_EN_TRANS,
-                                            myDB.TABLE_DUA_EN_REFERENCE},
-                              myDB.TABLE_DUA_FK_GROUP_ID + "=" + duaIdFromDuaListActivity,
-                              null,
-                              null,
-                              null,
-                              null);
+        Cursor duaDetailCursor = null;
 
-        duaDetailCursor.moveToFirst();
-
-        if(!duaDetailCursor.isAfterLast()) {
-            do {
-                int reference = Integer.parseInt(duaDetailCursor.getString(0));
-                String arabic = duaDetailCursor.getString(1);
-                String translation = duaDetailCursor.getString(2);
-                String book_reference = duaDetailCursor.getString(3);
-                duaDetails.add(new Dua(reference, arabic, translation, book_reference));
-            } while (duaDetailCursor.moveToNext());
+        try {
+            duaDetailCursor = database.query(HisnDatabaseInfo.DuaTable.TABLE_NAME,
+                    new String[]{HisnDatabaseInfo.DuaTable._ID,
+                            HisnDatabaseInfo.DuaTable.ARABIC_DUA,
+                            HisnDatabaseInfo.DuaTable.ENGLISH_TRANSLATION,
+                            HisnDatabaseInfo.DuaTable.ENGLISH_REFERENCE},
+                    HisnDatabaseInfo.DuaTable.GROUP_ID + "=" + duaIdFromDuaListActivity,
+                    null, null, null, null);
+            if (duaDetailCursor != null && duaDetailCursor.moveToFirst()) {
+                do {
+                    int reference = Integer.parseInt(duaDetailCursor.getString(0));
+                    String arabic = duaDetailCursor.getString(1);
+                    String translation = duaDetailCursor.getString(2);
+                    String book_reference = duaDetailCursor.getString(3);
+                    duaDetails.add(new Dua(reference, arabic, translation, book_reference));
+                } while (duaDetailCursor.moveToNext());
+            }
+        } finally {
+            if (duaDetailCursor != null) {
+                duaDetailCursor.close();
+            }
         }
-        duaDetailCursor.close();
     }
 
     public void fromArrayListToListView() {
