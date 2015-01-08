@@ -36,6 +36,8 @@ bookmarked.
 - [Google Material Design Icons](https://github.com/google/material-design-icons)
 
 # Credits
+- [Ahmed El-Helw](http://twitter.com/ahmedre)
+- [Ahmad Sabree](https://www.facebook.com/ahmad.sabree.5)
 - [Azhar Ali](https://www.linkedin.com/pub/md-azhar-ali/90/251/140)
 - [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
