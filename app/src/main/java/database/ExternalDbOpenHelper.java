@@ -17,21 +17,31 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
     public static String DB_PATH;
 
     //Database file name
-    public static String DB_NAME;
+    public static final String DB_NAME = HisnDatabaseInfo.DB_NAME;
+
+    private static ExternalDbOpenHelper sInstance;
+
     public SQLiteDatabase database;
     public final Context context;
+
+    public static ExternalDbOpenHelper getInstance(Context context) {
+        if (sInstance == null) {
+            sInstance = new ExternalDbOpenHelper(
+                    context.getApplicationContext(), DB_NAME);
+        }
+        return sInstance;
+    }
 
     public SQLiteDatabase getDb() {
         return database;
     }
 
-    public ExternalDbOpenHelper(Context context, String databaseName) {
+    private ExternalDbOpenHelper(Context context, String databaseName) {
         super(context, databaseName, null, 1);
         this.context = context;
         //Write a full path to the databases of your application
         String packageName = context.getPackageName();
         DB_PATH = String.format("//data//data//%s//databases//", packageName);
-        DB_NAME = databaseName;
         openDataBase();
     }
 

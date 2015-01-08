@@ -1,6 +1,8 @@
 package adapters;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,19 +12,22 @@ import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import classes.Dua;
+import database.ExternalDbOpenHelper;
+import database.HisnDatabaseInfo;
 
 public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable {
+    private Context mContext;
+    private LayoutInflater mInflater;
 
-    public DuaGroupAdapter(Context activity) {
-        super(activity);
-    }
-
-    public DuaGroupAdapter(Context activity, List<Dua> list) {
-        super(activity, list);
+    public DuaGroupAdapter(Context context, List<Dua> list) {
+        super(context, list);
+        mContext = context;
+        mInflater = LayoutInflater.from(mContext);
     }
 
     @Override
@@ -31,11 +36,42 @@ public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable 
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                return null;
+                final ExternalDbOpenHelper helper = ExternalDbOpenHelper.getInstance(mContext);
+                final SQLiteDatabase db = helper.openDataBase();
+
+                final List<Dua> duas = new ArrayList<>();
+                Cursor c = null;
+                try {
+                    c = db.query(HisnDatabaseInfo.DuaGroupTable.TABLE_NAME, null,
+                            HisnDatabaseInfo.DuaGroupTable.ENGLISH_TITLE + " like ?",
+                            new String[] { "%" + constraint + "%" }, null, null, null);
+                    if (c != null && c.moveToFirst()) {
+                        do {
+                            final Dua dua = new Dua(c.getInt(0), c.getString(2));
+                            duas.add(dua);
+                        } while (c.moveToNext());
+                    }
+                } finally {
+                    if (c != null) {
+                        c.close();
+                    }
+                }
+
+                final FilterResults results = new FilterResults();
+                results.values = duas;
+                results.count = duas.size();
+                return results;
             }
 
             @Override
             protected void publishResults(CharSequence constraint, Filter.FilterResults results) {
+                if (results.count > 0) {
+                    clear();
+                    addAll((List<Dua>) results.values);
+                    notifyDataSetChanged();
+                } else {
+                    notifyDataSetInvalidated();
+                }
             }
         };
     }
@@ -46,9 +82,7 @@ public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable 
         View v = convertView;
 
         if (v == null) {
-            // LayoutInflater vi;
-            inflater = LayoutInflater.from(getContext());
-            v = inflater.inflate(R.layout.dua_list_item_card, null);
+            v = mInflater.inflate(R.layout.dua_list_item_card, parent, false);
         }
 
         Dua p = getItem(position);
