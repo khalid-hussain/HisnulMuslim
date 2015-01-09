@@ -50,6 +50,8 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
             holder.tvDuaArabic.setTypeface(Typeface.createFromAsset(convertView.getContext().getAssets(), "fonts/amiri-regular.ttf"));
             holder.tvDuaTranslation = (TextViewEx) convertView.findViewById(R.id.txtDuaTranslation);
+
+            holder.tvDuaTranslation.setPadding(0, 10, 0, 10);
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             convertView.setTag(holder);
         }
@@ -59,7 +61,7 @@ public class DuaDetailAdapter extends BaseAdapter {
         if (p != null) {
             holder.tvDuaNumber.setText("" + p.getReference());
             holder.tvDuaArabic.setText("" + p.getArabic());
-            holder.tvDuaTranslation.setText("" + p.getTranslation());
+            holder.tvDuaTranslation.setText("" + p.getTranslation(), true);
             holder.tvDuaReference.setText("" + p.getBook_reference());
         }
         return convertView;

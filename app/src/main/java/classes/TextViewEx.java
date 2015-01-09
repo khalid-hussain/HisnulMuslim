@@ -10,8 +10,6 @@ import android.graphics.Paint.Align;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import classes.TextJustifyUtils;
-
 /*
  * 
  * classes.TextViewEx.java
@@ -30,7 +28,6 @@ import classes.TextJustifyUtils;
  * 
  */
 
-
 public class TextViewEx extends TextView 
 {       
     private Paint paint = new Paint();
@@ -42,7 +39,7 @@ public class TextViewEx extends TextView
     private float horizontalFontOffset = 0;
     private float dirtyRegionWidth = 0;
     private boolean wrapEnabled = false;
-    int left,top,right,bottom=0;
+    int left,top,right,bottom = 0;
     private Align _align=Align.LEFT;
     private float strecthOffset;
     private float wrappedEdgeSpace;
@@ -59,27 +56,27 @@ public class TextViewEx extends TextView
         super(context, attrs, defStyle);
         //set a minimum of left and right padding so that the texts are not too close to the side screen
         //this.setPadding(10, 0, 10, 0);
-        this.setPadding(0, 5, 0, 5);
+        this.setPadding(0, 10, 0, 10);
     }
 
     public TextViewEx(Context context, AttributeSet attrs) 
     {
         super(context, attrs);
         //this.setPadding(10, 0, 10, 0);
-        this.setPadding(0, 5, 0, 5);
+        this.setPadding(0, 10, 0, 10);
     }
 
     public TextViewEx(Context context) 
     {
         super(context);
         //this.setPadding(10, 0, 10, 0);
-        this.setPadding(0, 5, 0, 5);
+        this.setPadding(0, 10, 0, 10);
     }
     
     @Override
 	public void setPadding(int left, int top, int right, int bottom) {
 		//super.setPadding(left+10, top, right+10, bottom);
-        super.setPadding(left, top+5, right, bottom+5);
+        super.setPadding(left, top, right, bottom);
 	}
 
 	@Override

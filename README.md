@@ -45,7 +45,7 @@ bookmarked.
 - [Font Awesome CSS Library](http://fortawesome.github.io/Font-Awesome/)
 
 # Changelog
-- 9th Jan 2014: As of today, basic search has been implemented (thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). Amiri font has been implemented for the Arabic parts. And a lot of code cleanup (once again, thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). One screenshot has also been updated.
+- 9th Jan 2015: As of today, basic search has been implemented (thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). Amiri font has been implemented for the Arabic parts. And a lot of code cleanup (once again, thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). One screenshot has also been updated.
 - 13th Dec 2014: Added 'About' activity to the app. Added 'Search' widget in DuaList activity menu. 
 								 Updated credits in README.
 - 7th Dec 2014: Uploaded refactored code. Added new screenshots.

@@ -84,7 +84,7 @@
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="appcompat-v7-21.0.3" level="project" />
-    <orderEntry type="library" exported="" name="fab-0.0.6" level="project" />
+    <orderEntry type="library" exported="" name="textjustify-android-1.5.1" level="project" />
     <orderEntry type="library" exported="" name="android-iconify-1.0.8" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
