@@ -76,7 +76,7 @@ public class DuaDetailActivity extends ActionBarActivity {
 
     public void fromArrayListToListView() {
         DuaDetailAdapter mAdapter;
-        mAdapter = new DuaDetailAdapter(this, R.layout.dua_detail_item_card, duaDetails);
+        mAdapter = new DuaDetailAdapter(this, duaDetails);
         this.listView.setAdapter(mAdapter);
     }
 

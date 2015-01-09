@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
@@ -14,46 +15,59 @@ import java.util.List;
 import classes.Dua;
 import classes.TextViewEx;
 
-public class DuaDetailAdapter extends ArrayAdapter<Dua> {
-    public DuaDetailAdapter(Context context, int textViewResourceId) {
-        super(context, textViewResourceId);
+public class DuaDetailAdapter extends BaseAdapter {
+    private List<Dua> mList;
+    private LayoutInflater mInflater;
+
+    public DuaDetailAdapter(Context context, List<Dua> items) {
+        mInflater = LayoutInflater.from(context);
+        mList = items;
     }
 
-    public DuaDetailAdapter(Context context, int resource, List<Dua> items) {
-        super(context, resource, items);
+    @Override
+    public int getCount() {
+        return mList.size();
+    }
+
+    @Override
+    public Dua getItem(int position) {
+        return mList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.dua_detail_item_card, parent, false);
 
-        if (v == null) {
-            LayoutInflater vi;
-            vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.dua_detail_item_card, null);
+            holder = new ViewHolder();
+            holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
+            holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
+            holder.tvDuaTranslation = (TextViewEx) convertView.findViewById(R.id.txtDuaTranslation);
+            holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
+            convertView.setTag(holder);
         }
+        holder = (ViewHolder) convertView.getTag();
 
         Dua p = getItem(position);
-
         if (p != null) {
-            TextView tvDuaNumber = (TextView) v.findViewById(R.id.txtDuaNumber);
-            TextView tvDuaArabic = (TextView) v.findViewById(R.id.txtDuaArabic);
-            TextViewEx tvDuaTranslation = (TextViewEx) v.findViewById(R.id.txtDuaTranslation);
-            TextView tvDuaReference = (TextView) v.findViewById(R.id.txtDuaReference);
-
-            if (tvDuaNumber != null) {
-                tvDuaNumber.setText("" + p.getReference());
-            }
-            if (tvDuaArabic != null) {
-                tvDuaArabic.setText("" + p.getArabic());
-            }
-            if (tvDuaTranslation != null) {
-                tvDuaTranslation.setText("" + p.getTranslation());
-            }
-            if (tvDuaReference != null) {
-                tvDuaReference.setText("" + p.getBook_reference());
-            }
+            holder.tvDuaNumber.setText("" + p.getReference());
+            holder.tvDuaArabic.setText("" + p.getArabic());
+            holder.tvDuaTranslation.setText("" + p.getTranslation());
+            holder.tvDuaReference.setText("" + p.getBook_reference());
         }
-        return v;
+        return convertView;
+    }
+
+    public static class ViewHolder {
+        TextView tvDuaNumber;
+        TextView tvDuaArabic;
+        TextViewEx tvDuaTranslation;
+        TextView tvDuaReference;
     }
 }

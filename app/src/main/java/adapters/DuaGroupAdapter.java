@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
@@ -20,14 +22,15 @@ import classes.Dua;
 import database.ExternalDbOpenHelper;
 import database.HisnDatabaseInfo;
 
-public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable {
+public class DuaGroupAdapter extends BaseAdapter implements Filterable {
     private Context mContext;
     private LayoutInflater mInflater;
+    private List<Dua> mList;
 
     public DuaGroupAdapter(Context context, List<Dua> list) {
-        super(context, list);
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
+        mList = list;
     }
 
     @Override
@@ -66,8 +69,7 @@ public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable 
             @Override
             protected void publishResults(CharSequence constraint, Filter.FilterResults results) {
                 if (results.count > 0) {
-                    clear();
-                    addAll((List<Dua>) results.values);
+                    mList = (List<Dua>) results.values;
                     notifyDataSetChanged();
                 } else {
                     notifyDataSetInvalidated();
@@ -76,33 +78,44 @@ public class DuaGroupAdapter extends AbsArrayAdapter<Dua> implements Filterable 
         };
     }
 
-
     @Override
-    public View getView(LayoutInflater inflater, int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-
-        if (v == null) {
-            v = mInflater.inflate(R.layout.dua_list_item_card, parent, false);
-        }
-
-        Dua p = getItem(position);
-
-        if (p != null) {
-            TextView tvReference = (TextView) v.findViewById(R.id.txtReference);
-            TextView tvDuaName = (TextView) v.findViewById(R.id.txtDuaName);
-
-            if (tvReference != null) {
-                tvReference.setText("" + p.getReference());
-            }
-            if (tvDuaName != null) {
-                tvDuaName.setText(p.getTitle());
-            }
-        }
-        return v;
+    public int getCount() {
+        return mList.size();
     }
 
     @Override
-    public boolean isFilteredOut(Dua dua, CharSequence constraint) {
-        return !dua.getGroup().toLowerCase(Locale.US).contains(constraint.toString().toLowerCase(Locale.US));
+    public Dua getItem(int position) {
+        return mList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.dua_list_item_card, parent, false);
+            holder = new ViewHolder();
+            holder.tvReference = (TextView) convertView.findViewById(R.id.txtReference);
+            holder.tvDuaName = (TextView) convertView.findViewById(R.id.txtDuaName);
+            convertView.setTag(holder);
+        }
+        holder = (ViewHolder) convertView.getTag();
+
+        Dua p = getItem(position);
+        if (p != null) {
+            holder.tvReference.setText("" + p.getReference());
+            holder.tvDuaName.setText(p.getTitle());
+        }
+        return convertView;
+    }
+
+    public static class ViewHolder {
+        TextView tvDuaName;
+        TextView tvReference;
     }
 }
