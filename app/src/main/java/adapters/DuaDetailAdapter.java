@@ -1,10 +1,10 @@
 package adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -48,6 +48,7 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
             holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
+            holder.tvDuaArabic.setTypeface(Typeface.createFromAsset(convertView.getContext().getAssets(), "fonts/amiri-regular.ttf"));
             holder.tvDuaTranslation = (TextViewEx) convertView.findViewById(R.id.txtDuaTranslation);
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             convertView.setTag(holder);

@@ -57,7 +57,7 @@
                 android:lineSpacingExtra="15dp"
                 android:paddingTop="20dp"
                 android:text="Arabic Text"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
             <View
                 android:layout_width="match_parent"
