@@ -43,6 +43,7 @@ bookmarked.
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 - [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
 - [Font Awesome CSS Library](http://fortawesome.github.io/Font-Awesome/)
+- [Custom font for TextView](http://www.tutorialspoint.com/android/android_custom_fonts.htm)
 
 # Changelog
 - 9th Jan 2015: As of today, basic search has been implemented (thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). Amiri font has been implemented for the Arabic parts. And a lot of code cleanup (once again, thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). One screenshot has also been updated.
