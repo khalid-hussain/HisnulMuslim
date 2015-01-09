@@ -2,7 +2,7 @@ Hisnul Muslim Android App
 =========================
 
 ![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/screen1.png)
-![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/screen2.png)
+![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/screen3.png)
 
 Assalamuʻalaikum to all Muslims and greetings to everyone else,
 
