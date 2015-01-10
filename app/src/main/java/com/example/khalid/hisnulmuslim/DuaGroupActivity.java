@@ -21,7 +21,7 @@ import classes.Dua;
 import database.ExternalDbOpenHelper;
 import database.HisnDatabaseInfo;
 
-public class DuaListActivity extends ActionBarActivity {
+public class DuaGroupActivity extends ActionBarActivity {
     private SQLiteDatabase database;
     public ArrayList ArrayListDuas = new ArrayList<Dua>();
     private DuaGroupAdapter mAdapter;
@@ -33,8 +33,6 @@ public class DuaListActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_list);
-
-        // TextView txtQuery = (TextView) findViewById(R.id.txtQuery);
 
         ExternalDbOpenHelper dbOpenHelper =
                 ExternalDbOpenHelper.getInstance(this);
@@ -71,7 +69,6 @@ public class DuaListActivity extends ActionBarActivity {
         final ListView listView;
         listView = (ListView) findViewById(R.id.duaListView);
 
-        // Search Related (Filter)
         listView.setTextFilterEnabled(true);
 
         this.mAdapter = new DuaGroupAdapter(this,
@@ -87,8 +84,9 @@ public class DuaListActivity extends ActionBarActivity {
                 intent = new Intent(getBaseContext(),
                         DuaDetailActivity.class);
 
-                String dua_id = String.valueOf(position + 1);
-                String dua_title = ((Dua) ArrayListDuas.get(position)).getTitle();
+                Dua SelectedDua = (Dua) parent.getAdapter().getItem(position);
+                String dua_id = SelectedDua.getReference() + "";
+                String dua_title = SelectedDua.getTitle();
 
                 intent.putExtra("dua_id", dua_id);
                 intent.putExtra("dua_title", dua_title);
