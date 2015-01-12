@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -15,68 +17,26 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import adapters.DuaGroupAdapter;
 import classes.Dua;
 import database.ExternalDbOpenHelper;
 import database.HisnDatabaseInfo;
+import loader.DuaGroupLoader;
 
-public class DuaGroupActivity extends ActionBarActivity {
-    private SQLiteDatabase database;
-    public ArrayList ArrayListDuas = new ArrayList<Dua>();
+public class DuaGroupActivity extends ActionBarActivity implements
+        LoaderManager.LoaderCallbacks<List<Dua>>{
     private DuaGroupAdapter mAdapter;
-
-    private HisnDatabaseInfo myDB = new HisnDatabaseInfo();
-
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_list);
 
-        ExternalDbOpenHelper dbOpenHelper =
-                ExternalDbOpenHelper.getInstance(this);
-        database = dbOpenHelper.openDataBase();
-
-        fromDBtoArrayList(ArrayListDuas);
-        fromArrayListToListView();
-    }
-
-    public void fromDBtoArrayList(ArrayList<Dua> ArrayListDuas) {
-        Cursor duaGroupCursor;
-        duaGroupCursor = database.query(HisnDatabaseInfo.DuaGroupTable.TABLE_NAME,
-                new String[]{ HisnDatabaseInfo.DuaGroupTable._ID,
-                        HisnDatabaseInfo.DuaGroupTable.ENGLISH_TITLE},
-                null,
-                null,
-                null,
-                null,
-                HisnDatabaseInfo.DuaGroupTable._ID);
-
-        duaGroupCursor.moveToFirst();
-
-        if (!duaGroupCursor.isAfterLast()) {
-            do {
-                int dua_group_id = duaGroupCursor.getInt(0);
-                String dua_group_title = duaGroupCursor.getString(1);
-                ArrayListDuas.add(new Dua(dua_group_id, dua_group_title));
-            } while (duaGroupCursor.moveToNext());
-        }
-        duaGroupCursor.close();
-    }
-
-    public void fromArrayListToListView() {
-        final ListView listView;
-        listView = (ListView) findViewById(R.id.duaListView);
-
-        listView.setTextFilterEnabled(true);
-
-        this.mAdapter = new DuaGroupAdapter(this,
-                ArrayListDuas);
-
-        listView.setAdapter(this.mAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView = (ListView) findViewById(R.id.duaListView);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -85,7 +45,7 @@ public class DuaGroupActivity extends ActionBarActivity {
                         DuaDetailActivity.class);
 
                 Dua SelectedDua = (Dua) parent.getAdapter().getItem(position);
-                String dua_id = SelectedDua.getReference() + "";
+                int dua_id = SelectedDua.getReference();
                 String dua_title = SelectedDua.getTitle();
 
                 intent.putExtra("dua_id", dua_id);
@@ -94,6 +54,8 @@ public class DuaGroupActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+
+        getSupportLoaderManager().initLoader(0, null, this);
     }
 
     @Override
@@ -137,5 +99,25 @@ public class DuaGroupActivity extends ActionBarActivity {
             return true;
         }*/
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public Loader<List<Dua>> onCreateLoader(int id, Bundle args) {
+        return new DuaGroupLoader(this);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
+        if (mAdapter == null) {
+            mAdapter = new DuaGroupAdapter(this, data);
+            mListView.setAdapter(mAdapter);
+        } else {
+            mAdapter.setData(data);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<Dua>> loader) {
+        mAdapter.setData(null);
     }
 }

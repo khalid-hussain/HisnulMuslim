@@ -31,6 +31,11 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
         mList = list;
     }
 
+    public void setData(List<Dua> list) {
+        mList = list;
+        notifyDataSetChanged();
+    }
+
     @Override
     public Filter getFilter() {
         // return a filter that filters data based on a constraint
@@ -78,7 +83,7 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public int getCount() {
-        return mList.size();
+        return mList == null ? 0 : mList.size();
     }
 
     @Override
