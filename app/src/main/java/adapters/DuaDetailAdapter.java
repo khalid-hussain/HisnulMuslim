@@ -33,9 +33,14 @@ public class DuaDetailAdapter extends BaseAdapter {
         }
     }
 
+    public void setData(List<Dua> items) {
+        mList = items;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
-        return mList.size();
+        return mList == null ? 0 : mList.size();
     }
 
     @Override
