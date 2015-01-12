@@ -20,4 +20,8 @@
              colorControlHighlight & colorSwitchThumbNormal. -->
     </style>
 
+    <style name="AppTheme.Preferences">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowActionBar">true</item>
+    </style>
 </resources>

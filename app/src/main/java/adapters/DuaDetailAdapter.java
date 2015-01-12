@@ -2,26 +2,35 @@ package adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bluejamesbond.text.DocumentView;
 import com.example.khalid.hisnulmuslim.R;
 
 import java.util.List;
 
 import classes.Dua;
-import classes.TextViewEx;
 
 public class DuaDetailAdapter extends BaseAdapter {
+    private static Typeface sCachedTypeface = null;
+
     private List<Dua> mList;
     private LayoutInflater mInflater;
 
     public DuaDetailAdapter(Context context, List<Dua> items) {
         mInflater = LayoutInflater.from(context);
         mList = items;
+
+        if (sCachedTypeface == null) {
+            sCachedTypeface = Typeface.createFromAsset(
+                    context.getAssets(), "fonts/amiri-regular.ttf");
+        }
     }
 
     @Override
@@ -48,10 +57,8 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
             holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
-            holder.tvDuaArabic.setTypeface(Typeface.createFromAsset(convertView.getContext().getAssets(), "fonts/amiri-regular.ttf"));
-            holder.tvDuaTranslation = (TextViewEx) convertView.findViewById(R.id.txtDuaTranslation);
-
-            holder.tvDuaTranslation.setPadding(0, 10, 0, 10);
+            holder.tvDuaArabic.setTypeface(sCachedTypeface);
+            holder.tvDuaTranslation = (DocumentView) convertView.findViewById(R.id.txtDuaTranslation);
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             convertView.setTag(holder);
         }
@@ -61,7 +68,9 @@ public class DuaDetailAdapter extends BaseAdapter {
         if (p != null) {
             holder.tvDuaNumber.setText("" + p.getReference());
             holder.tvDuaArabic.setText("" + p.getArabic());
-            holder.tvDuaTranslation.setText("" + p.getTranslation(), true);
+
+            final Spannable translation = new SpannableString(p.getTranslation());
+            holder.tvDuaTranslation.setText(translation);
             holder.tvDuaReference.setText("" + p.getBook_reference());
         }
         return convertView;
@@ -70,7 +79,7 @@ public class DuaDetailAdapter extends BaseAdapter {
     public static class ViewHolder {
         TextView tvDuaNumber;
         TextView tvDuaArabic;
-        TextViewEx tvDuaTranslation;
         TextView tvDuaReference;
+        DocumentView tvDuaTranslation;
     }
 }
