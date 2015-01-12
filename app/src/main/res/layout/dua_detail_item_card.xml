@@ -70,10 +70,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                app:textFormat="formatted"
-                app:textColor="@color/primary_dark_material_light"
-                app:paddingTop="10dp"
                 app:paddingBottom="10dp"
+                app:paddingTop="10dp"
+                app:textAlignment="justified"
+                app:textColor="@color/primary_dark_material_light"
+                app:textFormat="formatted"
                 app:textSize="14sp" />
 
             <View
