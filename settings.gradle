@@ -1,1 +1,3 @@
-include ':app'
+include ':app', ':vntnumberpickerpreference', ':vntfontlistpreference'
+project(':vntnumberpickerpreference').projectDir = new File(settingsDir, '/libs/VNTNumberPickerPreference')
+project(':vntfontlistpreference').projectDir = new File(settingsDir, '/libs/VNTFontListPreference')

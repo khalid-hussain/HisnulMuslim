@@ -31,11 +31,13 @@
     &lt;big>&lt;b>OpenSource Projects&lt;/b>&lt;/big>&lt;br/>
     TextJustify-Android (&lt;a href="https://github.com/bluejamesbond/TextJustify-Android">GitHub&lt;/a>)&lt;br/>
     FontAwesome CSS Library (&lt;a href="http://fortawesome.github.io/Font-Awesome">GitHub&lt;/a>)&lt;br/>
-    Amiri Font (&lt;a href="http://www.amirifont.org/>Website&lt;/a>)
+    Amiri Font (&lt;a href="http://www.amirifont.org"/>Website&lt;/a>)&lt;br/>
+    VNTNumberPicker Preference (&lt;a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub&lt;/a>)&lt;br/>
+    VNTFontList Preference (&lt;a href="https://github.com/vanniktech/VNTFontListPreference"/>GitHub&lt;/a>)
     &lt;br/>&lt;br/>
 
     &lt;big>&lt;b>Special Thanks&lt;/b>&lt;/big>&lt;br/>
     Ahmad Sabree (&lt;a href="https://www.facebook.com/ahmad.sabree.5">Facebook&lt;/a>)&lt;br/></string>
-    <string name="title_activity_preferences">Preferences</string>
+    <string name="title_activity_preferences">Settings</string>
 
 </resources>

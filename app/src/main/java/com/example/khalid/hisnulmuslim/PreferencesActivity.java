@@ -25,7 +25,7 @@ public class PreferencesActivity extends ActionBarActivity {
         @Override
         public void onCreate(Bundle paramBundle) {
             super.onCreate(paramBundle);
-            addPreferencesFromResource(R.xml.preference_dependencies);
+            addPreferencesFromResource(R.xml.preferences);
         }
     }
 

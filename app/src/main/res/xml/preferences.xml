@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_category_font">
+        <com.vanniktech.vntfontlistpreference.VNTFontListPreference
+            xmlns:vntfontlistpreference="http://schemas.android.com/apk/res-auto"
+            android:defaultValue="@string/pref_font_arabic_typeface_default"
+            android:key="preference_font_face"
+            android:title="@string/pref_font_arabic_typeface_title"
+            android:summary="Testing summary 1"
+            vntfontlistpreference:fontDirectory="@string/pref_font_directory" />
+
+        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+            xmlns:vntnumberpickerpreference="http://schemas.android.com/apk/res-auto"
+            android:defaultValue="@integer/pref_font_arabic_size_default"
+            android:key="preference_font_size"
+            android:title="@string/pref_font_arabic_size_title"
+            android:summary="Testing summary 2"
+            vntnumberpickerpreference:maxValue="@integer/pref_font_arabic_size_max"
+            vntnumberpickerpreference:minValue="@integer/pref_font_arabic_size_min" />
+    </PreferenceCategory>
+</PreferenceScreen>

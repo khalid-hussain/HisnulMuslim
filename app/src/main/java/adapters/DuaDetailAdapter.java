@@ -29,7 +29,7 @@ public class DuaDetailAdapter extends BaseAdapter {
 
         if (sCachedTypeface == null) {
             sCachedTypeface = Typeface.createFromAsset(
-                    context.getAssets(), "fonts/amiri-regular.ttf");
+                    context.getAssets(), "fonts/Amiri-Regular.ttf");
         }
     }
 
