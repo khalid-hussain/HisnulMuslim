@@ -3,8 +3,6 @@ package com.example.khalid.hisnulmuslim;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -16,13 +14,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import adapters.DuaGroupAdapter;
 import classes.Dua;
-import database.ExternalDbOpenHelper;
-import database.HisnDatabaseInfo;
 import loader.DuaGroupLoader;
 
 public class DuaGroupActivity extends ActionBarActivity implements
@@ -77,7 +72,6 @@ public class DuaGroupActivity extends ActionBarActivity implements
                 return true;
             }
         });
-        //searchView.setIconifiedByDefault(false);
 
         return true;
     }
@@ -86,7 +80,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, PreferencesActivity.class);
             this.startActivity(intent);
         } else if (id == R.id.action_bookmarks) {
             Intent intent = new Intent(this, BookmarksActivity.class);
@@ -94,10 +88,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
         } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
-        } /*else if (id == R.id.search) {
-            onSearchRequested();
-            return true;
-        }*/
+        }
         return super.onOptionsItemSelected(item);
     }
 

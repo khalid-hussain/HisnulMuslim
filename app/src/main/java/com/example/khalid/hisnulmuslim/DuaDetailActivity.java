@@ -1,8 +1,6 @@
 package com.example.khalid.hisnulmuslim;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -11,13 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import adapters.DuaDetailAdapter;
 import classes.Dua;
-import database.ExternalDbOpenHelper;
-import database.HisnDatabaseInfo;
 import loader.DuaDetailsLoader;
 
 
@@ -50,7 +45,7 @@ public class DuaDetailActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.dua_detail, menu);
+        //getMenuInflater().inflate(R.menu.dua_detail, menu);
         return true;
     }
 

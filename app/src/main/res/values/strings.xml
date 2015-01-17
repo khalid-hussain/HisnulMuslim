@@ -12,11 +12,8 @@
     <string name="title_activity_about">About</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_bookmarks">Bookmarks</string>
-
     <string name="search_hint">Search Dua</string>
-
-    <string name="about_us">
-    &lt;big>&lt;b>Hisnul Muslim&lt;/b>&lt;/big>&lt;br/>
+    <string name="about_us">    &lt;big>&lt;b>Hisnul Muslim&lt;/b>&lt;/big>&lt;br/>
     The book is a collection of dua\'(supplications) for various occasions compiled by Dr. Sa\'eed bin Ali bin Wahaf Al-Qahtani. The author is from amongst the senior students of the former Grand Mufti of Saudi Arabia, Shaykh Abdul Aziz bin Abdullah bin Baz (May Allah have mercy on him).
     &lt;br/>&lt;br/>
 
@@ -38,6 +35,7 @@
     &lt;br/>&lt;br/>
 
     &lt;big>&lt;b>Special Thanks&lt;/b>&lt;/big>&lt;br/>
-    Ahmad Sabree (&lt;a href="https://www.facebook.com/ahmad.sabree.5">Facebook&lt;/a>)&lt;br/>
-    </string>
+    Ahmad Sabree (&lt;a href="https://www.facebook.com/ahmad.sabree.5">Facebook&lt;/a>)&lt;br/></string>
+    <string name="title_activity_preferences">Preferences</string>
+
 </resources>

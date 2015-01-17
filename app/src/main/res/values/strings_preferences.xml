@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_font">Fonts</string>
+    <string name="pref_category_font_arabicfont_size_title">Arabic Font Size</string>
+    <string name="pref_category_font_arabicfont_size_summary">Size of the Arabic font used in the dua\'</string>
+</resources>
