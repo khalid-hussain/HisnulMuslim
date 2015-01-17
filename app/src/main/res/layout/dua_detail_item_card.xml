@@ -66,16 +66,17 @@
                 android:background="@color/card_divider_gray" />
 
             <com.bluejamesbond.text.DocumentView
+                xmlns:ext="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/txtDuaTranslation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                app:paddingBottom="10dp"
-                app:paddingTop="10dp"
-                app:textAlignment="justified"
-                app:textColor="@color/primary_dark_material_light"
-                app:textFormat="formatted"
-                app:textSize="14sp" />
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                ext:documentView_textAlignment="justified"
+                ext:documentView_textColor="@color/primary_dark_material_light"
+                ext:documentView_textFormat="formatted"
+                ext:documentView_textSize="14sp" />
 
             <View
                 android:layout_width="match_parent"

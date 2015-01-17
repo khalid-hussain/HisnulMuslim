@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_category_font">Fonts</string>
+
     <string name="pref_font_arabic_size_title">Arabic Font Size</string>
-    <string name="pref_font_arabic_size_summary">Size of font in the Arabic dua\'</string>
+    <string name="pref_font_arabic_size_summary">Font size of Arabic in dua\'</string>
     <integer name="pref_font_arabic_size_default">24</integer>
     <integer name="pref_font_arabic_size_max">30</integer>
     <integer name="pref_font_arabic_size_min">20</integer>
 
+    <string name="pref_font_directory">fonts</string>
     <string name="pref_font_arabic_typeface_title">Arabic Font</string>
     <string name="pref_font_arabic_typeface_summary">Font used for Arabic dua\'</string>
-    <string name="pref_font_directory">fonts</string>
-    <string name="pref_font_arabic_typeface_default">Amiri-Regular.ttf</string>
+    <string name="pref_font_arabic_typeface_default">Amiri-Regular</string>
 
+    <string name="pref_font_other_size_title">Translation and Reference Font Size</string>
+    <string name="pref_font_other_size_summary">Font size of translations and references</string>
+    <integer name="pref_font_other_size_default">14</integer>
+    <integer name="pref_font_other_size_max">24</integer>
+    <integer name="pref_font_other_size_min">12</integer>
 </resources>

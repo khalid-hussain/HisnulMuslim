@@ -1,7 +1,9 @@
 package adapters;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
@@ -23,6 +25,9 @@ public class DuaDetailAdapter extends BaseAdapter {
     private List<Dua> mList;
     private LayoutInflater mInflater;
 
+    private final float prefArabicFontSize;
+    private final float prefOtherFontSize;
+
     public DuaDetailAdapter(Context context, List<Dua> items) {
         mInflater = LayoutInflater.from(context);
         mList = items;
@@ -31,6 +36,17 @@ public class DuaDetailAdapter extends BaseAdapter {
             sCachedTypeface = Typeface.createFromAsset(
                     context.getAssets(), "fonts/Amiri-Regular.ttf");
         }
+
+        final SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(context);
+        prefArabicFontSize =
+                sharedPreferences.getInt(
+                        "pref_font_arabic_size",
+                        context.getResources().getInteger(R.integer.pref_font_arabic_size_default));
+        prefOtherFontSize =
+                sharedPreferences.getInt(
+                        "pref_font_other_size",
+                        context.getResources().getInteger(R.integer.pref_font_other_size_default));
     }
 
     public void setData(List<Dua> items) {
@@ -56,15 +72,23 @@ public class DuaDetailAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
+
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.dua_detail_item_card, parent, false);
 
             holder = new ViewHolder();
             holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
+
             holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
             holder.tvDuaArabic.setTypeface(sCachedTypeface);
+            holder.tvDuaArabic.setTextSize(prefArabicFontSize);
+
             holder.tvDuaTranslation = (DocumentView) convertView.findViewById(R.id.txtDuaTranslation);
+            holder.tvDuaTranslation.getDocumentLayoutParams().setTextSize(prefOtherFontSize);
+
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
+            holder.tvDuaReference.setTextSize(prefOtherFontSize);
+
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
