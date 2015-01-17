@@ -47,11 +47,26 @@ bookmarked.
 - [ActionBar in Preferences Activity](http://stackoverflow.com/questions/26439139/getactionbar-returns-null-in-preferenceactivity-appcompat-v7-21)
 
 # Changelog
-- 17th January 2015: Actionbar in Preferences activity has been fixed to certain extent. It doesn't crash now and it follows the app theme.
-- 9th Jan 2015: As of today, basic search has been implemented (thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). Amiri font has been implemented for the Arabic parts. And a lot of code cleanup (once again, thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). One screenshot has also been updated.
-- 13th Dec 2014: Added 'About' activity to the app. Added 'Search' widget in DuaList activity menu. 
-								 Updated credits in README.
-- 7th Dec 2014: Uploaded refactored code. Added new screenshots.
-- 6th Dec 2014: Updated README. A lot of refactoring underway.
-- 26th Nov 2014: Started work on implementing Material Design.
-- 26th Nov 2014: Started keeping a simple changelog.
+17th January 2015: 
+- Actionbar in Preferences activity has been fixed to certain extent. It doesn't crash now and it follows the app theme.
+
+9th Jan 2015:
+- As of today, basic search has been implemented (thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)).
+- Amiri font has been implemented for the Arabic parts.
+- A lot of code cleanup (once again, thanks to [Ahmed El-Helw](www.twitter.com/ahmedre)). 
+- One screenshot has been updated.
+
+13th Dec 2014: 
+- Added 'About' activity to the app. 
+- Added 'Search' widget in DuaList activity menu.
+- Updated credits in README.
+
+7th Dec 2014: 
+- Uploaded refactored code. Added new screenshots.
+
+6th Dec 2014: 
+- Updated README. A lot of refactoring underway.
+
+26th Nov 2014: 
+- Started work on implementing Material Design.
+- Started keeping a simple changelog.
