@@ -84,7 +84,7 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaArabic.setTextSize(prefArabicFontSize);
 
             holder.tvDuaTranslation = (DocumentView) convertView.findViewById(R.id.txtDuaTranslation);
-            holder.tvDuaTranslation.getDocumentLayoutParams().setTextSize(prefOtherFontSize);
+            holder.tvDuaTranslation.getDocumentLayoutParams().setTextSize(prefOtherFontSize * 2);
 
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             holder.tvDuaReference.setTextSize(prefOtherFontSize);
