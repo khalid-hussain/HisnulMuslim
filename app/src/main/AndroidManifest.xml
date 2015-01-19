@@ -8,7 +8,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.Base">
+        android:theme="@style/MyAppTheme">
         <activity
             android:name=".DuaGroupActivity"
             android:label="@string/title_activity_dua_list"

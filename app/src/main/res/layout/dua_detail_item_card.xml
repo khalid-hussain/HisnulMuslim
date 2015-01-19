@@ -31,7 +31,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="#" />
+                    android:text="#"
+                    android:textColor="@color/primary_dark_material_light"/>
 
                 <TextView
                     android:id="@+id/txtDuaNumber"
@@ -40,6 +41,7 @@
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
                     android:text="1"
+                    android:textColor="@color/primary_dark_material_light"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -55,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="15dp"
+                android:textColor="@color/primary_dark_material_light"
                 android:paddingTop="5dp"
                 android:textSize="24sp" />
 
@@ -91,6 +94,7 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="Dua Reference"
+                android:textColor="@color/primary_dark_material_light"
                 android:textSize="14sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>

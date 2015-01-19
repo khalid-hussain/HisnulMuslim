@@ -65,6 +65,7 @@ public class VNTNumberPickerPreference extends DialogPreference {
 		mNumberPicker.setMinValue(mMinValue);
 		mNumberPicker.setMaxValue(mMaxValue);
 		mNumberPicker.setValue(mSelectedValue);
+        mNumberPicker.setWrapSelectorWheel(false);
 		mNumberPicker.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
 		final LinearLayout linearLayout = new LinearLayout(this.getContext());

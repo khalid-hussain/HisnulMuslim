@@ -16,8 +16,6 @@
 
 package com.vanniktech.vntfontlistpreference;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,6 +28,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckedTextView;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class VNTFontListPreference extends ListPreference {
 	private final Context mContext;
