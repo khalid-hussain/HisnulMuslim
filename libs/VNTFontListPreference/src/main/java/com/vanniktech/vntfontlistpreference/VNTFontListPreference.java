@@ -38,6 +38,7 @@ public class VNTFontListPreference extends ListPreference {
 
 	private String mSelectedFontFace;
 	private final String mFontDirectory;
+    private final String mFontPreviewString;
 	private final ArrayList<String> mEntries = new ArrayList<String>();
 	private final ArrayList<String> mEntryValues = new ArrayList<String>();
 
@@ -48,6 +49,7 @@ public class VNTFontListPreference extends ListPreference {
 
 		final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.VNTFontListPreference);
 		mFontDirectory = a.getString(R.styleable.VNTFontListPreference_fontDirectory);
+        mFontPreviewString = a.getString(R.styleable.VNTFontListPreference_fontPreviewString);
 		a.recycle();
 
 		try {
@@ -149,7 +151,13 @@ public class VNTFontListPreference extends ListPreference {
 
 			final Typeface type = Typeface.createFromAsset(mContext.getAssets(), VNTFontListPreference.this.getFontPath(mEntryValues.get(position)));
 			holder.checkedTextView.setTypeface(type);
-			holder.checkedTextView.setText(mEntries.get(position));
+
+            if (mFontPreviewString != null){
+                holder.checkedTextView.setText(mFontPreviewString);
+            }
+            else{
+			    holder.checkedTextView.setText(mEntries.get(position));
+            }
 			holder.checkedTextView.setChecked(VNTFontListPreference.this.getFontPath(mEntryValues.get(position)).equals(mSelectedFontFace));
 
 			return convertView;

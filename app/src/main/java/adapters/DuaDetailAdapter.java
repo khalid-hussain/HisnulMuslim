@@ -27,26 +27,31 @@ public class DuaDetailAdapter extends BaseAdapter {
 
     private final float prefArabicFontSize;
     private final float prefOtherFontSize;
+    private final String prefArabicFontTypeface;
 
     public DuaDetailAdapter(Context context, List<Dua> items) {
         mInflater = LayoutInflater.from(context);
         mList = items;
 
-        if (sCachedTypeface == null) {
-            sCachedTypeface = Typeface.createFromAsset(
-                    context.getAssets(), "fonts/Amiri-Regular.ttf");
-        }
-
         final SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(context);
+        prefArabicFontTypeface =
+                sharedPreferences.getString(
+                        context.getResources().getString(R.string.pref_font_arabic_typeface),
+                        context.getString(R.string.pref_font_arabic_typeface_default));
         prefArabicFontSize =
                 sharedPreferences.getInt(
-                        "pref_font_arabic_size",
+                        context.getResources().getString(R.string.pref_font_arabic_size),
                         context.getResources().getInteger(R.integer.pref_font_arabic_size_default));
         prefOtherFontSize =
                 sharedPreferences.getInt(
-                        "pref_font_other_size",
+                        context.getResources().getString(R.string.pref_font_other_size),
                         context.getResources().getInteger(R.integer.pref_font_other_size_default));
+
+        if (sCachedTypeface == null) {
+            sCachedTypeface = Typeface.createFromAsset(
+                context.getAssets(), prefArabicFontTypeface);
+        }
     }
 
     public void setData(List<Dua> items) {
