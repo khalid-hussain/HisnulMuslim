@@ -85,6 +85,7 @@
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="appcompat-v7-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="vntfontlistpreference-0.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="android-iconify-1.0.8" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
@@ -93,7 +94,6 @@
     <orderEntry type="library" exported="" name="vntnumberpickerpreference-0.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-21.0.3" level="project" />
-    <orderEntry type="module" module-name="vntfontlistpreference" exported="" />
   </component>
 </module>
 
