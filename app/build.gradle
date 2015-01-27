@@ -21,6 +21,7 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 
@@ -32,6 +33,6 @@ dependencies {
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.joanzapata.android:android-iconify:1.0.8'
     compile 'com.github.bluejamesbond:textjustify-android:2.0.5'
-    compile project(':vntnumberpickerpreference')
+    compile 'com.vanniktech:vntnumberpickerpreference:0.1.0-SNAPSHOT'
     compile project(':vntfontlistpreference')
 }
