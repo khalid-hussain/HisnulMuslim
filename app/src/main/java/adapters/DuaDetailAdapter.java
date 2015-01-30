@@ -105,7 +105,11 @@ public class DuaDetailAdapter extends BaseAdapter {
 
             final Spannable translation = new SpannableString(p.getTranslation());
             holder.tvDuaTranslation.setText(translation);
-            holder.tvDuaReference.setText("" + p.getBook_reference());
+
+            if (p.getBook_reference() != null)
+                holder.tvDuaReference.setText("" + p.getBook_reference());
+            else
+                holder.tvDuaReference.setText("null");
         }
         return convertView;
     }
