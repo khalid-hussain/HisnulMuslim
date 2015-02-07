@@ -29,4 +29,11 @@
         android:orderInCategory="100"
         android:title="@string/action_about"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_night_mode"
+        android:title="@string/action_night_mode"
+        android:checkable="true"
+        android:checked="false"
+        app:showAsAction="never" />
 </menu>

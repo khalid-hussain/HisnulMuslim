@@ -22,4 +22,9 @@
     <integer name="pref_font_other_size_default">14</integer>
     <integer name="pref_font_other_size_max">24</integer>
     <integer name="pref_font_other_size_min">12</integer>
+
+    <string name="pref_category_display">Display</string>
+    <string name="pref_night_mode_title">Night Mode</string>
+    <string name="pref_night_mode_summary">Dark backgrounds and light fonts will be used</string>
+    <string name="pref_night_mode">pref_night_mode</string>
 </resources>

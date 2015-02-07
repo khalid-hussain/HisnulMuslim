@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ import classes.Dua;
 import loader.DuaGroupLoader;
 
 public class DuaGroupActivity extends ActionBarActivity implements
-        LoaderManager.LoaderCallbacks<List<Dua>>{
+        LoaderManager.LoaderCallbacks<List<Dua>> {
     private DuaGroupAdapter mAdapter;
     private ListView mListView;
 
@@ -55,7 +56,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_activity_dualist, menu);
+        getMenuInflater().inflate(R.menu.menu_dua_group, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
@@ -88,6 +89,15 @@ public class DuaGroupActivity extends ActionBarActivity implements
         } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
+        } else if (id == R.id.action_night_mode) {
+            if (item.isChecked()) {
+                item.setChecked(false);
+                Toast.makeText(getApplicationContext(), "Night Mode OFF", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                item.setChecked(true);
+                Toast.makeText(getApplicationContext(), "Night Mode ON", Toast.LENGTH_SHORT).show();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
