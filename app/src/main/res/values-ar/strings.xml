@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حصن المسلم</string>
+    <string name="action_search">بحث</string>
+    <string name="action_bookmarks">المرجعيات</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="action_about">عنا</string>
+    <string name="action_night_mode">القراءة الليلية</string>
+    <string name="title_activity_dua_list">حصن المسلم</string>
+    <string name="title_activity_about">عنا</string>
+    <string name="title_activity_bookmarks">المرجعيات</string>
+    <string name="search_hint">Search Dua</string>
+    <string name="title_activity_preferences">الإعدادات</string>
+</resources>
