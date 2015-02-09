@@ -3,7 +3,9 @@ package com.example.khalid.hisnulmuslim;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBarActivity;
@@ -26,10 +28,15 @@ public class DuaGroupActivity extends ActionBarActivity implements
     private DuaGroupAdapter mAdapter;
     private ListView mListView;
 
+    private boolean prefNightMode;
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_list);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         mListView = (ListView) findViewById(R.id.duaListView);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,7 +85,15 @@ public class DuaGroupActivity extends ActionBarActivity implements
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        prefNightMode = sharedPreferences.getBoolean("pref_night_mode", false);
+        menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PreferencesActivity.class);
@@ -90,14 +105,9 @@ public class DuaGroupActivity extends ActionBarActivity implements
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
         } else if (id == R.id.action_night_mode) {
-            if (item.isChecked()) {
-                item.setChecked(false);
-                Toast.makeText(getApplicationContext(), "Night Mode OFF", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                item.setChecked(true);
-                Toast.makeText(getApplicationContext(), "Night Mode ON", Toast.LENGTH_SHORT).show();
-            }
+            SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+            prefsEditor.putBoolean("pref_night_mode", !item.isChecked()).commit();
+            Toast.makeText(this,"NIGHT MODE " + !item.isChecked() ,Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
