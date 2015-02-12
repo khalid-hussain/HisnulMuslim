@@ -1,7 +1,7 @@
 Hisnul Muslim Android App
 =========================
 
-<div align="center">![](http://s25.postimg.org/jhhci09aj/app_github.png)</div>
+![](http://s25.postimg.org/jhhci09aj/app_github.png)
 
 Assalamuʻalaikum to all Muslims and greetings to everyone else,
 
