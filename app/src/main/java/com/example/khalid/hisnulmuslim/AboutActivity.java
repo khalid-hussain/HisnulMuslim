@@ -19,15 +19,7 @@ public class AboutActivity extends ActionBarActivity {
         tvAboutUs.setVerticalScrollBarEnabled(true);
         tvAboutUs.setText(Html.fromHtml(getString(R.string.about_us)));
         tvAboutUs.setMovementMethod(LinkMovementMethod.getInstance());
-
-
-        /*String about_file_path;
-        about_file_path = "file:///android_asset/en_about.html";
-
-        WebView webView = (WebView) findViewById(R.id.webView);
-        webView.loadUrl(about_file_path);*/
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

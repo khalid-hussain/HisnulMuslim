@@ -10,6 +10,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
         LoaderManager.LoaderCallbacks<List<Dua>> {
     private DuaGroupAdapter mAdapter;
     private ListView mListView;
+    private Toolbar toolbar;
 
     private boolean prefNightMode;
     private SharedPreferences sharedPreferences;
@@ -34,7 +36,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dua_list);
+        setContentView(R.layout.activity_dua_group);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
