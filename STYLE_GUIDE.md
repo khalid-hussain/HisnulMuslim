@@ -11,6 +11,10 @@ This document explains the style that should be followed when entering dua into 
 To Complete.
 
 # Reference
+1. All references must be from books of *hadith*. This is assumed and the original book probably used this but the translated books we went through sometimes added references to an audio lecture (yes, that is weird). At all times, try to follow what the original author of Hisnul Muslim used.
+
+1. Reference should be to a hadith number and not to a page. This is because most works have various publishers and the page number inconsisties render the ease of checking references invalid. Due to the nature of works of this nature (i.e. manuscripts to print), sometimes the print (or some editions) would have a slightly different organization or numbering. In this case, try to stick the original. Example: Section 80 of this app is not numbered in the original Hisnul Muslim book.
+
 1. At this point in time, only the reference should be provided and nothing else. There should be no attempts at providing authentication information (*takreej*). This is because different scholars have different methodogies for authentication and this then results in an app which has an amalgam of different authentication rulings for different dua. This information may be added later if a consistent method is found.
 
 2. All references must point to the Arabic versions of the books. This has a couple of benefits. 
@@ -23,3 +27,45 @@ To Complete.
 
 ```[Scholar/Book/Work] [Volume Number]/[Hadith Number]```
 
+The rules of this format are as follows:
+	1. If a work has become identified with the name of the author, then the author's name will take preference over the name of the actual work. Example: 'Saheeh Bukhari' instead of 'al-Jāmi’ al-Musnad al-Sahīh al-Mukhtaṣar min umūr Rasûl Allāh wa sunnanihi wa ayyāmihi'.
+	2. If the hadith is found in a book which is written by an author whose name is already identified with his *magnum opus* then
+		1. If the work is known by its name without mentioning the author, then follow the aforementioned style. Example: Adab al-Mufrad 234.
+		2. If the work is not well known or other books with the same title exist and naming the author is required to differentiate, then the following style would apply (Volume number should be omitted if the work consists of only one volume):
+		
+		```[Work] [[Scholar]] [Volume Number]/[Hadith Number]```
+		
+		Example: Al-Athkaar [Imam Nawawi] 235
+		
+5. The default font on Android 'Roboto' has poor choices for diacritics and thus a new system needed to be developed to avoid adding yet another font. The following table explains some of them:
+
+Arabic | Latin     |
+-------|-----------|
+ا      |   â|
+ب     | b |
+ت     | t |
+ث     | th |
+ج     | j |
+ح     | ĥ |
+خ     | kh|
+د     | d|
+ذ     | |
+ر     | r|
+ز     | z|
+س     | s|
+ش     | sh|
+ص    | ŝ |
+ض    | |
+ط     | |
+ظ     | |
+ع     | |
+غ     | gh|
+ف    | f|
+ق    | q|
+ك    | k|
+ل    | l|
+م    | m |
+ن    | n|
+و    | w |
+ه    | h|
+ي   | |
