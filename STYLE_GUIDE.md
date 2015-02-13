@@ -23,21 +23,20 @@ To Complete.
 
 3. Names of Imams, Muhadditheen and 'Ulama should be consistent (in spelling) throughout and follow conventional English transliteration. A table will be added later on, Insha'Allah.
 
-4. Most of the referenced works are volumous and therefore the reference should be as follows:
-
-```[Scholar/Book/Work] [Volume Number]/[Hadith Number]```
-
+4. Most of the referenced works are volumous and therefore the reference should follow this format:
+		
+		`[Scholar/Book/Work] [Volume Number]/[Hadith Number]`
 The rules of this format are as follows:
-	1. If a work has become identified with the name of the author, then the author's name will take preference over the name of the actual work. Example: 'Saheeh Bukhari' instead of 'al-Jāmi’ al-Musnad al-Sahīh al-Mukhtaṣar min umūr Rasûl Allāh wa sunnanihi wa ayyāmihi'.
-	2. If the hadith is found in a book which is written by an author whose name is already identified with his *magnum opus* then
-		1. If the work is known by its name without mentioning the author, then follow the aforementioned style. Example: Adab al-Mufrad 234.
-		2. If the work is not well known or other books with the same title exist and naming the author is required to differentiate, then the following style would apply (Volume number should be omitted if the work consists of only one volume):
+  1. If a work has become identified with the name of the author, then the author's name will take preference over the name of the actual work. Example: 'Saheeh Bukhari' instead of 'al-Jāmi’ al-Musnad al-Sahīh al-Mukhtaṣar min umūr Rasûl Allāh wa sunnanihi wa ayyāmihi'.
+  2. If the hadith is found in a book which is written by an author whose name is already identified with his *magnum opus* then
+    1. If the work is known by its name without mentioning the author, then follow the aforementioned style. Example: Adab al-Mufrad 234.
+    2. If the work is not well known or other books with the same title exist and naming the author is required to differentiate, then the following style would apply (Volume number should be omitted if the work consists of only one volume):
 		
 		```[Work] [[Scholar]] [Volume Number]/[Hadith Number]```
 		
 		Example: Al-Athkaar [Imam Nawawi] 235
 		
-5. The default font on Android 'Roboto' has poor choices for diacritics and thus a new system needed to be developed to avoid adding yet another font. The following table explains some of them:
+  3. The default font on Android 'Roboto' has poor choices for diacritics and thus a new system needed to be developed to avoid adding yet another font. The following table explains some of them:
 
 Arabic | Latin     |
 -------|-----------|
@@ -49,7 +48,7 @@ Arabic | Latin     |
 ح     | ĥ |
 خ     | kh|
 د     | d|
-ذ     | |
+ذ     | dh|
 ر     | r|
 ز     | z|
 س     | s|
