@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -28,10 +29,17 @@ public class DuaDetailActivity extends ActionBarActivity
     private boolean prefNightMode;
     private SharedPreferences sharedPreferences;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_detail);
+
+        toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        // toolbar.setTitleTextColor(getResources().getColor(R.color.material_actionbar_title));
+        setSupportActionBar(toolbar);
+
         this.listView = (ListView) findViewById(R.id.duaDetailListView);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);

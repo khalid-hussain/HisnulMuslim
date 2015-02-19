@@ -2,6 +2,7 @@ package com.example.khalid.hisnulmuslim;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
@@ -10,10 +11,16 @@ import android.widget.TextView;
 
 public class AboutActivity extends ActionBarActivity {
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        // toolbar.setTitleTextColor(getResources().getColor(R.color.material_actionbar_title));
+        setSupportActionBar(toolbar);
 
         TextView tvAboutUs = (TextView) findViewById(R.id.tvAboutUs);
         tvAboutUs.setVerticalScrollBarEnabled(true);

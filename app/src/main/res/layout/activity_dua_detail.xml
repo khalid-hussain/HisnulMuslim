@@ -3,7 +3,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/my_action_bar"
+        layout="@layout/toolbar" />
+
     <ListView
+        android:layout_below="@id/my_action_bar"
         android:id="@+id/duaDetailListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

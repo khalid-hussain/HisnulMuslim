@@ -38,6 +38,10 @@ public class DuaGroupActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_group);
 
+        toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        // toolbar.setTitleTextColor(getResources().getColor(R.color.material_actionbar_title));
+        setSupportActionBar(toolbar);
+
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         mListView = (ListView) findViewById(R.id.duaListView);
