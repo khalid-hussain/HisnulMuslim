@@ -17,8 +17,8 @@ public class BookmarksActivity extends ActionBarActivity {
         setContentView(R.layout.activity_bookmarks);
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
-        // toolbar.setTitleTextColor(getResources().getColor(R.color.material_actionbar_title));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 

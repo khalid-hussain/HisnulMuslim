@@ -19,8 +19,8 @@ public class AboutActivity extends ActionBarActivity {
         setContentView(R.layout.activity_about);
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
-        // toolbar.setTitleTextColor(getResources().getColor(R.color.material_actionbar_title));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView tvAboutUs = (TextView) findViewById(R.id.tvAboutUs);
         tvAboutUs.setVerticalScrollBarEnabled(true);

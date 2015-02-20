@@ -22,7 +22,7 @@ public class PreferencesActivity extends ActionBarActivity {
 
         // Display the fragment as the main content.
         getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new SettingsFragment())
+                .replace(R.id.content_view, new SettingsFragment())
                 .commit();
     }
 

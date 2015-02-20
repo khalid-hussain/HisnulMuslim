@@ -12,7 +12,10 @@
         android:layout_height="wrap_content"
         />
 
-    <ListView android:id="@android:id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+    <LinearLayout
+        android:id="@+id/content_view"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
+

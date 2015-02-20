@@ -37,8 +37,8 @@ public class DuaDetailActivity extends ActionBarActivity
         setContentView(R.layout.activity_dua_detail);
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
-        // toolbar.setTitleTextColor(getResources().getColor(R.color.material_actionbar_title));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.listView = (ListView) findViewById(R.id.duaDetailListView);
 
