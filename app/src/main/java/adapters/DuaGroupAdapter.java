@@ -1,13 +1,17 @@
 package adapters;
 
+import com.example.khalid.hisnulmuslim.R;
+
 import android.content.Context;
-import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.style.TextAppearanceSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +19,6 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-
-import com.example.khalid.hisnulmuslim.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,17 +32,35 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
     private Context mContext;
     private LayoutInflater mInflater;
     private List<Dua> mList;
-    private CharSequence search_txt = "";
+    private CharSequence mSearchText = "";
+    private boolean mIsNightMode;
+    private int mAccentColor;
+    private int mTextColor;
+    private int mTextColorNightMode;
+    private int mCircleColor;
+    private int mCircleNightColor;
 
-    public DuaGroupAdapter(Context context, List<Dua> list) {
+    public DuaGroupAdapter(Context context, List<Dua> list, boolean isNightMode) {
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
         mList = list;
+        mIsNightMode = isNightMode;
+
+        Resources resources = context.getResources();
+        mAccentColor = resources.getColor(R.color.colorAccent);
+        mTextColor = resources.getColor(R.color.material_sub_bg_text);
+        mTextColorNightMode = resources.getColor(R.color.material_sub_bg);
+        mCircleColor = resources.getColor(R.color.colorPrimary);
+        mCircleNightColor = resources.getColor(R.color.nightModeColorPrimary);
     }
 
     public void setData(List<Dua> list) {
         mList = list;
         notifyDataSetChanged();
+    }
+
+    public void setNightMode(boolean isNightMode) {
+      mIsNightMode = isNightMode;
     }
 
     @Override
@@ -49,7 +69,6 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                search_txt = constraint;
                 final ExternalDbOpenHelper helper = ExternalDbOpenHelper.getInstance(mContext);
                 final SQLiteDatabase db = helper.openDataBase();
 
@@ -79,6 +98,7 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
 
             @Override
             protected void publishResults(CharSequence constraint, Filter.FilterResults results) {
+                mSearchText = constraint;
                 if (results.count > 0) {
                     mList = (List<Dua>) results.values;
                     notifyDataSetChanged();
@@ -113,6 +133,7 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
             holder = new ViewHolder();
             holder.tvReference = (TextView) convertView.findViewById(R.id.txtReference);
             holder.tvDuaName = (TextView) convertView.findViewById(R.id.txtDuaName);
+            holder.shape = (GradientDrawable) holder.tvReference.getBackground();
             convertView.setTag(holder);
         } else
             holder = (ViewHolder) convertView.getTag();
@@ -121,24 +142,26 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
         if (p != null) {
             holder.tvReference.setText("" + p.getReference());
             holder.tvDuaName.setText(p.getTitle());
+            holder.tvDuaName.setTextColor(mIsNightMode ? mTextColorNightMode : mTextColor);
+            holder.shape.setColor(mIsNightMode ? mCircleNightColor : mCircleColor);
 
-            String filter = search_txt.toString();
+            String filter = mSearchText.toString();
             String itemValue = holder.tvDuaName.getText().toString();
 
             int startPos = itemValue.toLowerCase(Locale.US).indexOf(filter.toLowerCase(Locale.US));
             int endPos = startPos + filter.length();
 
-            if (startPos != -1) // This should always be true, just a sanity check
-            {
+            if (startPos != -1) { // This should always be true, just a sanity check
                 Spannable spannable = new SpannableString(itemValue);
-                ColorStateList highlightColor =
-                        new ColorStateList(new int[][]{new int[]{}}, new int[]{mContext.getResources().getColor(R.color.colorAccent)});
-                TextAppearanceSpan highlightSpan = new TextAppearanceSpan(null, Typeface.BOLD, -1, highlightColor, null);
-
-                spannable.setSpan(highlightSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                ForegroundColorSpan highlightSpan = new ForegroundColorSpan(mAccentColor);
+                spannable.setSpan(highlightSpan, startPos,
+                    endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                StyleSpan s = new StyleSpan(Typeface.BOLD);
+                spannable.setSpan(s, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 holder.tvDuaName.setText(spannable);
-            } else
-                holder.tvDuaName.setText(itemValue);
+            } else {
+              holder.tvDuaName.setText(itemValue);
+            }
         }
         return convertView;
     }
@@ -146,5 +169,6 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
     public static class ViewHolder {
         TextView tvDuaName;
         TextView tvReference;
+        GradientDrawable shape;
     }
 }
