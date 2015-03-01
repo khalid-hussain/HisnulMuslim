@@ -23,6 +23,7 @@ public class AboutActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView tvAboutUs = (TextView) findViewById(R.id.tvAboutUs);
+        // DocumentView tvAboutUs = (DocumentView) findViewById(R.id.tvAboutUs);
         tvAboutUs.setVerticalScrollBarEnabled(true);
         tvAboutUs.setText(Html.fromHtml(getString(R.string.about_us)));
         tvAboutUs.setMovementMethod(LinkMovementMethod.getInstance());

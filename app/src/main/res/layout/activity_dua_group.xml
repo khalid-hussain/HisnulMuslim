@@ -8,8 +8,10 @@
         layout="@layout/toolbar" />
 
     <ListView
-        android:layout_below="@id/my_action_bar"
         android:id="@+id/duaListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_action_bar"
+        android:footerDividersEnabled="false"
+        android:overScrollFooter="@android:color/transparent" />
 </RelativeLayout>

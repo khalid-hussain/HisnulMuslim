@@ -9,10 +9,10 @@
         android:id="@+id/card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         app:cardCornerRadius="4dp">
 
@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="#"
-                    android:textColor="@color/primary_dark_material_light"/>
+                    android:textColor="@color/primary_dark_material_light" />
 
                 <TextView
                     android:id="@+id/txtDuaNumber"
@@ -57,8 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="15dp"
-                android:textColor="@color/primary_dark_material_light"
                 android:paddingTop="5dp"
+                android:textColor="@color/primary_dark_material_light"
                 android:textSize="24sp" />
 
             <View
@@ -68,13 +68,12 @@
                 android:layout_marginRight="1dp"
                 android:background="@color/card_divider_gray" />
 
-            <com.bluejamesbond.text.DocumentView
-                xmlns:ext="http://schemas.android.com/apk/res-auto"
+            <com.bluejamesbond.text.DocumentView xmlns:ext="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/txtDuaTranslation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                ext:documentView_insetPaddingTop="10dp"
                 ext:documentView_insetPaddingBottom="10dp"
+                ext:documentView_insetPaddingTop="10dp"
                 ext:documentView_textAlignment="justified"
                 ext:documentView_textColor="@color/primary_dark_material_light"
                 ext:documentView_textFormat="formatted"

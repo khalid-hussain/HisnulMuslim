@@ -51,7 +51,6 @@
                 android:scrollbarAlwaysDrawVerticalTrack="true"
                 android:scrollbars="vertical"
                 android:singleLine="false"
-                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textSize="16sp" />
         </LinearLayout>
 
