@@ -1,4 +1,4 @@
-package adapter;
+package com.khalid.hisnulmuslim.adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,7 +17,7 @@ import com.example.khalid.hisnulmuslim.R;
 
 import java.util.List;
 
-import classes.Dua;
+import com.khalid.hisnulmuslim.model.Dua;
 
 public class DuaDetailAdapter extends BaseAdapter {
     private static Typeface sCachedTypeface = null;

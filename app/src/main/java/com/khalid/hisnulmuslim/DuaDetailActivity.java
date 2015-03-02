@@ -18,8 +18,8 @@ import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
 
 import java.util.List;
 
-import adapter.DuaDetailAdapter;
-import classes.Dua;
+import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
+import com.khalid.hisnulmuslim.model.Dua;
 
 
 public class DuaDetailActivity extends ActionBarActivity

@@ -1,4 +1,4 @@
-package classes;
+package com.khalid.hisnulmuslim.model;
 
 public class Dua {
     private String title;

@@ -25,8 +25,8 @@ import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 
 import java.util.List;
 
-import adapter.DuaGroupAdapter;
-import classes.Dua;
+import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
+import com.khalid.hisnulmuslim.model.Dua;
 
 public class DuaGroupActivity extends ActionBarActivity implements
         LoaderManager.LoaderCallbacks<List<Dua>> {

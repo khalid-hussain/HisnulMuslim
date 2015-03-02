@@ -1,4 +1,4 @@
-package adapter;
+package com.khalid.hisnulmuslim.adapter;
 
 import com.example.khalid.hisnulmuslim.R;
 
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import classes.Dua;
+import com.khalid.hisnulmuslim.model.Dua;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
 import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 

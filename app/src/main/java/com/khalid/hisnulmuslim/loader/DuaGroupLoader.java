@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import classes.Dua;
+import com.khalid.hisnulmuslim.model.Dua;
 import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 
 public class DuaGroupLoader extends AbstractQueryLoader<List<Dua>> {
