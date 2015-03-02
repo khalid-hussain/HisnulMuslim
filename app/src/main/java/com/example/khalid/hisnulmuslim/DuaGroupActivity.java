@@ -4,6 +4,8 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
@@ -29,7 +31,10 @@ public class DuaGroupActivity extends ActionBarActivity implements
     private DuaGroupAdapter mAdapter;
     private ListView mListView;
     private Toolbar toolbar;
+    private View rootView;
 
+    private int primaryColor;
+    private int primaryNightModeColor;
     private boolean prefNightMode;
     private SharedPreferences sharedPreferences;
 
@@ -38,10 +43,18 @@ public class DuaGroupActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_group);
 
+        rootView = findViewById(R.id.root);
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         setSupportActionBar(toolbar);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        prefNightMode = sharedPreferences.getBoolean("pref_night_mode", false);
+
+        Resources resources = getResources();
+        primaryColor = resources.getColor(R.color.colorPrimary);
+        primaryNightModeColor = resources.getColor(R.color.nightModeColorPrimary);
+
+        themeUi();
 
         mListView = (ListView) findViewById(R.id.duaListView);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,7 +104,6 @@ public class DuaGroupActivity extends ActionBarActivity implements
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        prefNightMode = sharedPreferences.getBoolean("pref_night_mode", false);
         menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
         return true;
     }
@@ -110,11 +122,28 @@ public class DuaGroupActivity extends ActionBarActivity implements
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
         } else if (id == R.id.action_night_mode) {
+            prefNightMode = !item.isChecked();
             SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
-            prefsEditor.putBoolean("pref_night_mode", !item.isChecked()).commit();
-            Toast.makeText(this,"NIGHT MODE " + !item.isChecked() ,Toast.LENGTH_SHORT).show();
+            prefsEditor.putBoolean("pref_night_mode", prefNightMode).apply();
+            Toast.makeText(this,"NIGHT MODE " + prefNightMode, Toast.LENGTH_SHORT).show();
+            themeUi();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void themeUi() {
+      if (prefNightMode) {
+        toolbar.setBackgroundColor(primaryNightModeColor);
+        rootView.setBackgroundColor(Color.BLACK);
+      } else {
+        toolbar.setBackgroundColor(primaryColor);
+        rootView.setBackgroundColor(Color.WHITE);
+      }
+
+      if (mAdapter != null) {
+        mAdapter.setNightMode(prefNightMode);
+        mAdapter.notifyDataSetChanged();
+      }
     }
 
     @Override
@@ -125,7 +154,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
     @Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
         if (mAdapter == null) {
-            mAdapter = new DuaGroupAdapter(this, data);
+            mAdapter = new DuaGroupAdapter(this, data, prefNightMode);
             mListView.setAdapter(mAdapter);
         } else {
             mAdapter.setData(data);
