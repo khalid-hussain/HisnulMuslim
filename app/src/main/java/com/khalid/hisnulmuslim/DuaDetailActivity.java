@@ -14,12 +14,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
 
 import java.util.List;
 
 import adapter.DuaDetailAdapter;
 import classes.Dua;
-import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
 
 
 public class DuaDetailActivity extends ActionBarActivity
@@ -28,6 +28,8 @@ public class DuaDetailActivity extends ActionBarActivity
     private DuaDetailAdapter adapter;
     private ListView listView;
 
+    private int primaryColor;
+    private int primaryNightModeColor;
     private boolean prefNightMode;
     private SharedPreferences sharedPreferences;
 

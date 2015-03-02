@@ -21,12 +21,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 
 import java.util.List;
 
 import adapter.DuaGroupAdapter;
 import classes.Dua;
-import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 
 public class DuaGroupActivity extends ActionBarActivity implements
         LoaderManager.LoaderCallbacks<List<Dua>> {
@@ -45,7 +45,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_group);
 
-        rootView = findViewById(R.id.root);
+        rootView = findViewById(R.id.root_dua_group);
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         setSupportActionBar(toolbar);
 
