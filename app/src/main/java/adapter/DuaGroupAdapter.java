@@ -1,4 +1,4 @@
-package adapters;
+package adapter;
 
 import com.example.khalid.hisnulmuslim.R;
 
@@ -25,8 +25,8 @@ import java.util.List;
 import java.util.Locale;
 
 import classes.Dua;
-import database.ExternalDbOpenHelper;
-import database.HisnDatabaseInfo;
+import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
+import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 
 public class DuaGroupAdapter extends BaseAdapter implements Filterable {
     private Context mContext;

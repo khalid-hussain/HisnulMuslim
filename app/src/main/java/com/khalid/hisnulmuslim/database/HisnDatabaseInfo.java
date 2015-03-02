@@ -1,4 +1,4 @@
-package database;
+package com.khalid.hisnulmuslim.database;
 
 import android.provider.BaseColumns;
 

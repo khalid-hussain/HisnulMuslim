@@ -1,4 +1,4 @@
-package com.example.khalid.hisnulmuslim;
+package com.khalid.hisnulmuslim;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +8,8 @@ import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.khalid.hisnulmuslim.R;
 
 public class AboutActivity extends ActionBarActivity {
 

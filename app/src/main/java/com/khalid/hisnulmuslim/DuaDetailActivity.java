@@ -1,4 +1,4 @@
-package com.example.khalid.hisnulmuslim;
+package com.khalid.hisnulmuslim;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,11 +13,13 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.khalid.hisnulmuslim.R;
+
 import java.util.List;
 
-import adapters.DuaDetailAdapter;
+import adapter.DuaDetailAdapter;
 import classes.Dua;
-import loader.DuaDetailsLoader;
+import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
 
 
 public class DuaDetailActivity extends ActionBarActivity

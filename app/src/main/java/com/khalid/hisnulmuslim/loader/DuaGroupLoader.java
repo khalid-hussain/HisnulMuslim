@@ -1,4 +1,4 @@
-package loader;
+package com.khalid.hisnulmuslim.loader;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import classes.Dua;
-import database.HisnDatabaseInfo;
+import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 
 public class DuaGroupLoader extends AbstractQueryLoader<List<Dua>> {
     public DuaGroupLoader(Context context) {

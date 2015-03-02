@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.khalid.hisnulmuslim.PreferencesActivity">
+    tools:context="com.khalid.hisnulmuslim.PreferencesActivity">
 
     <include
         android:id="@+id/my_action_bar"

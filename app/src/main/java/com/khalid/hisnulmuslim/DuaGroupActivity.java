@@ -1,4 +1,4 @@
-package com.example.khalid.hisnulmuslim;
+package com.khalid.hisnulmuslim;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -20,11 +20,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.khalid.hisnulmuslim.R;
+
 import java.util.List;
 
-import adapters.DuaGroupAdapter;
+import adapter.DuaGroupAdapter;
 import classes.Dua;
-import loader.DuaGroupLoader;
+import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 
 public class DuaGroupActivity extends ActionBarActivity implements
         LoaderManager.LoaderCallbacks<List<Dua>> {

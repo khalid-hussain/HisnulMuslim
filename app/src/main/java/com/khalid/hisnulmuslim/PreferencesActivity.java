@@ -1,10 +1,12 @@
-package com.example.khalid.hisnulmuslim;
+package com.khalid.hisnulmuslim;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.example.khalid.hisnulmuslim.R;
 
 public class PreferencesActivity extends ActionBarActivity {
 

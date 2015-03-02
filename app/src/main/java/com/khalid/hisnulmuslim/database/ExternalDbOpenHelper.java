@@ -1,4 +1,4 @@
-package database;
+package com.khalid.hisnulmuslim.database;
 
 import android.content.Context;
 import android.database.SQLException;
@@ -45,7 +45,7 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
         openDataBase();
     }
 
-    //This piece of code will create a database if it’s not yet created
+    //This piece of code will create a com.khalid.hisnulmuslim.database if it’s not yet created
     public void createDataBase() {
         boolean dbExist = checkDataBase();
         if (!dbExist) {
@@ -54,14 +54,14 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
                 copyDataBase();
             } catch (IOException e) {
                 Log.e(this.getClass().toString(), "Copying error");
-                throw new Error("Error copying database!");
+                throw new Error("Error copying com.khalid.hisnulmuslim.database!");
             }
         } else {
             Log.i(this.getClass().toString(), "Database already exists");
         }
     }
 
-    //Performing a database existence check
+    //Performing a com.khalid.hisnulmuslim.database existence check
     private boolean checkDataBase() {
         SQLiteDatabase checkDb = null;
         try {
@@ -79,19 +79,19 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
         return checkDb != null;
     }
 
-    //Method for copying the database
+    //Method for copying the com.khalid.hisnulmuslim.database
     private void copyDataBase() throws IOException {
-        //Open a stream for reading from our ready-made database
+        //Open a stream for reading from our ready-made com.khalid.hisnulmuslim.database
         //The stream source is located in the assets
         InputStream externalDbStream = context.getAssets().open(DB_NAME);
 
-        //Path to the created empty database on your Android device
+        //Path to the created empty com.khalid.hisnulmuslim.database on your Android device
         String outFileName = DB_PATH + DB_NAME;
 
-        //Now create a stream for writing the database byte by byte
+        //Now create a stream for writing the com.khalid.hisnulmuslim.database byte by byte
         OutputStream localDbStream = new FileOutputStream(outFileName);
 
-        //Copying the database
+        //Copying the com.khalid.hisnulmuslim.database
         byte[] buffer = new byte[1024];
         int bytesRead;
         while ((bytesRead = externalDbStream.read(buffer)) > 0) {

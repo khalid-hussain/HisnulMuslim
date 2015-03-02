@@ -1,4 +1,4 @@
-package adapters;
+package adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
