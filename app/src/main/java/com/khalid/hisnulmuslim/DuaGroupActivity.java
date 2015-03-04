@@ -21,12 +21,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
 import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
+import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
-
-import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
-import com.khalid.hisnulmuslim.model.Dua;
 
 public class DuaGroupActivity extends ActionBarActivity implements
         LoaderManager.LoaderCallbacks<List<Dua>> {
@@ -40,11 +39,12 @@ public class DuaGroupActivity extends ActionBarActivity implements
     private boolean prefNightMode;
     private SharedPreferences sharedPreferences;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_group);
 
+        Resources resources = getResources();
+        
         rootView = findViewById(R.id.root_dua_group);
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         setSupportActionBar(toolbar);
@@ -52,8 +52,8 @@ public class DuaGroupActivity extends ActionBarActivity implements
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         prefNightMode = sharedPreferences.getBoolean("pref_night_mode", false);
 
-        Resources resources = getResources();
-        primaryColor = resources.getColor(R.color.colorPrimary);
+        
+        primaryColor = resources.getColor(R.color.colorPrimaryTrans);
         primaryNightModeColor = resources.getColor(R.color.nightModeColorPrimary);
 
         themeUi();

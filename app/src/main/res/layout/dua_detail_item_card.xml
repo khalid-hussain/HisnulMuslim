@@ -72,11 +72,14 @@
                 android:id="@+id/txtDuaTranslation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                ext:documentView_antialias="true"
                 ext:documentView_insetPaddingBottom="10dp"
                 ext:documentView_insetPaddingTop="10dp"
                 ext:documentView_textAlignment="justified"
                 ext:documentView_textColor="@color/primary_dark_material_light"
                 ext:documentView_textFormat="formatted"
+                ext:documentView_cacheConfig="auto_quality"
+                ext:documentView_hyphen="-"
                 ext:documentView_textSize="14sp" />
 
             <View

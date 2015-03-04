@@ -2,17 +2,20 @@
     android:id="@+id/root_dua_group"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <ListView
+        android:id="@+id/duaListView"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:clipToPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:footerDividersEnabled="false"
+        android:overScrollFooter="@android:color/transparent" />
 
     <include
         android:id="@+id/my_action_bar"
         layout="@layout/toolbar" />
-
-    <ListView
-        android:id="@+id/duaListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/my_action_bar"
-        android:footerDividersEnabled="false"
-        android:overScrollFooter="@android:color/transparent" />
 </RelativeLayout>

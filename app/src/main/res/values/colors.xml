@@ -18,10 +18,12 @@
     <color name="red_A200">#ff5177</color>
     <color name="red_A400">#ff2d6f</color>
     <color name="red_A700">#e00032</color>
+    <color name="red_700_trans">#e6d01716</color>
 
     <color name="colorPrimary">@color/red_700</color>
     <color name="colorPrimaryDark">@color/red_900</color>
     <color name="colorAccent">@color/red_A200</color>
+    <color name="colorPrimaryTrans">@color/red_700_trans</color>
 
     <color name="nightModeColorPrimary">@color/material_blue_grey_900</color>
 

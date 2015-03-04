@@ -32,7 +32,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.joanzapata.android:android-iconify:1.0.8'
-    compile 'com.github.bluejamesbond:textjustify-android:2.0.5'
+    //compile 'com.github.bluejamesbond:textjustify-android:2.0.5
+    compile 'com.github.bluejamesbond:textjustify-android:2.1.0'
     compile 'com.vanniktech:vntnumberpickerpreference:0.1.0-SNAPSHOT'
     compile 'com.vanniktech:vntfontlistpreference:0.1.0-SNAPSHOT'
 }
