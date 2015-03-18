@@ -4,11 +4,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
+import com.khalid.hisnulmuslim.model.Dua;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.khalid.hisnulmuslim.model.Dua;
-import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 
 public class DuaDetailsLoader extends AbstractQueryLoader<List<Dua>> {
     private int mGroup;
