@@ -50,6 +50,14 @@ bookmarked.
 - [Custom font for TextView](http://www.tutorialspoint.com/android/android_custom_fonts.htm)
 - [ActionBar in Preferences Activity](http://stackoverflow.com/questions/26439139/getactionbar-returns-null-in-preferenceactivity-appcompat-v7-21)
 
+# To Do
+- Sort out the contents, there is a lot of problem with the Arabic vowels and sometimes the translations.
+- Add references to all Du'a.
+- Implement the bookmark feature.
+	- Add button to each dua to enable bookmarking.
+	- Implement a 'fetch' on the bookmarks activity/fragment depending on the stage the app is at.
+- Add fragments and a viewpager to switch between all du'a and bookmarks (For reference, please see YouTube android app).
+
 # Changelog
 12th February 2015:
 - App has a new icon.
