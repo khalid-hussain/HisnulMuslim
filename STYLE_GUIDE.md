@@ -3,9 +3,9 @@ Dua Content Style Guide
 This document explains the style that should be followed when entering dua into the database or when reporting errors or mistakes in the contents. The app supports the original Arabic along with its translation and reference. Transliteration has been deliberately left out due to the different types available and also the requirement of providing different transliteration tables for each language since latin pronunciation changes between languages. Users are better off learning how to read Arabic as opposed to getting used to transliteration.
 
 # Arabic
-1. Convey meaning in and of itself. If a literate Arab was to read the text and understand what section he's in, he would immediately understand what the text is for. This rule is up for discussion and may change soon.
+1. ~~Convey meaning in and of itself. If a literate Arab was to read the text and understand what section he's in, he would immediately understand what the text is for. This rule is up for discussion and may change soon.~~
 2. It should have complete *tashkeel*/*harakaat*. Dua which are lacking in this are to be reported. The aim is for complete and correct diacritics for the Arabic text. Neither completeness or correctness should be compromised. This rule may be ignored if the content in question is a *hadith* or the description of an event.
-3. Any numberals that appear in the text must be Eastern.
+3. Any numberals that appear in the text must be [Eastern](http://en.wikipedia.org/wiki/Eastern_Arabic_numerals).
 
 # English
 To Complete.
@@ -13,7 +13,7 @@ To Complete.
 # Reference
 1. All references must be from books of *hadith*. This is assumed and the original book probably used this but the translated books we went through sometimes added references to an audio lecture (yes, that is weird). At all times, try to follow what the original author of Hisnul Muslim used.
 
-1. Reference should be to a hadith number and not to a page. This is because most works have various publishers and the page number inconsistencies render the ease of checking references invalid. Due to the nature of these works (i.e. manuscripts to print), sometimes the print (or some editions) would have a slightly different organization or numbering. In this case, try to stick the original. Example: Section 80 of this app is not numbered in the original Hisnul Muslim book.
+1. Reference should be to a hadith number and not to a page. This is because most works have various publishers and the page number inconsistencies render the ease of checking references invalid. Due to the nature of these works (i.e. manuscripts to print), sometimes the print (or some editions) would have a slightly different organization or numbering. In this case, try to stick the original. ~~Example: Section 80 of this app is not numbered in the original Hisnul Muslim book.~~
 
 1. At this point in time, only the reference should be provided and nothing else. There should be no attempts at providing authentication information (*takreej*). This is because different scholars have different methodogies for authentication and this then results in an app which has an amalgam of different authentication rulings for different dua. This information may be added later if a consistent method is found.
 
@@ -25,7 +25,8 @@ To Complete.
 
 4. Most of the referenced works are voluminous and therefore the reference should follow this format:
 		
-		`[Scholar/Book/Work] [Volume Number]/[Hadith Number]`
+	`[Scholar/Book/Work] [(Volume Number/Page Number)][[Hadith Number]]`
+
 The rules of this format are as follows:
   1. If a work has become identified with the name of the author, then the author's name will take preference over the name of the actual work. Example: 'Saheeh Bukhari' instead of 'al-Jāmi’ al-Musnad al-Sahīh al-Mukhtaṣar min umūr Rasûl Allāh wa sunnanihi wa ayyāmihi'.
   2. If the hadith is found in a book which is written by an author whose name is already identified with his *magnum opus* then
