@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
@@ -101,13 +102,13 @@ public class DuaDetailAdapter extends BaseAdapter {
         Dua p = getItem(position);
         if (p != null) {
             holder.tvDuaNumber.setText("" + p.getReference());
-            holder.tvDuaArabic.setText("" + p.getArabic());
+            holder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
 
             final Spannable translation = new SpannableString(p.getTranslation());
             holder.tvDuaTranslation.setText(translation);
 
             if (p.getBook_reference() != null)
-                holder.tvDuaReference.setText("" + p.getBook_reference());
+                holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
             else
                 holder.tvDuaReference.setText("null");
         }
