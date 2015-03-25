@@ -18,27 +18,27 @@
     <string name="search_hint">Search Dua</string>
     <string name="title_activity_preferences">Settings</string>
     <string name="about_us">
-    Hisnul Muslim is a collection of supplications for various occasions compiled by Dr. Sa\'eed bin Ali bin Wahaf Al-Qahtani. The author is from amongst the senior students of the former Grand Mufti of Saudi Arabia, Shaykh Abdul Aziz bin Abdullah bin Baz (May Allah have mercy on him).
-    &lt;br/>&lt;br/>
+        <![CDATA[
+            Hisnul Muslim is a collection of supplications for various occasions compiled by Dr. Sa\'eed bin Ali bin Wahaf Al-Qahtani. The author is from amongst the senior students of the former Grand Mufti of Saudi Arabia, Shaykh Abdul Aziz bin Abdullah bin Baz (May Allah have mercy on him).
+            <br/><br/>
+            <big><b>Contributors</b></big><br/>
+            Ahmed El-Helw (<a href="http://twitter.com/ahmedre">@ahmedre</a>)<br/>
+            Azhar Ali (<a href="https://www.linkedin.com/pub/md-azhar-ali/90/251/140">LinkedIn</a>)<br/>
+            Abdul Majed Ahmed (<a href="https://twitter.com/AbdulMajed19">@AbdulMajed19</a>)<br/>
+            Hussaini Zulkifli (<a href="https://twitter.com/HussainiZul">@HussainiZul</a>)<br/>
+            Mohammad Khalid Hussain (<a href="https://www.github.com/khalid.hussain">GitHub</a>)
+            <br/><br/>
 
-    &lt;big>&lt;b>Contributors&lt;/b>&lt;/big>&lt;br/>
-    Ahmed El-Helw (&lt;a href="http://twitter.com/ahmedre">@ahmedre&lt;/a>)&lt;br/>
-    Azhar Ali (&lt;a href="https://www.linkedin.com/pub/md-azhar-ali/90/251/140">LinkedIn&lt;/a>)&lt;br/>
-    Abdul Majed Ahmed (&lt;a href="https://twitter.com/AbdulMajed19">@AbdulMajed19&lt;/a>)&lt;br/>
-    Hussaini Zulkifli (&lt;a href="https://twitter.com/HussainiZul">@HussainiZul&lt;/a>)&lt;br/>
-    Mohammad Khalid Hussain (&lt;a href="https://www.github.com/khalid.hussain">GitHub&lt;/a>)
-    &lt;br/>&lt;br/>
+            <big><b>OpenSource Projects</b></big><br/>
+            TextJustify-Android (<a href="https://github.com/bluejamesbond/TextJustify-Android">GitHub</a>)<br/>
+            FontAwesome CSS Library (<a href="http://fortawesome.github.io/Font-Awesome">GitHub</a>)<br/>
+            Amiri Font (<a href="http://www.amirifont.org"/>Website</a>)<br/>
+            VNTNumberPicker Preference (<a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub</a>)<br/>
+            VNTFontList Preference (<a href="https://github.com/vanniktech/VNTFontListPreference"/>GitHub</a>)
+            <br/><br/>
 
-    &lt;big>&lt;b>OpenSource Projects&lt;/b>&lt;/big>&lt;br/>
-    TextJustify-Android (&lt;a href="https://github.com/bluejamesbond/TextJustify-Android">GitHub&lt;/a>)&lt;br/>
-    FontAwesome CSS Library (&lt;a href="http://fortawesome.github.io/Font-Awesome">GitHub&lt;/a>)&lt;br/>
-    Amiri Font (&lt;a href="http://www.amirifont.org"/>Website&lt;/a>)&lt;br/>
-    VNTNumberPicker Preference (&lt;a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub&lt;/a>)&lt;br/>
-    VNTFontList Preference (&lt;a href="https://github.com/vanniktech/VNTFontListPreference"/>GitHub&lt;/a>)
-    &lt;br/>&lt;br/>
-
-    &lt;big>&lt;b>Special Thanks&lt;/b>&lt;/big>&lt;br/>
-    Ahmad Sabree (&lt;a href="https://twitter.com/sabree01">@sabree01&lt;/a>)&lt;br/></string>
-
-
+            <big><b>Special Thanks</b></big><br/>
+            Ahmad Sabree (<a href="https://twitter.com/sabree01">@sabree01</a>)<br/>
+        ]]>
+    </string>
 </resources>
