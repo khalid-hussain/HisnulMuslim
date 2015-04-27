@@ -5,3 +5,4 @@ Problems
 - Dua #21. (Section 14)
 	- English translation
 	- Second reference
+- English translation for Dua #23.
