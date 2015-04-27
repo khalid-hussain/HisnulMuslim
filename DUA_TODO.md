@@ -10,3 +10,4 @@ Problems
 - English translation for Dua #23.
 - English translation for Dua #24.
 - English translation for Dua #25.
+- English translation for Dua #26. Common spelling for Athan and Iqamah. Fix diacritics.
