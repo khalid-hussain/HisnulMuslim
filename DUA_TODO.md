@@ -9,3 +9,4 @@ Problems
 	- Second reference
 - English translation for Dua #23.
 - English translation for Dua #24.
+- English translation for Dua #25.
