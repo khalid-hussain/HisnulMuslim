@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         app:cardCornerRadius="4dp">
@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,7 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="15dp"
-                android:paddingTop="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:textColor="@color/primary_dark_material_light"
                 android:textSize="24sp" />
 
@@ -72,8 +73,8 @@
                 android:id="@+id/txtDuaTranslation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
                 android:text="Dua Reference"
                 android:textColor="@color/primary_dark_material_light"
                 android:textSize="16sp" />
@@ -103,8 +104,8 @@
                 android:id="@+id/txtDuaReference"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
                 android:text="Dua Reference"
                 android:textColor="@color/primary_dark_material_light"
                 android:textSize="16sp" />
