@@ -13,12 +13,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.bluejamesbond.text.DocumentView;
 import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
-
-import com.khalid.hisnulmuslim.model.Dua;
 
 public class DuaDetailAdapter extends BaseAdapter {
     private static Typeface sCachedTypeface = null;
@@ -89,8 +87,10 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaArabic.setTypeface(sCachedTypeface);
             holder.tvDuaArabic.setTextSize(prefArabicFontSize);
 
-            holder.tvDuaTranslation = (DocumentView) convertView.findViewById(R.id.txtDuaTranslation);
-            holder.tvDuaTranslation.getDocumentLayoutParams().setTextSize(prefOtherFontSize);
+            holder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
+
+            // holder.tvDuaTranslation = (DocumentView) convertView.findViewById(R.id.txtDuaTranslation);
+            // holder.tvDuaTranslation.getDocumentLayoutParams().setTextSize(prefOtherFontSize);
 
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             holder.tvDuaReference.setTextSize(prefOtherFontSize);
@@ -119,6 +119,7 @@ public class DuaDetailAdapter extends BaseAdapter {
         TextView tvDuaNumber;
         TextView tvDuaArabic;
         TextView tvDuaReference;
-        DocumentView tvDuaTranslation;
+        TextView tvDuaTranslation;
+        // DocumentView tvDuaTranslation;
     }
 }

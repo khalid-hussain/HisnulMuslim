@@ -68,7 +68,17 @@
                 android:layout_marginRight="1dp"
                 android:background="@color/card_divider_gray" />
 
-            <com.bluejamesbond.text.DocumentView xmlns:ext="http://schemas.android.com/apk/res-auto"
+            <TextView
+                android:id="@+id/txtDuaTranslation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Dua Reference"
+                android:textColor="@color/primary_dark_material_light"
+                android:textSize="16sp" />
+
+            <!--com.bluejamesbond.text.DocumentView xmlns:ext="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/txtDuaTranslation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -80,7 +90,7 @@
                 ext:documentView_textFormat="formatted"
                 ext:documentView_cacheConfig="auto_quality"
                 ext:documentView_hyphen="-"
-                ext:documentView_textSize="16sp" />
+                ext:documentView_textSize="16sp" /-->
 
             <View
                 android:layout_width="match_parent"
