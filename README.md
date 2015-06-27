@@ -38,12 +38,18 @@ bookmarked.
 - [TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
 - [Google Material Design Icons](https://github.com/google/material-design-icons)
 
+# Text Sources
+- [Sharĥ Ĥiŝn al-Muslim](http://www.muslim-library.com/dl/books/arabic_sharh_hisn_almuslim_min_adhkar_alkitab_wa_alsunnah.pdf)
+- [HisnulMuslim.Com](http://www.hisnulmuslim.com/index-page-liste-lang-en.html)
+	- However, a LOT of edits were made since a lot of the times, the tashkîl was incorrect or the English had formatting mistakes.
+
 # Credits
 - [Ahmed El-Helw](http://twitter.com/ahmedre)
 - [Ahmad Sabree](https://twitter.com/sabree01)
 - [Azhar Ali](https://www.linkedin.com/pub/md-azhar-ali/90/251/140)
 - [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
 - [Hussaini Zulkifli](https://twitter.com/HussainiZul)
+- [Moaz Mahdi](https://www.facebook.com/moaaz.mahdi)
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 - [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
 - [Font Awesome CSS Library](http://fortawesome.github.io/Font-Awesome/)
@@ -59,6 +65,12 @@ bookmarked.
 - Add fragments and a viewpager to switch between all du'a and bookmarks (For reference, please see YouTube android app).
 
 # Changelog
+11 Ramadan 1436, 28th June 2015:
+- Dua database is about 98% complete. Only the 'Condolence' dua group has issues and that may affect numbering of other groups. The rest of the dua have either incomplete translations, reference(s), mismatching translation and Arabic text due to different sources being used, and editing issues.
+- Night-mode has been removed (temporarily or permanently, it is still unsure).
+- Work should mostly now shift to adding Bookmarks function and a ViewPager like the YouTube app.
+- README.md updated with Text sources used.
+
 12th February 2015:
 - App has a new icon.
 - A lot of mistakes were found in the contents. It is currently undergoing thorough editing. Both Arabic and English.
