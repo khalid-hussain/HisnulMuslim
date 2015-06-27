@@ -11,15 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
 import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
+import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
-
-import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
-import com.khalid.hisnulmuslim.model.Dua;
 
 
 public class DuaDetailActivity extends ActionBarActivity
@@ -64,7 +62,7 @@ public class DuaDetailActivity extends ActionBarActivity
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         prefNightMode = sharedPreferences.getBoolean("pref_night_mode", false);
-        menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
+        // menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
         return true;
     }
 
@@ -74,11 +72,11 @@ public class DuaDetailActivity extends ActionBarActivity
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PreferencesActivity.class);
             this.startActivity(intent);
-        } else if (id == R.id.action_night_mode) {
+        } /*else if (id == R.id.action_night_mode) {
             SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
             prefsEditor.putBoolean("pref_night_mode", !item.isChecked()).commit();
             Toast.makeText(this, "NIGHT MODE " + !item.isChecked(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 

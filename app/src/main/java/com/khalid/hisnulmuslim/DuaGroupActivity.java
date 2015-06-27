@@ -18,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
@@ -106,7 +105,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
+        // menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
         return true;
     }
 
@@ -123,13 +122,13 @@ public class DuaGroupActivity extends ActionBarActivity implements
         } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             this.startActivity(intent);
-        } else if (id == R.id.action_night_mode) {
+        } /*else if (id == R.id.action_night_mode) {
             prefNightMode = !item.isChecked();
             SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
             prefsEditor.putBoolean("pref_night_mode", prefNightMode).apply();
             Toast.makeText(this,"NIGHT MODE " + prefNightMode, Toast.LENGTH_SHORT).show();
             themeUi();
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 
