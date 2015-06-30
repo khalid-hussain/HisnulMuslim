@@ -2,6 +2,7 @@ package com.khalid.hisnulmuslim;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
@@ -10,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.khalid.hisnulmuslim.R;
@@ -39,6 +41,7 @@ public class DuaDetailActivity extends ActionBarActivity
         setContentView(R.layout.activity_dua_detail);
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -50,6 +53,11 @@ public class DuaDetailActivity extends ActionBarActivity
         Bundle bundle = intent.getExtras();
         duaIdFromDuaListActivity = bundle.getInt("dua_id");
         setTitle(bundle.getString("dua_title"));
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            mToolbarShadow.setVisibility(View.GONE);
+        }
+
         getSupportLoaderManager().initLoader(0, null, this);
     }
 

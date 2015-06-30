@@ -1,5 +1,6 @@
 package com.khalid.hisnulmuslim;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
@@ -21,6 +23,7 @@ public class AboutActivity extends ActionBarActivity {
         setContentView(R.layout.activity_about);
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -29,6 +32,10 @@ public class AboutActivity extends ActionBarActivity {
         tvAboutUs.setVerticalScrollBarEnabled(true);
         tvAboutUs.setText(Html.fromHtml(getString(R.string.about_us)));
         tvAboutUs.setMovementMethod(LinkMovementMethod.getInstance());
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            mToolbarShadow.setVisibility(View.GONE);
+        }
     }
 
     @Override

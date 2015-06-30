@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
@@ -46,6 +47,7 @@ public class DuaGroupActivity extends ActionBarActivity implements
         
         rootView = findViewById(R.id.root_dua_group);
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -76,6 +78,10 @@ public class DuaGroupActivity extends ActionBarActivity implements
                 startActivity(intent);
             }
         });
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            mToolbarShadow.setVisibility(View.GONE);
+        }
 
         getSupportLoaderManager().initLoader(0, null, this);
     }
