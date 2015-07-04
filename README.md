@@ -8,8 +8,8 @@ Assalamuʻalaikum to all Muslims and greetings to everyone else,
 This repository is about an Android app which would include all the dua from Hisnul Muslim. The aim of this app is to create the
 best Hisnul Muslim app the Play Store has ever seen, in terms of usability and performance.
 
-![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/x1.png)
-![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/x2.png)
+![](http://s25.postimg.org/hsll1qsun/device_2015_07_05_013454.png)
+![](http://s25.postimg.org/ezsdhpsi7/device_2015_07_05_013519.png)
 
 # Requirements
 1. No Ads. The app should be given to the people free of charge with all features accessible.
