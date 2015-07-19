@@ -1,0 +1,35 @@
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:elevation="8dp"
+    android:minHeight="?attr/actionBarSize"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <TextView
+        android:id="@+id/txtReference_duaDetail"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/circle_inverse"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="8dp"
+        android:layout_height="?attr/actionBarSize"/>
+    
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/dua_detail_autofit_actionbar_title"
+        android:text="Testing titles over here with long text"
+        android:textColor="@color/material_actionbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="3" />
+
+</android.support.v7.widget.Toolbar>

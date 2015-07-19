@@ -1,6 +1,7 @@
 package com.khalid.hisnulmuslim.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
@@ -28,7 +30,9 @@ public class DuaDetailAdapter extends BaseAdapter {
     private final float prefOtherFontSize;
     private final String prefArabicFontTypeface;
 
-    public DuaDetailAdapter(Context context, List<Dua> items) {
+    private String myToolbarTitle;
+
+    public DuaDetailAdapter(Context context, List<Dua> items, String toolbarTitle) {
         mInflater = LayoutInflater.from(context);
         mList = items;
 
@@ -49,8 +53,10 @@ public class DuaDetailAdapter extends BaseAdapter {
 
         if (sCachedTypeface == null) {
             sCachedTypeface = Typeface.createFromAsset(
-                context.getAssets(), prefArabicFontTypeface);
+                    context.getAssets(), prefArabicFontTypeface);
         }
+
+        myToolbarTitle = toolbarTitle;
     }
 
     public void setData(List<Dua> items) {
@@ -74,7 +80,7 @@ public class DuaDetailAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         ViewHolder holder;
 
         if (convertView == null) {
@@ -90,11 +96,34 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
             holder.tvDuaTranslation.setTextSize(prefOtherFontSize);
 
-            // holder.tvDuaTranslation = (DocumentView) convertView.findViewById(R.id.txtDuaTranslation);
-            // holder.tvDuaTranslation.getDocumentLayoutParams().setTextSize(prefOtherFontSize);
-
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             holder.tvDuaReference.setTextSize(prefOtherFontSize);
+
+            holder.shareButton = (ImageButton) convertView.findViewById(R.id.button_share);
+            final ViewHolder finalHolder = holder;
+            holder.shareButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View convertView) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_SEND);
+                    intent.putExtra(Intent.EXTRA_TEXT,
+                            myToolbarTitle + "\n\n" +
+                                    finalHolder.tvDuaArabic.getText() + "\n\n" +
+                                    finalHolder.tvDuaTranslation.getText() + "\n\n" +
+                                    finalHolder.tvDuaReference.getText() + "\n\n" +
+                                    convertView.getResources().getString(R.string.action_share_credit)
+                    );
+                    intent.setType("text/plain");
+                    convertView.getContext().startActivity(
+                            Intent.createChooser(
+                                    intent,
+                                    convertView.getResources().getString(R.string.action_share_title)
+                            )
+                    );
+                    /*Toast.makeText(convertView.getContext(),
+                            myToolbarTitle,
+                            Toast.LENGTH_SHORT).show();*/
+                }
+            });
 
             convertView.setTag(holder);
         }
@@ -121,6 +150,6 @@ public class DuaDetailAdapter extends BaseAdapter {
         TextView tvDuaArabic;
         TextView tvDuaReference;
         TextView tvDuaTranslation;
-        // DocumentView tvDuaTranslation;
+        ImageButton shareButton;
     }
 }

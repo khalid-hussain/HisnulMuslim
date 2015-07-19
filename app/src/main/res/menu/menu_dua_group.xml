@@ -12,7 +12,6 @@
 
     <item
         android:id="@+id/action_bookmarks"
-        android:icon="@drawable/ic_action_favorite"
         android:orderInCategory="100"
         android:title="@string/action_bookmarks"
         app:showAsAction="never" />

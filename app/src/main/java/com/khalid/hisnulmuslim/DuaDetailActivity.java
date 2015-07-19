@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
@@ -21,26 +23,30 @@ import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
 
+import me.grantland.widget.AutofitTextView;
 
-public class DuaDetailActivity extends ActionBarActivity
+
+public class DuaDetailActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Dua>> {
     private int duaIdFromDuaListActivity;
+    private String duaTitleFromDuaListActivity;
     private DuaDetailAdapter adapter;
     private ListView listView;
 
-    private int primaryColor;
-    private int primaryNightModeColor;
-    private boolean prefNightMode;
     private SharedPreferences sharedPreferences;
 
     private Toolbar toolbar;
+    private TextView my_toolbar_duaGroup_number;
+    private AutofitTextView my_autofit_toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dua_detail);
 
-        toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        toolbar = (Toolbar) findViewById(R.id.my_detail_action_bar);
+        my_toolbar_duaGroup_number = (TextView) findViewById(R.id.txtReference_duaDetail);
+        my_autofit_toolbar_title = (AutofitTextView) findViewById(R.id.dua_detail_autofit_actionbar_title);
         View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,8 +57,14 @@ public class DuaDetailActivity extends ActionBarActivity
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+
         duaIdFromDuaListActivity = bundle.getInt("dua_id");
-        setTitle(bundle.getString("dua_title"));
+        duaTitleFromDuaListActivity = bundle.getString("dua_title");
+
+        my_toolbar_duaGroup_number.setText(duaIdFromDuaListActivity + "");
+        my_autofit_toolbar_title.setText(duaTitleFromDuaListActivity);
+        setTitle("");
+        Toast.makeText(this, duaTitleFromDuaListActivity, Toast.LENGTH_SHORT).show();
 
         if (Build.VERSION.SDK_INT >= 21) {
             mToolbarShadow.setVisibility(View.GONE);
@@ -69,8 +81,6 @@ public class DuaDetailActivity extends ActionBarActivity
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        prefNightMode = sharedPreferences.getBoolean("pref_night_mode", false);
-        // menu.findItem(R.id.action_night_mode).setChecked(prefNightMode);
         return true;
     }
 
@@ -80,11 +90,7 @@ public class DuaDetailActivity extends ActionBarActivity
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, PreferencesActivity.class);
             this.startActivity(intent);
-        } /*else if (id == R.id.action_night_mode) {
-            SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
-            prefsEditor.putBoolean("pref_night_mode", !item.isChecked()).commit();
-            Toast.makeText(this, "NIGHT MODE " + !item.isChecked(), Toast.LENGTH_SHORT).show();
-        }*/
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -96,7 +102,7 @@ public class DuaDetailActivity extends ActionBarActivity
     @Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
         if (adapter == null) {
-            adapter = new DuaDetailAdapter(this, data);
+            adapter = new DuaDetailAdapter(this, data, duaTitleFromDuaListActivity);
             listView.setAdapter(adapter);
         } else {
             adapter.setData(data);

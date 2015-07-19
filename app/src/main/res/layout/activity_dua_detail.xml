@@ -5,8 +5,8 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/my_action_bar"
-        layout="@layout/toolbar" />
+        android:id="@+id/my_detail_action_bar"
+        layout="@layout/toolbar_dua_detail" />
 
     <FrameLayout
         android:layout_width="match_parent"
