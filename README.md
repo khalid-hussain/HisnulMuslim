@@ -66,7 +66,7 @@ bookmarked.
 - Create a nice landing page under the gh-pages branch.
 
 # Changelog
-4 Sha'baan 1436, 20 July 2015:
+4 Shawwaal 1436, 20 July 2015:
 - Share function added to all dua cards. Simple color press selector applied.
 - Bookmark icon has been added.
 - Bookmarking functionality has yet to be implemented.
