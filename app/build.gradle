@@ -30,7 +30,6 @@ dependencies {
     compile 'com.android.support:cardview-v7:22.2.0'
     compile 'com.android.support:recyclerview-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.joanzapata.android:android-iconify:1.0.9'
     compile 'com.vanniktech:vntnumberpickerpreference:0.1.1-SNAPSHOT'
     compile 'com.vanniktech:vntfontlistpreference:0.1.1-SNAPSHOT'
     compile 'me.grantland:autofittextview:0.2.+'

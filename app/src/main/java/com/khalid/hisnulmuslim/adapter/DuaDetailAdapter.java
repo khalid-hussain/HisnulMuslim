@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.model.Dua;
@@ -31,7 +30,9 @@ public class DuaDetailAdapter extends BaseAdapter {
     private final float prefOtherFontSize;
     private final String prefArabicFontTypeface;
 
-    public DuaDetailAdapter(Context context, List<Dua> items) {
+    private String myToolbarTitle;
+
+    public DuaDetailAdapter(Context context, List<Dua> items, String toolbarTitle) {
         mInflater = LayoutInflater.from(context);
         mList = items;
 
@@ -54,6 +55,8 @@ public class DuaDetailAdapter extends BaseAdapter {
             sCachedTypeface = Typeface.createFromAsset(
                     context.getAssets(), prefArabicFontTypeface);
         }
+
+        myToolbarTitle = toolbarTitle;
     }
 
     public void setData(List<Dua> items) {
@@ -103,7 +106,8 @@ public class DuaDetailAdapter extends BaseAdapter {
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_SEND);
                     intent.putExtra(Intent.EXTRA_TEXT,
-                            finalHolder.tvDuaArabic.getText() + "\n\n" +
+                            myToolbarTitle + "\n\n" +
+                                    finalHolder.tvDuaArabic.getText() + "\n\n" +
                                     finalHolder.tvDuaTranslation.getText() + "\n\n" +
                                     finalHolder.tvDuaReference.getText() + "\n\n" +
                                     convertView.getResources().getString(R.string.action_share_credit)
@@ -115,7 +119,9 @@ public class DuaDetailAdapter extends BaseAdapter {
                                     convertView.getResources().getString(R.string.action_share_title)
                             )
                     );
-                    Toast.makeText(convertView.getContext(), finalHolder.tvDuaTranslation.getText(), Toast.LENGTH_SHORT).show();
+                    /*Toast.makeText(convertView.getContext(),
+                            myToolbarTitle,
+                            Toast.LENGTH_SHORT).show();*/
                 }
             });
 
@@ -144,8 +150,6 @@ public class DuaDetailAdapter extends BaseAdapter {
         TextView tvDuaArabic;
         TextView tvDuaReference;
         TextView tvDuaTranslation;
-
         ImageButton shareButton;
-        // DocumentView tvDuaTranslation;
     }
 }

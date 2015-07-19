@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
@@ -63,6 +64,7 @@ public class DuaDetailActivity extends AppCompatActivity
         my_toolbar_duaGroup_number.setText(duaIdFromDuaListActivity + "");
         my_autofit_toolbar_title.setText(duaTitleFromDuaListActivity);
         setTitle("");
+        Toast.makeText(this, duaTitleFromDuaListActivity, Toast.LENGTH_SHORT).show();
 
         if (Build.VERSION.SDK_INT >= 21) {
             mToolbarShadow.setVisibility(View.GONE);
@@ -100,7 +102,7 @@ public class DuaDetailActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
         if (adapter == null) {
-            adapter = new DuaDetailAdapter(this, data);
+            adapter = new DuaDetailAdapter(this, data, duaTitleFromDuaListActivity);
             listView.setAdapter(adapter);
         } else {
             adapter.setData(data);
