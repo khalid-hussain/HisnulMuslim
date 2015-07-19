@@ -43,16 +43,16 @@
 
                 <ImageButton
                     android:id="@+id/button_share"
-                    android:src="@drawable/ic_share_black_24dp"
-                    android:layout_toLeftOf="@+id/button_star"
-                    android:background="@null"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp" />
+                    android:background="@drawable/action_share_selector"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/button_star"/>
 
                 <ImageButton
                     android:id="@+id/button_star"
-                    android:src="@drawable/ic_star_border_black_24dp"
                     android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_star_black_24dp"
                     android:background="@null"
                     android:layout_width="48dp"
                     android:layout_height="48dp" />
