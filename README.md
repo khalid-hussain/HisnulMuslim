@@ -28,14 +28,15 @@ are not present in Hisnul Muslim. This is after all a Hisnul Muslim app.
 2. Bookmarking function. Users should be allowed to bookmark a certain dua so that they can easily access it later on. Each
 separate dua should have this feature. So, if there are 2 duas for "waking up", then each of them would have the ability to be
 bookmarked.
-3. Users should be able to "share" the dua on social networks (or other apps as well).
+3. ~~Users should be able to "share" the dua on social networks (or other apps as well)~~ DONE.
 4. The app should be optimized for performance.
-5. Night Mode.
+5. ~~Night Mode~~.
 
 # Libraries Used
-- [Amiri Font Project](http://www.amirifont.org/)
 - Android Support Library
-- [TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
+- [VNTFontListPreference](https://github.com/vanniktech/VNTFontListPreference)
+- [VNTNumberPickerPreference](https://github.com/vanniktech/VNTNumberPickerPreference)
+- [AutofitTextview](https://github.com/grantland/android-autofittextview)
 - [Google Material Design Icons](https://github.com/google/material-design-icons)
 
 # Text Sources
@@ -52,7 +53,6 @@ bookmarked.
 - [Moaz Mahdi](https://www.facebook.com/moaaz.mahdi)
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 - [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
-- [Font Awesome CSS Library](http://fortawesome.github.io/Font-Awesome/)
 - [Custom font for TextView](http://www.tutorialspoint.com/android/android_custom_fonts.htm)
 - [ActionBar in Preferences Activity](http://stackoverflow.com/questions/26439139/getactionbar-returns-null-in-preferenceactivity-appcompat-v7-21)
 
@@ -63,8 +63,16 @@ bookmarked.
 	- Add button to each dua to enable bookmarking.
 	- Implement a 'fetch' on the bookmarks activity/fragment depending on the stage the app is at.
 - Add fragments and a viewpager to switch between all du'a and bookmarks (For reference, please see YouTube android app).
+- Create a nice landing page under the gh-pages branch.
 
 # Changelog
+4 Sha'baan 1436, 20 July 2015:
+- Share function added to all dua cards. Simple color press selector applied.
+- Bookmark icon has been added.
+- Bookmarking functionality has yet to be implemented.
+- Removed libraries that were not used or alternatives were found either due to necessity or otherwise.
+- Database has no major issues and is usable to quite a great extent.
+
 11 Ramadan 1436, 28th June 2015:
 - Dua database is about 98% complete. Only the 'Condolence' dua group has issues and that may affect numbering of other groups. The rest of the dua have either incomplete translations, reference(s), mismatching translation and Arabic text due to different sources being used, and editing issues.
 - Night-mode has been removed (temporarily or permanently, it is still unsure).
