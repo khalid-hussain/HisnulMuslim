@@ -43,4 +43,6 @@
     </string>
 
     <string name="bookmarks_none">You have no bookmarks yet.</string>
+    <string name="action_share_title">Share Dua</string>
+    <string name="action_share_credit">via @HisnulMuslimApp</string>
 </resources>
