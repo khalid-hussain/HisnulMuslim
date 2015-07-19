@@ -23,27 +23,40 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="#"
-                    android:textColor="@color/primary_dark_material_light" />
 
                 <TextView
                     android:id="@+id/txtDuaNumber"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
                     android:text="1"
-                    android:textColor="@color/primary_dark_material_light"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
-            </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/button_share"
+                    android:background="@drawable/action_share_selector"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/button_star"/>
+
+                <ImageButton
+                    android:id="@+id/button_star"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_star_black_24dp"
+                    android:background="@null"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp" />
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
