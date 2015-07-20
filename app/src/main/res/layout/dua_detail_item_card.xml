@@ -40,7 +40,18 @@
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
                     android:textSize="18sp" />
-
+                
+                <TextView
+                    android:id="@+id/favText"
+                    android:text="FAV"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/button_share"/>
+                
                 <ImageButton
                     android:id="@+id/button_share"
                     android:background="@drawable/action_share_selector"
@@ -52,7 +63,7 @@
                 <ImageButton
                     android:id="@+id/button_star"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_star_black_24dp"
+                    android:src="@drawable/ic_star_border_black_24dp"
                     android:background="@null"
                     android:layout_width="48dp"
                     android:layout_height="48dp" />

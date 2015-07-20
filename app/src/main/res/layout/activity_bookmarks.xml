@@ -20,7 +20,7 @@
             android:layout_gravity="center">
 
             <IconTextView
-                android:id="@+id/bookmarks_star"
+                android:id="@+id/fav_star"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerInParent="true"
@@ -35,7 +35,7 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="@string/bookmarks_none"
-                android:layout_below="@id/bookmarks_star"
+                android:layout_below="@id/fav_star"
                 android:textColor="#E9E9E9"
                 android:textSize="15dp" />
 

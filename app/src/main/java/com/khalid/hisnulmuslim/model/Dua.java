@@ -1,6 +1,7 @@
 package com.khalid.hisnulmuslim.model;
 
 public class Dua {
+    private boolean fav;
     private String title;
     private String arabic;
     private String translation;
@@ -9,6 +10,14 @@ public class Dua {
     private String book_reference;
 
     private String group;
+
+    public Dua (int reference, boolean fav, String arabic, String translation, String book_reference){
+        this.reference = reference;
+        this.arabic = arabic;
+        this.translation = translation;
+        this.book_reference = book_reference;
+        this.fav = fav;
+    }
 
     public Dua (int reference, String arabic, String translation, String book_reference){
         this.reference = reference;
@@ -31,6 +40,10 @@ public class Dua {
     public int getReference() {
         return reference;
     }
+
+    public boolean getFav() {return fav;}
+
+    public void setFav(boolean fav) {this.fav = fav;}
 
     public void setReference(int reference) {
         this.reference = reference;
