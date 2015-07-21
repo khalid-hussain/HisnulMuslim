@@ -3,7 +3,6 @@ package com.khalid.hisnulmuslim.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.text.Html;
@@ -91,7 +90,7 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
 
             holder.favButton = (ImageButton) convertView.findViewById(R.id.fav_star);
-            holder.favText = (TextView) convertView.findViewById(R.id.favText);
+            //holder.favText = (IconicsTextView) convertView.findViewById(R.id.favText);
 
             holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
             holder.tvDuaArabic.setTypeface(sCachedTypeface);
@@ -138,17 +137,15 @@ public class DuaDetailAdapter extends BaseAdapter {
             final Spannable translation = new SpannableString(p.getTranslation());
             holder.tvDuaTranslation.setText(translation);
 
-            if (p.getBook_reference() != null){
+            if (p.getBook_reference() != null)
                 holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
-                holder.tvDuaReference.setTextColor(Color.RED);}
             else
                 holder.tvDuaReference.setText("null");
 
-            if (!p.getFav()){
+            if (p.getFav() != null) {
                 /*holder.favButton.setImageResource(R.drawable.ic_star_black_24dp);
                 holder.favButton.invalidate();*/
-                holder.favText.setText("" + p.getFav());
-                holder.favText.setTextColor(Color.RED);
+                //holder.favText.setTextColor(Color.RED);
             }
         }
         return convertView;
@@ -162,6 +159,6 @@ public class DuaDetailAdapter extends BaseAdapter {
         ImageButton shareButton;
         ImageButton favButton;
 
-        TextView favText;
+        //IconicsTextView favText;
     }
 }

@@ -38,35 +38,42 @@
                     android:paddingTop="5dp"
                     android:text="1"
                     android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
-                
-                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!--com.mikepenz.iconics.view.IconicsTextView
                     android:id="@+id/favText"
-                    android:text="FAV"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:text="{faw_adjust}"
+                    android:textColor="@android:color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_toLeftOf="@+id/button_share"/>
-                
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_toLeftOf="@+id/button_share"/-->
+
+                <com.mikepenz.iconics.view.IconicsButton
+                    android:layout_width="24dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/button_share"
+                    android:text="{faw-adjust}" />
+
                 <ImageButton
                     android:id="@+id/button_share"
-                    android:background="@drawable/action_share_selector"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/button_star"/>
+                    android:layout_toLeftOf="@+id/button_star"
+                    android:background="@drawable/action_share_selector" />
 
                 <ImageButton
                     android:id="@+id/button_star"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_star_border_black_24dp"
-                    android:background="@null"
                     android:layout_width="48dp"
-                    android:layout_height="48dp" />
+                    android:layout_height="48dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:src="@drawable/ic_star_border_black_24dp" />
             </RelativeLayout>
 
             <View
@@ -81,8 +88,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="15dp"
-                android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:textColor="@color/primary_dark_material_light"
                 android:textSize="24sp" />
 
