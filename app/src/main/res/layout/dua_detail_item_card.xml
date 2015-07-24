@@ -48,7 +48,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/button_star"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:text="{gmd-favorite-border}"
+                    android:text="{gmd-share}"
                     android:textAllCaps="false"
                     android:textColor="@color/primary_dark_material_light"
                     android:textSize="24sp" />
