@@ -41,16 +41,6 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <!--com.mikepenz.iconics.view.IconicsTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:layout_toLeftOf="@+id/button_share"
-                    android:text="{gmd-favorite-border}  {faw-adjust}  {faw-share-alt}"
-                    android:textAllCaps="false"
-                    android:textColor="@color/primary_dark_material_light"
-                    android:textSize="16sp" /-->
-
                 <com.mikepenz.iconics.view.IconicsButton
                     android:id="@+id/button_share"
                     android:layout_width="48dp"
@@ -58,7 +48,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/button_star"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:text="{gmd-favorite-outline}"
+                    android:text="{gmd-favorite-border}"
                     android:textAllCaps="false"
                     android:textColor="@color/primary_dark_material_light"
                     android:textSize="24sp" />
