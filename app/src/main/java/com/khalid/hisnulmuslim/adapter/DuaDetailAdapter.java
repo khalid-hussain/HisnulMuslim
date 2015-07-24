@@ -12,11 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.model.Dua;
+import com.mikepenz.iconics.view.IconicsButton;
 
 import java.util.List;
 
@@ -89,9 +89,6 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
 
-            holder.favButton = (ImageButton) convertView.findViewById(R.id.fav_star);
-            //holder.favText = (IconicsTextView) convertView.findViewById(R.id.favText);
-
             holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
             holder.tvDuaArabic.setTypeface(sCachedTypeface);
             holder.tvDuaArabic.setTextSize(prefArabicFontSize);
@@ -102,7 +99,9 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             holder.tvDuaReference.setTextSize(prefOtherFontSize);
 
-            holder.shareButton = (ImageButton) convertView.findViewById(R.id.button_share);
+            holder.shareButton = (IconicsButton) convertView.findViewById(R.id.button_share);
+            holder.favButton = (IconicsButton) convertView.findViewById(R.id.button_star);
+
             final ViewHolder finalHolder = holder;
             holder.shareButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View convertView) {
@@ -143,9 +142,7 @@ public class DuaDetailAdapter extends BaseAdapter {
                 holder.tvDuaReference.setText("null");
 
             if (p.getFav() != null) {
-                /*holder.favButton.setImageResource(R.drawable.ic_star_black_24dp);
-                holder.favButton.invalidate();*/
-                //holder.favText.setTextColor(Color.RED);
+                holder.favButton.setText("{faw-star}");
             }
         }
         return convertView;
@@ -156,9 +153,7 @@ public class DuaDetailAdapter extends BaseAdapter {
         TextView tvDuaArabic;
         TextView tvDuaReference;
         TextView tvDuaTranslation;
-        ImageButton shareButton;
-        ImageButton favButton;
-
-        //IconicsTextView favText;
+        IconicsButton shareButton;
+        IconicsButton favButton;
     }
 }

@@ -43,4 +43,8 @@
     <string name="bookmarks_none">You have no bookmarks yet.</string>
     <string name="action_share_title">Share Dua</string>
     <string name="action_share_credit">via @HisnulMuslimApp</string>
+
+    <string name="button_share_icon"></string>
+    <string name="button_fav_icon">{faw-star}</string>
+    <string name="button_fav_icon_no">{faw-star-o}</string>
 </resources>

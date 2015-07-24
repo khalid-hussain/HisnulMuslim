@@ -55,6 +55,7 @@ bookmarked.
 - [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
 - [Custom font for TextView](http://www.tutorialspoint.com/android/android_custom_fonts.htm)
 - [ActionBar in Preferences Activity](http://stackoverflow.com/questions/26439139/getactionbar-returns-null-in-preferenceactivity-appcompat-v7-21)
+- [Tips and Tricks for Android Material Support Library](http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/)
 
 # To Do
 - Sort out the contents, there is a lot of problem with the Arabic vowels and sometimes the translations.
