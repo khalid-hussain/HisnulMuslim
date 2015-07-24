@@ -38,24 +38,31 @@
                     android:paddingTop="5dp"
                     android:text="1"
                     android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <ImageButton
+                <com.mikepenz.iconics.view.IconicsButton
                     android:id="@+id/button_share"
-                    android:background="@drawable/action_share_selector"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/button_star"/>
-
-                <ImageButton
-                    android:id="@+id/button_star"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_star_black_24dp"
-                    android:background="@null"
                     android:layout_width="48dp"
-                    android:layout_height="48dp" />
+                    android:layout_height="48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/button_star"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:text="{gmd-share}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary_dark_material_light"
+                    android:textSize="24sp" />
+
+                <com.mikepenz.iconics.view.IconicsButton
+                    android:id="@+id/button_star"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:text="{faw-star-o}"
+                    android:textColor="@color/primary_dark_material_light"
+                    android:textSize="24sp" />
             </RelativeLayout>
 
             <View
@@ -70,8 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="15dp"
-                android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:textColor="@color/primary_dark_material_light"
                 android:textSize="24sp" />
 
@@ -91,20 +98,6 @@
                 android:text="Dua Reference"
                 android:textColor="@color/primary_dark_material_light"
                 android:textSize="16sp" />
-
-            <!--com.bluejamesbond.text.DocumentView xmlns:ext="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/txtDuaTranslation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                ext:documentView_antialias="true"
-                ext:documentView_insetPaddingBottom="10dp"
-                ext:documentView_insetPaddingTop="10dp"
-                ext:documentView_textAlignment="justified"
-                ext:documentView_textColor="@color/primary_dark_material_light"
-                ext:documentView_textFormat="formatted"
-                ext:documentView_cacheConfig="auto_quality"
-                ext:documentView_hyphen="-"
-                ext:documentView_textSize="16sp" /-->
 
             <View
                 android:layout_width="match_parent"

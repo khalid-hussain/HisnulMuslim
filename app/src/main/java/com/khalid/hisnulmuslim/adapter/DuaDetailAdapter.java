@@ -12,11 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.model.Dua;
+import com.mikepenz.iconics.view.IconicsButton;
 
 import java.util.List;
 
@@ -99,7 +99,9 @@ public class DuaDetailAdapter extends BaseAdapter {
             holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
             holder.tvDuaReference.setTextSize(prefOtherFontSize);
 
-            holder.shareButton = (ImageButton) convertView.findViewById(R.id.button_share);
+            holder.shareButton = (IconicsButton) convertView.findViewById(R.id.button_share);
+            holder.favButton = (IconicsButton) convertView.findViewById(R.id.button_star);
+
             final ViewHolder finalHolder = holder;
             holder.shareButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View convertView) {
@@ -119,9 +121,6 @@ public class DuaDetailAdapter extends BaseAdapter {
                                     convertView.getResources().getString(R.string.action_share_title)
                             )
                     );
-                    /*Toast.makeText(convertView.getContext(),
-                            myToolbarTitle,
-                            Toast.LENGTH_SHORT).show();*/
                 }
             });
 
@@ -141,6 +140,10 @@ public class DuaDetailAdapter extends BaseAdapter {
                 holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
             else
                 holder.tvDuaReference.setText("null");
+
+            if (p.getFav() != null) {
+                holder.favButton.setText("{faw-star}");
+            }
         }
         return convertView;
     }
@@ -150,6 +153,7 @@ public class DuaDetailAdapter extends BaseAdapter {
         TextView tvDuaArabic;
         TextView tvDuaReference;
         TextView tvDuaTranslation;
-        ImageButton shareButton;
+        IconicsButton shareButton;
+        IconicsButton favButton;
     }
 }
