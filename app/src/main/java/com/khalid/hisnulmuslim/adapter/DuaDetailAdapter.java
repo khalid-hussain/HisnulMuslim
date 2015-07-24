@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.model.Dua;
@@ -123,6 +124,16 @@ public class DuaDetailAdapter extends BaseAdapter {
                     );
                 }
             });
+
+            final View finalConvertView = convertView;
+            holder.favButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View ConvertView) {
+                    Toast.makeText(finalConvertView.getContext().getApplicationContext(),
+                            finalHolder.tvDuaNumber.getText().toString(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
 
             convertView.setTag(holder);
         }
