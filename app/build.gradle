@@ -34,5 +34,4 @@ dependencies {
     compile 'com.vanniktech:vntnumberpickerpreference:0.1.1-SNAPSHOT'
     compile 'com.vanniktech:vntfontlistpreference:0.1.1-SNAPSHOT'
     compile 'me.grantland:autofittextview:0.2.+'
-
 }
