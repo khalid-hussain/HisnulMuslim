@@ -1,8 +1,10 @@
 package com.khalid.hisnulmuslim.adapter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.text.Html;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
+import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 import com.khalid.hisnulmuslim.model.Dua;
 import com.mikepenz.iconics.view.IconicsButton;
 
@@ -30,6 +34,10 @@ public class DuaDetailAdapter extends BaseAdapter {
     private final float prefArabicFontSize;
     private final float prefOtherFontSize;
     private final String prefArabicFontTypeface;
+
+    private int isFav;
+
+    ExternalDbOpenHelper mDbHelper;
 
     private String myToolbarTitle;
 
@@ -128,13 +136,50 @@ public class DuaDetailAdapter extends BaseAdapter {
             final View finalConvertView = convertView;
             holder.favButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View ConvertView) {
+                    /*Toast.makeText(finalConvertView.getContext().getApplicationContext(),
+                            finalHolder.favButton.getText().toString(),
+                            Toast.LENGTH_SHORT).show();
+
+                    if (finalHolder.favButton.getText() == "{faw-star}") {
+                        isFav = 0;
+                    } else {
+                        isFav = 1;
+                    }*/
+
+                    // Following snippet taken from:
+                    // http://developer.android.com/training/basics/data-storage/databases.html#UpdateDbRow
+                    mDbHelper = new ExternalDbOpenHelper(finalConvertView.getContext().getApplicationContext());
+
+                    SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+                    // New value for one column
+                    ContentValues values = new ContentValues();
+                    values.put(HisnDatabaseInfo.DuaTable.FAV, isFav);
+
+                    // Which row to update, based on the ID
+                    //String selection = FeedEntry.COLUMN_NAME_ENTRY_ID + " LIKE ?";
+                    String selection = HisnDatabaseInfo.DuaTable.DUA_ID + " LIKE ?";
+                    String[] selectionArgs = {String.valueOf(finalHolder.tvDuaNumber.getText().toString())};
+
+                    int count = db.update(
+                            HisnDatabaseInfo.DuaTable.TABLE_NAME,
+                            values,
+                            selection,
+                            selectionArgs);
+
+                    if (count == 1) {
+                        if (isFav == 1)
+                            finalHolder.favButton.setText("{faw-star}");
+                        if (isFav == 0)
+                            finalHolder.favButton.setText("{faw-star-o}");
+                    }
+
                     Toast.makeText(finalConvertView.getContext().getApplicationContext(),
-                            finalHolder.tvDuaNumber.getText().toString(),
+                            //finalHolder.tvDuaNumber.getText().toString(),
+                            "valueIntoDb: " + isFav + "\nResult: " + count,
                             Toast.LENGTH_SHORT).show();
                 }
             });
-
-
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
@@ -153,7 +198,10 @@ public class DuaDetailAdapter extends BaseAdapter {
                 holder.tvDuaReference.setText("null");
 
             if (p.getFav() != null) {
-                holder.favButton.setText("{faw-star}");
+                if (isFav == 0)
+                    holder.favButton.setText("{faw-star}");
+                else
+                    holder.favButton.setText("{faw-star-o}");
             }
         }
         return convertView;
