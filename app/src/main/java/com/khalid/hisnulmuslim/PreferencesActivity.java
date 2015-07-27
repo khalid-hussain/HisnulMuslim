@@ -1,10 +1,12 @@
 package com.khalid.hisnulmuslim;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.khalid.hisnulmuslim.R;
 
@@ -19,6 +21,7 @@ public class PreferencesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_preferences );
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
+        View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -26,6 +29,10 @@ public class PreferencesActivity extends ActionBarActivity {
         getFragmentManager().beginTransaction()
                 .replace(R.id.content_view, new SettingsFragment())
                 .commit();
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            mToolbarShadow.setVisibility(View.GONE);
+        }
     }
 
     public static class SettingsFragment extends PreferenceFragment {

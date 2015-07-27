@@ -10,10 +10,10 @@
     <integer name="pref_font_arabic_size_min">20</integer>
 
     <string name="pref_font_arabic_typeface">pref_font_arabic_typeface</string>
-    <string name="pref_font_directory">fonts</string>
+    <string name="pref_font_directory">fonts_2</string>
     <string name="pref_font_arabic_typeface_title">Arabic Font</string>
     <string name="pref_font_arabic_typeface_summary">Font used for Arabic dua\'</string>
-    <string name="pref_font_arabic_typeface_default">fonts/UthmanTN1 Ver09.otf</string>
+    <string name="pref_font_arabic_typeface_default">fonts_2/UthmanTN1 Ver09.otf</string>
     <string name="pref_font_arabic_typeface_preview">بِسْمِ اللهِ</string>
 
     <string name="pref_font_other_size">pref_font_other_size</string>

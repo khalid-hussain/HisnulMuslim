@@ -8,8 +8,8 @@ Assalamuʻalaikum to all Muslims and greetings to everyone else,
 This repository is about an Android app which would include all the dua from Hisnul Muslim. The aim of this app is to create the
 best Hisnul Muslim app the Play Store has ever seen, in terms of usability and performance.
 
-![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/x1.png)
-![](https://raw.githubusercontent.com/khalid-hussain/HisnulMuslim/master/images/x2.png)
+![](http://s25.postimg.org/hsll1qsun/device_2015_07_05_013454.png)
+![](http://s25.postimg.org/ezsdhpsi7/device_2015_07_05_013519.png)
 
 # Requirements
 1. No Ads. The app should be given to the people free of charge with all features accessible.
@@ -28,15 +28,21 @@ are not present in Hisnul Muslim. This is after all a Hisnul Muslim app.
 2. Bookmarking function. Users should be allowed to bookmark a certain dua so that they can easily access it later on. Each
 separate dua should have this feature. So, if there are 2 duas for "waking up", then each of them would have the ability to be
 bookmarked.
-3. Users should be able to "share" the dua on social networks (or other apps as well).
+3. ~~Users should be able to "share" the dua on social networks (or other apps as well)~~ DONE.
 4. The app should be optimized for performance.
-5. Night Mode.
+5. ~~Night Mode~~.
 
 # Libraries Used
-- [Amiri Font Project](http://www.amirifont.org/)
 - Android Support Library
-- [TextJustify-Android](https://github.com/bluejamesbond/TextJustify-Android)
+- [VNTFontListPreference](https://github.com/vanniktech/VNTFontListPreference)
+- [VNTNumberPickerPreference](https://github.com/vanniktech/VNTNumberPickerPreference)
+- [AutofitTextview](https://github.com/grantland/android-autofittextview)
 - [Google Material Design Icons](https://github.com/google/material-design-icons)
+
+# Text Sources
+- [Sharĥ Ĥiŝn al-Muslim](http://www.muslim-library.com/dl/books/arabic_sharh_hisn_almuslim_min_adhkar_alkitab_wa_alsunnah.pdf)
+- [HisnulMuslim.Com](http://www.hisnulmuslim.com/index-page-liste-lang-en.html)
+	- However, a LOT of edits were made since a lot of the times, the tashkîl was incorrect or the English had formatting mistakes.
 
 # Credits
 - [Ahmed El-Helw](http://twitter.com/ahmedre)
@@ -44,11 +50,12 @@ bookmarked.
 - [Azhar Ali](https://www.linkedin.com/pub/md-azhar-ali/90/251/140)
 - [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
 - [Hussaini Zulkifli](https://twitter.com/HussainiZul)
+- [Moaz Mahdi](https://www.facebook.com/moaaz.mahdi)
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 - [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
-- [Font Awesome CSS Library](http://fortawesome.github.io/Font-Awesome/)
 - [Custom font for TextView](http://www.tutorialspoint.com/android/android_custom_fonts.htm)
 - [ActionBar in Preferences Activity](http://stackoverflow.com/questions/26439139/getactionbar-returns-null-in-preferenceactivity-appcompat-v7-21)
+- [Tips and Tricks for Android Material Support Library](http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/)
 
 # To Do
 - Sort out the contents, there is a lot of problem with the Arabic vowels and sometimes the translations.
@@ -57,8 +64,22 @@ bookmarked.
 	- Add button to each dua to enable bookmarking.
 	- Implement a 'fetch' on the bookmarks activity/fragment depending on the stage the app is at.
 - Add fragments and a viewpager to switch between all du'a and bookmarks (For reference, please see YouTube android app).
+- Create a nice landing page under the gh-pages branch.
 
 # Changelog
+4 Shawwaal 1436, 20 July 2015:
+- Share function added to all dua cards. Simple color press selector applied.
+- Bookmark icon has been added.
+- Bookmarking functionality has yet to be implemented.
+- Removed libraries that were not used or alternatives were found either due to necessity or otherwise.
+- Database has no major issues and is usable to quite a great extent.
+
+11 Ramadan 1436, 28th June 2015:
+- Dua database is about 98% complete. Only the 'Condolence' dua group has issues and that may affect numbering of other groups. The rest of the dua have either incomplete translations, reference(s), mismatching translation and Arabic text due to different sources being used, and editing issues.
+- Night-mode has been removed (temporarily or permanently, it is still unsure).
+- Work should mostly now shift to adding Bookmarks function and a ViewPager like the YouTube app.
+- README.md updated with Text sources used.
+
 12th February 2015:
 - App has a new icon.
 - A lot of mistakes were found in the contents. It is currently undergoing thorough editing. Both Arabic and English.

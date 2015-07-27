@@ -26,6 +26,7 @@ public class DuaDetailsLoader extends AbstractQueryLoader<List<Dua>> {
             final SQLiteDatabase database = mDbHelper.getDb();
             duaDetailCursor = database.query(HisnDatabaseInfo.DuaTable.TABLE_NAME,
                     new String[]{HisnDatabaseInfo.DuaTable._ID,
+                            HisnDatabaseInfo.DuaTable.FAV,
                             HisnDatabaseInfo.DuaTable.ARABIC_DUA,
                             HisnDatabaseInfo.DuaTable.ENGLISH_TRANSLATION,
                             HisnDatabaseInfo.DuaTable.ENGLISH_REFERENCE},
@@ -35,10 +36,11 @@ public class DuaDetailsLoader extends AbstractQueryLoader<List<Dua>> {
             if (duaDetailCursor != null && duaDetailCursor.moveToFirst()) {
                 do {
                     int reference = Integer.parseInt(duaDetailCursor.getString(0));
-                    String arabic = duaDetailCursor.getString(1);
-                    String translation = duaDetailCursor.getString(2);
-                    String book_reference = duaDetailCursor.getString(3);
-                    results.add(new Dua(reference, arabic, translation, book_reference));
+                    String fav = duaDetailCursor.getString(1);
+                    String arabic = duaDetailCursor.getString(2);
+                    String translation = duaDetailCursor.getString(3);
+                    String book_reference = duaDetailCursor.getString(4);
+                    results.add(new Dua(reference, fav, arabic, translation, book_reference));
                 } while (duaDetailCursor.moveToNext());
             }
         } finally {

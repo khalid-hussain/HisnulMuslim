@@ -12,7 +12,6 @@
 
     <item
         android:id="@+id/action_bookmarks"
-        android:icon="@drawable/ic_action_favorite"
         android:orderInCategory="100"
         android:title="@string/action_bookmarks"
         app:showAsAction="never" />
@@ -30,10 +29,10 @@
         android:title="@string/action_about"
         app:showAsAction="never" />
 
-    <item
+    <!--item
         android:id="@+id/action_night_mode"
         android:title="@string/action_night_mode"
         android:checkable="true"
         android:checked="false"
-        app:showAsAction="never" />
+        app:showAsAction="never" /-->
 </menu>

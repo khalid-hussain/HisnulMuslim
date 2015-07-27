@@ -30,9 +30,7 @@
             <br/><br/>
 
             <big><b>OpenSource Projects</b></big><br/>
-            TextJustify-Android (<a href="https://github.com/bluejamesbond/TextJustify-Android">GitHub</a>)<br/>
-            FontAwesome CSS Library (<a href="http://fortawesome.github.io/Font-Awesome">GitHub</a>)<br/>
-            Amiri Font (<a href="http://www.amirifont.org"/>Website</a>)<br/>
+            AutoFitTextView (<a href="https://github.com/grantland/android-autofittextview">GitHub</a>)<br/>
             VNTNumberPicker Preference (<a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub</a>)<br/>
             VNTFontList Preference (<a href="https://github.com/vanniktech/VNTFontListPreference"/>GitHub</a>)
             <br/><br/>
@@ -41,4 +39,12 @@
             Ahmad Sabree (<a href="https://twitter.com/sabree01">@sabree01</a>)<br/>
         ]]>
     </string>
+
+    <string name="bookmarks_none">You have no bookmarks yet.</string>
+    <string name="action_share_title">Share Dua</string>
+    <string name="action_share_credit">via @HisnulMuslimApp</string>
+
+    <string name="button_share_icon"></string>
+    <string name="button_fav_icon">{faw-star}</string>
+    <string name="button_fav_icon_no">{faw-star-o}</string>
 </resources>

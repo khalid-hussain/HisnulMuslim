@@ -5,18 +5,30 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/my_action_bar"
-        layout="@layout/toolbar" />
+        android:id="@+id/my_detail_action_bar"
+        layout="@layout/toolbar_dua_detail" />
 
-    <ListView
-        android:id="@+id/duaDetailListView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:divider="@null"
-        android:footerDividersEnabled="true"
-        android:headerDividersEnabled="true"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:scrollbarStyle="outsideOverlay" />
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/duaDetailListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:scrollbarStyle="outsideOverlay" />
+
+        <View
+            android:id="@+id/view_toolbar_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_shadow" />
+    </FrameLayout>
+
 </LinearLayout>

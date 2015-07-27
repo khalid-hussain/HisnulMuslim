@@ -1,20 +1,47 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
+    android:orientation="vertical"
     tools:context="com.khalid.hisnulmuslim.BookmarksActivity">
 
     <include
         android:id="@+id/my_action_bar"
         layout="@layout/toolbar" />
 
-    <IconTextView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/my_action_bar"
-        android:text="{fa-star-o}"
-        android:textColor="#E9E9E9"
-        android:textSize="90dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <com.mikepenz.iconics.view.IconicsTextView
+                android:id="@+id/fav_star"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:text="{fon-test2}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/bookmarks_none"
+                android:layout_below="@id/fav_star"
+                android:textColor="#E9E9E9"
+                android:textSize="15dp" />
+
+            <View
+                android:id="@+id/view_toolbar_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/toolbar_shadow" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>
