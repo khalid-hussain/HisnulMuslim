@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,6 @@ public class DuaDetailAdapter extends BaseAdapter {
     private final float prefArabicFontSize;
     private final float prefOtherFontSize;
     private final String prefArabicFontTypeface;
-
-    private int isFav;
 
     ExternalDbOpenHelper mDbHelper;
 
@@ -133,9 +132,35 @@ public class DuaDetailAdapter extends BaseAdapter {
                 }
             });
 
+            final Dua p = getItem(position);
+            if (p != null) {
+                holder.tvDuaNumber.setText("" + p.getReference());
+                holder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
+
+                final Spannable translation = new SpannableString(p.getTranslation());
+                holder.tvDuaTranslation.setText(translation);
+
+                if (p.getBook_reference() != null)
+                    holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
+                else
+                    holder.tvDuaReference.setText("null");
+
+                if (p.getFav()) {
+                    holder.favButton.setText("{faw-star}");
+                }
+                else {
+                    holder.favButton.setText("{faw-star-o}");
+                }
+
+                Log.d("DuaDetailAdapter", "getFav");
+                Log.d("DuaDetailAdapter", "asdasds");
+                Log.d("DuaDetailAdapter", Boolean.toString(p.getFav()));
+            }
             final View finalConvertView = convertView;
             holder.favButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View ConvertView) {
+                    boolean isFav = !p.getFav();
+
                     /*Toast.makeText(finalConvertView.getContext().getApplicationContext(),
                             finalHolder.favButton.getText().toString(),
                             Toast.LENGTH_SHORT).show();
@@ -168,42 +193,25 @@ public class DuaDetailAdapter extends BaseAdapter {
                             selectionArgs);
 
                     if (count == 1) {
-                        if (isFav == 1)
+                        if (isFav) {
                             finalHolder.favButton.setText("{faw-star}");
-                        if (isFav == 0)
+                        }
+                        else {
                             finalHolder.favButton.setText("{faw-star-o}");
+                        }
+                        p.setFav(isFav);
                     }
 
-                    Toast.makeText(finalConvertView.getContext().getApplicationContext(),
-                            //finalHolder.tvDuaNumber.getText().toString(),
-                            "valueIntoDb: " + isFav + "\nResult: " + count,
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(finalConvertView.getContext().getApplicationContext(),
+//                            //finalHolder.tvDuaNumber.getText().toString(),
+//                            "valueIntoDb: " + isFav + "\nResult: " + count,
+//                            Toast.LENGTH_SHORT).show();
                 }
             });
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
 
-        Dua p = getItem(position);
-        if (p != null) {
-            holder.tvDuaNumber.setText("" + p.getReference());
-            holder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
-
-            final Spannable translation = new SpannableString(p.getTranslation());
-            holder.tvDuaTranslation.setText(translation);
-
-            if (p.getBook_reference() != null)
-                holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
-            else
-                holder.tvDuaReference.setText("null");
-
-            if (p.getFav() != null) {
-                if (isFav == 0)
-                    holder.favButton.setText("{faw-star}");
-                else
-                    holder.favButton.setText("{faw-star-o}");
-            }
-        }
         return convertView;
     }
 
