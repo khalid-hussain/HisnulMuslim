@@ -19,13 +19,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center">
 
-            <com.mikepenz.iconics.view.IconicsTextView
-                android:id="@+id/fav_star"
+            <ListView
                 android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                android:text="{fon-test2}"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                android:id="@+id/listViewBookmark"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -33,7 +31,6 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="@string/bookmarks_none"
-                android:layout_below="@id/fav_star"
                 android:textColor="#E9E9E9"
                 android:textSize="15dp" />
 

@@ -36,7 +36,7 @@ public class DuaDetailsLoader extends AbstractQueryLoader<List<Dua>> {
             if (duaDetailCursor != null && duaDetailCursor.moveToFirst()) {
                 do {
                     int reference = Integer.parseInt(duaDetailCursor.getString(0));
-                    String fav = duaDetailCursor.getString(1);
+                    boolean fav = duaDetailCursor.getInt(1) == 1;
                     String arabic = duaDetailCursor.getString(2);
                     String translation = duaDetailCursor.getString(3);
                     String book_reference = duaDetailCursor.getString(4);
