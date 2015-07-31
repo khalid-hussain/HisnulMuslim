@@ -39,7 +39,7 @@
                 android:value="com.khalid.hisnulmuslim.DuaGroupActivity" />
         </activity>
         <activity
-            android:name="com.khalid.hisnulmuslim.BookmarksActivity"
+            android:name="com.khalid.hisnulmuslim.BookmarksGroupActivity"
             android:label="@string/title_activity_bookmarks"
             android:parentActivityName="com.khalid.hisnulmuslim.DuaGroupActivity">
             <meta-data

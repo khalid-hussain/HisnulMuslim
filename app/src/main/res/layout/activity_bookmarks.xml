@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#fafafa"
     android:orientation="vertical"
-    tools:context="com.khalid.hisnulmuslim.BookmarksActivity">
+    tools:context="com.khalid.hisnulmuslim.BookmarksGroupActivity">
 
     <include
         android:id="@+id/my_action_bar"
