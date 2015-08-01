@@ -15,7 +15,7 @@ import android.widget.ListView;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.BookmarksGroupAdapter;
-import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
+import com.khalid.hisnulmuslim.loader.BookmarkGroupLoader;
 import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
@@ -89,7 +89,7 @@ public class BookmarksGroupActivity extends AppCompatActivity implements
 
     @Override
     public Loader<List<Dua>> onCreateLoader(int id, Bundle args) {
-        return new DuaGroupLoader(this);
+        return new BookmarkGroupLoader(this);
     }
 
     @Override
