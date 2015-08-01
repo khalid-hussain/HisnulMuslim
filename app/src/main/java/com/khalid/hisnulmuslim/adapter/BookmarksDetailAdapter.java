@@ -4,9 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -148,8 +150,7 @@ public class BookmarksDetailAdapter extends BaseAdapter {
 
                 if (p.getFav()) {
                     holder.favButton.setText("{faw-star}");
-                }
-                else {
+                } else {
                     holder.favButton.setText("{faw-star-o}");
                 }
             }
@@ -157,6 +158,10 @@ public class BookmarksDetailAdapter extends BaseAdapter {
             holder.favButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View ConvertView) {
                     boolean isFav = !p.getFav();
+
+                    Resources resources = ConvertView.getResources();
+                    String snack_begin = resources.getString(R.string.snackbar_text_begin);
+                    String snack_end = resources.getString(R.string.snackbar_text_end);
 
                     // Following snippet taken from:
                     // http://developer.android.com/training/basics/data-storage/databases.html#UpdateDbRow
@@ -181,9 +186,13 @@ public class BookmarksDetailAdapter extends BaseAdapter {
                     if (count == 1) {
                         if (isFav) {
                             finalHolder.favButton.setText("{faw-star}");
-                        }
-                        else {
+                        } else {
                             finalHolder.favButton.setText("{faw-star-o}");
+                            Snackbar.make(finalConvertView,
+                                    snack_begin + p.getReference() + snack_end,
+                                    Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null)
+                                    .show();
                         }
                         p.setFav(isFav);
                     }
