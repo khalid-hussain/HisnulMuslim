@@ -1,43 +1,43 @@
 package com.khalid.hisnulmuslim;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.khalid.hisnulmuslim.R;
-import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
+import com.khalid.hisnulmuslim.adapter.BookmarksGroupAdapter;
 import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
 
 
-public class BookmarksGroupActivity extends AppCompatActivity {
-    private DuaGroupAdapter mAdapter;
+public class BookmarksGroupActivity extends AppCompatActivity implements
+        LoaderManager.LoaderCallbacks<List<Dua>> {
+    private BookmarksGroupAdapter mAdapter;
     private ListView mListView;
     private Toolbar toolbar;
-    private View rootView;
+    //private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmarks_group);
 
-        rootView = findViewById(R.id.root_dua_group);
+        //rootView = findViewById(R.id.root_dua_group);
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
 
         mListView = (ListView) findViewById(R.id.bookmarksDuaListView);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -54,7 +54,7 @@ public class BookmarksGroupActivity extends AppCompatActivity {
 
                 startActivity(intent);
             }
-        });
+        });*/
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         setSupportActionBar(toolbar);
@@ -63,6 +63,8 @@ public class BookmarksGroupActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             mToolbarShadow.setVisibility(View.GONE);
         }
+
+        getSupportLoaderManager().initLoader(0, null, this);
     }
 
     @Override
@@ -93,8 +95,7 @@ public class BookmarksGroupActivity extends AppCompatActivity {
     //@Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
         if (mAdapter == null) {
-            //mAdapter = new DuaGroupAdapter(this, data, prefNightMode);
-            mAdapter = new DuaGroupAdapter(this,data);
+            mAdapter = new BookmarksGroupAdapter(this, data);
             mListView.setAdapter(mAdapter);
         } else {
             mAdapter.setData(data);
