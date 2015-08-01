@@ -25,10 +25,4 @@
             vntnumberpickerpreference:maxValue="@integer/pref_font_other_size_max"
             vntnumberpickerpreference:minValue="@integer/pref_font_other_size_min" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_display">
-        <CheckBoxPreference
-            android:key="@string/pref_night_mode"
-            android:summary="@string/pref_night_mode_summary"
-            android:title="@string/pref_night_mode_title" />
-    </PreferenceCategory>
 </PreferenceScreen>

@@ -23,14 +23,6 @@ public class BookmarkGroupLoader extends AbstractQueryLoader<List<Dua>> {
         Cursor duaGroupCursor = null;
         try {
             final SQLiteDatabase database = mDbHelper.getDb();
-            /*duaGroupCursor = database.query(HisnDatabaseInfo.DuaGroupTable.TABLE_NAME,
-                    new String[]{HisnDatabaseInfo.DuaGroupTable._ID,
-                            HisnDatabaseInfo.DuaGroupTable.ENGLISH_TITLE},
-                    null,
-                    null,
-                    null,
-                    null,
-                    HisnDatabaseInfo.DuaGroupTable._ID);*/
 
             duaGroupCursor = database.rawQuery("SELECT _id, en_title " +
                     "FROM dua_group " +
