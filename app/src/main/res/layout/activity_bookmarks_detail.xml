@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_dua_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/my_detail_action_bar"
+        layout="@layout/toolbar_dua_detail" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/bookmarksDuaDetailListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:scrollbarStyle="outsideOverlay" />
+
+        <View
+            android:id="@+id/view_toolbar_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_shadow" />
+    </FrameLayout>
+
+</LinearLayout>

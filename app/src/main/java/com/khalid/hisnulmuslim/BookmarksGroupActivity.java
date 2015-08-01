@@ -1,5 +1,6 @@
 package com.khalid.hisnulmuslim;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.khalid.hisnulmuslim.R;
@@ -24,26 +26,24 @@ public class BookmarksGroupActivity extends AppCompatActivity implements
     private BookmarksGroupAdapter mAdapter;
     private ListView mListView;
     private Toolbar toolbar;
-    //private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmarks_group);
 
-        //rootView = findViewById(R.id.root_dua_group);
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
 
         mListView = (ListView) findViewById(R.id.bookmarksDuaListView);
-        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent intent;
                 intent = new Intent(getBaseContext(),
-                        DuaDetailActivity.class);
+                        BookmarksDetailActivity.class);
 
                 Dua SelectedDua = (Dua) parent.getAdapter().getItem(position);
                 int dua_id = SelectedDua.getReference();
@@ -54,7 +54,7 @@ public class BookmarksGroupActivity extends AppCompatActivity implements
 
                 startActivity(intent);
             }
-        });*/
+        });
 
         toolbar = (Toolbar) findViewById(R.id.my_action_bar);
         setSupportActionBar(toolbar);
@@ -87,12 +87,12 @@ public class BookmarksGroupActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
-    //@Override
+    @Override
     public Loader<List<Dua>> onCreateLoader(int id, Bundle args) {
         return new DuaGroupLoader(this);
     }
 
-    //@Override
+    @Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
         if (mAdapter == null) {
             mAdapter = new BookmarksGroupAdapter(this, data);
@@ -102,7 +102,7 @@ public class BookmarksGroupActivity extends AppCompatActivity implements
         }
     }
 
-    //@Override
+    @Override
     public void onLoaderReset(Loader<List<Dua>> loader) {
         mAdapter.setData(null);
     }

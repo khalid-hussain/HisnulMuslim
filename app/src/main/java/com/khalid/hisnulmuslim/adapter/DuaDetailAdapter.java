@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
@@ -161,16 +160,6 @@ public class DuaDetailAdapter extends BaseAdapter {
                 public void onClick(View ConvertView) {
                     boolean isFav = !p.getFav();
 
-                    /*Toast.makeText(finalConvertView.getContext().getApplicationContext(),
-                            finalHolder.favButton.getText().toString(),
-                            Toast.LENGTH_SHORT).show();
-
-                    if (finalHolder.favButton.getText() == "{faw-star}") {
-                        isFav = 0;
-                    } else {
-                        isFav = 1;
-                    }*/
-
                     // Following snippet taken from:
                     // http://developer.android.com/training/basics/data-storage/databases.html#UpdateDbRow
                     mDbHelper = new ExternalDbOpenHelper(finalConvertView.getContext().getApplicationContext());
@@ -182,7 +171,6 @@ public class DuaDetailAdapter extends BaseAdapter {
                     values.put(HisnDatabaseInfo.DuaTable.FAV, isFav);
 
                     // Which row to update, based on the ID
-                    //String selection = FeedEntry.COLUMN_NAME_ENTRY_ID + " LIKE ?";
                     String selection = HisnDatabaseInfo.DuaTable.DUA_ID + " LIKE ?";
                     String[] selectionArgs = {String.valueOf(finalHolder.tvDuaNumber.getText().toString())};
 
@@ -201,11 +189,6 @@ public class DuaDetailAdapter extends BaseAdapter {
                         }
                         p.setFav(isFav);
                     }
-
-//                    Toast.makeText(finalConvertView.getContext().getApplicationContext(),
-//                            //finalHolder.tvDuaNumber.getText().toString(),
-//                            "valueIntoDb: " + isFav + "\nResult: " + count,
-//                            Toast.LENGTH_SHORT).show();
                 }
             });
             convertView.setTag(holder);

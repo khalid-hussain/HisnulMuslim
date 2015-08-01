@@ -1,10 +1,8 @@
 package com.khalid.hisnulmuslim;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
@@ -32,8 +30,6 @@ public class DuaDetailActivity extends AppCompatActivity
     private DuaDetailAdapter adapter;
     private ListView listView;
 
-    private SharedPreferences sharedPreferences;
-
     private Toolbar toolbar;
     private TextView my_toolbar_duaGroup_number;
     private AutofitTextView my_autofit_toolbar_title;
@@ -51,8 +47,6 @@ public class DuaDetailActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.listView = (ListView) findViewById(R.id.duaDetailListView);
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
