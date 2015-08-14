@@ -1,28 +1,22 @@
 package com.khalid.hisnulmuslim.adapter;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
-import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 import com.khalid.hisnulmuslim.model.Dua;
 import com.mikepenz.iconics.view.IconicsButton;
 
@@ -144,6 +138,13 @@ public class BookmarksDetailAdapter extends BaseAdapter {
             final View finalConvertView = convertView;
             mHolder.favButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View ConvertView) {
+
+                    Snackbar.make(finalConvertView,
+                            "This doesn't work here yet.",
+                            Snackbar.LENGTH_SHORT)
+                            .show();
+
+                    /* Work in Progress
                     boolean isFav = !p.getFav();
 
                     int position = Integer.parseInt(mHolder.tvDuaNumber.getText().toString());
@@ -197,7 +198,7 @@ public class BookmarksDetailAdapter extends BaseAdapter {
                                     .show();
                         }
                         p.setFav(isFav);
-                    }
+                    }*/
                 }
             });
             convertView.setTag(mHolder);
