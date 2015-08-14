@@ -4,14 +4,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DuaGroupLoader extends AbstractQueryLoader<List<Dua>> {
-    public DuaGroupLoader(Context context) {
+/**
+ * Created by Khalid on 01 Улгиг.
+ */
+public class BookmarkGroupLoader extends AbstractQueryLoader<List<Dua>> {
+    public BookmarkGroupLoader(Context context) {
         super(context);
     }
 
@@ -21,14 +23,14 @@ public class DuaGroupLoader extends AbstractQueryLoader<List<Dua>> {
         Cursor duaGroupCursor = null;
         try {
             final SQLiteDatabase database = mDbHelper.getDb();
-            duaGroupCursor = database.query(HisnDatabaseInfo.DuaGroupTable.TABLE_NAME,
-                    new String[]{HisnDatabaseInfo.DuaGroupTable._ID,
-                            HisnDatabaseInfo.DuaGroupTable.ENGLISH_TITLE},
-                    null,
-                    null,
-                    null,
-                    null,
-                    HisnDatabaseInfo.DuaGroupTable._ID);
+
+            duaGroupCursor = database.rawQuery("SELECT _id, en_title " +
+                    "FROM dua_group " +
+                    "WHERE _id " +
+                    "IN " +
+                    "(SELECT group_id " +
+                    "FROM dua " +
+                    "WHERE fav=?)",new String[]{"1"});
 
             if (duaGroupCursor != null && duaGroupCursor.moveToFirst()) {
                 results = new ArrayList<>();

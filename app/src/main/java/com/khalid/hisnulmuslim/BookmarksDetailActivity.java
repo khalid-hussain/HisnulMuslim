@@ -7,27 +7,27 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
-import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
-import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
+import com.khalid.hisnulmuslim.adapter.BookmarksDetailAdapter;
+import com.khalid.hisnulmuslim.loader.BookmarkDetailsLoader;
 import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
 
 import me.grantland.widget.AutofitTextView;
 
-
-public class DuaDetailActivity extends AppCompatActivity
+/**
+ * Created by Khalid on 31 íæáíæ.
+ */
+public class BookmarksDetailActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Dua>> {
     private int duaIdFromDuaListActivity;
     private String duaTitleFromDuaListActivity;
-    private DuaDetailAdapter adapter;
+    private BookmarksDetailAdapter adapter;
     private ListView listView;
 
     private Toolbar toolbar;
@@ -37,7 +37,7 @@ public class DuaDetailActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dua_detail);
+        setContentView(R.layout.activity_bookmarks_detail);
 
         toolbar = (Toolbar) findViewById(R.id.my_detail_action_bar);
         my_toolbar_duaGroup_number = (TextView) findViewById(R.id.txtReference_duaDetail);
@@ -46,7 +46,7 @@ public class DuaDetailActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.listView = (ListView) findViewById(R.id.duaDetailListView);
+        this.listView = (ListView) findViewById(R.id.bookmarksDuaDetailListView);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -66,35 +66,14 @@ public class DuaDetailActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_dua_detail, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, PreferencesActivity.class);
-            this.startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public Loader<List<Dua>> onCreateLoader(int id, Bundle args) {
-        return new DuaDetailsLoader(DuaDetailActivity.this, duaIdFromDuaListActivity);
+        return new BookmarkDetailsLoader(BookmarksDetailActivity.this, duaIdFromDuaListActivity);
     }
 
     @Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
         if (adapter == null) {
-            adapter = new DuaDetailAdapter(this, data, duaTitleFromDuaListActivity);
+            adapter = new BookmarksDetailAdapter(this, data, duaTitleFromDuaListActivity);
             listView.setAdapter(adapter);
         } else {
             adapter.setData(data);

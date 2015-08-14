@@ -10,10 +10,13 @@ import com.khalid.hisnulmuslim.model.Dua;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DuaDetailsLoader extends AbstractQueryLoader<List<Dua>> {
+/**
+ * Created by Khalid on 01 Улгиг.
+ */
+public class BookmarkDetailsLoader extends AbstractQueryLoader<List<Dua>> {
     private int mGroup;
 
-    public DuaDetailsLoader(Context context, int group) {
+    public BookmarkDetailsLoader(Context context, int group) {
         super(context);
         mGroup = group;
     }
@@ -30,7 +33,9 @@ public class DuaDetailsLoader extends AbstractQueryLoader<List<Dua>> {
                             HisnDatabaseInfo.DuaTable.ARABIC_DUA,
                             HisnDatabaseInfo.DuaTable.ENGLISH_TRANSLATION,
                             HisnDatabaseInfo.DuaTable.ENGLISH_REFERENCE},
-                    HisnDatabaseInfo.DuaTable.GROUP_ID + "=" + mGroup,
+                    HisnDatabaseInfo.DuaTable.GROUP_ID + "=" + mGroup
+                    + " AND " + HisnDatabaseInfo.DuaTable.FAV + "= 1"
+                    ,
                     null, null, null, null);
             results = new ArrayList<>();
             if (duaDetailCursor != null && duaDetailCursor.moveToFirst()) {

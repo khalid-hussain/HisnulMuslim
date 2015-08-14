@@ -3,6 +3,7 @@
     <string name="app_name">Hisnul Muslim</string>
     <string name="app_name_about">Hisnul Muslim App</string>
     <string name="version_name">Version 0.1.1</string>
+    <string name="beta_version">0.01</string>
 
     <string name="action_search">Search</string>
     <string name="action_bookmarks">Bookmarks</string>
@@ -47,4 +48,7 @@
     <string name="button_share_icon"></string>
     <string name="button_fav_icon">{faw-star}</string>
     <string name="button_fav_icon_no">{faw-star-o}</string>
+    <string name="snackbar_text_begin">Removed Dua #</string>
+    <string name="snackbar_text_end">" from bookmarks"</string>
+    <string name="snackbar_action">undo</string>
 </resources>

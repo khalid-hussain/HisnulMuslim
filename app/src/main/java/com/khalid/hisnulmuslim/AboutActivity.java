@@ -2,7 +2,7 @@ package com.khalid.hisnulmuslim;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 
-public class AboutActivity extends ActionBarActivity {
+public class AboutActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
@@ -28,7 +28,6 @@ public class AboutActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView tvAboutUs = (TextView) findViewById(R.id.tvAboutUs);
-        // DocumentView tvAboutUs = (DocumentView) findViewById(R.id.tvAboutUs);
         tvAboutUs.setVerticalScrollBarEnabled(true);
         tvAboutUs.setText(Html.fromHtml(getString(R.string.about_us)));
         tvAboutUs.setMovementMethod(LinkMovementMethod.getInstance());
@@ -46,7 +45,6 @@ public class AboutActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //int id = item.getItemId();
         return super.onOptionsItemSelected(item);
     }
 }

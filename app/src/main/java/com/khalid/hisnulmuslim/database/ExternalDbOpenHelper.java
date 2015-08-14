@@ -18,11 +18,12 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
 
     //Database file name
     public static final String DB_NAME = HisnDatabaseInfo.DB_NAME;
+    public static final int DB_VERSION = HisnDatabaseInfo.DB_VERSION;
 
     private static ExternalDbOpenHelper sInstance;
 
     public SQLiteDatabase database;
-    public final Context context;
+    public Context context;
 
     public static ExternalDbOpenHelper getInstance(Context context) {
         if (sInstance == null) {
@@ -43,6 +44,10 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
         String packageName = context.getPackageName();
         DB_PATH = String.format("//data//data//%s//databases//", packageName);
         openDataBase();
+    }
+
+    public ExternalDbOpenHelper(Context context){
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     //This piece of code will create a com.khalid.hisnulmuslim.database if it’s not yet created
