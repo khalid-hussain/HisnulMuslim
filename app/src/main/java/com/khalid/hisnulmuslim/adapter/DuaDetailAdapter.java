@@ -88,29 +88,30 @@ public class DuaDetailAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
-        ViewHolder holder;
+        final ViewHolder mHolder;
+        final Dua p = getItem(position);
 
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.dua_detail_item_card, parent, false);
 
-            holder = new ViewHolder();
-            holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
+            mHolder = new ViewHolder();
+            mHolder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
 
-            holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
-            holder.tvDuaArabic.setTypeface(sCachedTypeface);
-            holder.tvDuaArabic.setTextSize(prefArabicFontSize);
+            mHolder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
+            mHolder.tvDuaArabic.setTypeface(sCachedTypeface);
+            mHolder.tvDuaArabic.setTextSize(prefArabicFontSize);
 
-            holder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
-            holder.tvDuaTranslation.setTextSize(prefOtherFontSize);
+            mHolder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
+            mHolder.tvDuaTranslation.setTextSize(prefOtherFontSize);
 
-            holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
-            holder.tvDuaReference.setTextSize(prefOtherFontSize);
+            mHolder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
+            mHolder.tvDuaReference.setTextSize(prefOtherFontSize);
 
-            holder.shareButton = (IconicsButton) convertView.findViewById(R.id.button_share);
-            holder.favButton = (IconicsButton) convertView.findViewById(R.id.button_star);
+            mHolder.shareButton = (IconicsButton) convertView.findViewById(R.id.button_share);
+            mHolder.favButton = (IconicsButton) convertView.findViewById(R.id.button_star);
 
-            final ViewHolder finalHolder = holder;
-            holder.shareButton.setOnClickListener(new View.OnClickListener() {
+            final ViewHolder finalHolder = mHolder;
+            mHolder.shareButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View convertView) {
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_SEND);
@@ -131,32 +132,8 @@ public class DuaDetailAdapter extends BaseAdapter {
                 }
             });
 
-            final Dua p = getItem(position);
-            if (p != null) {
-                holder.tvDuaNumber.setText("" + p.getReference());
-                holder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
-
-                final Spannable translation = new SpannableString(p.getTranslation());
-                holder.tvDuaTranslation.setText(translation);
-
-                if (p.getBook_reference() != null)
-                    holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
-                else
-                    holder.tvDuaReference.setText("null");
-
-                if (p.getFav()) {
-                    holder.favButton.setText("{faw-star}");
-                }
-                else {
-                    holder.favButton.setText("{faw-star-o}");
-                }
-
-                Log.d("DuaDetailAdapter", "getFav");
-                Log.d("DuaDetailAdapter", "asdasds");
-                Log.d("DuaDetailAdapter", Boolean.toString(p.getFav()));
-            }
             final View finalConvertView = convertView;
-            holder.favButton.setOnClickListener(new View.OnClickListener() {
+            mHolder.favButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View ConvertView) {
                     boolean isFav = !p.getFav();
 
@@ -183,17 +160,42 @@ public class DuaDetailAdapter extends BaseAdapter {
                     if (count == 1) {
                         if (isFav) {
                             finalHolder.favButton.setText("{faw-star}");
-                        }
-                        else {
+                        } else {
                             finalHolder.favButton.setText("{faw-star-o}");
                         }
                         p.setFav(isFav);
                     }
                 }
             });
-            convertView.setTag(holder);
+            convertView.setTag(mHolder);
+        } else {
+            mHolder = (ViewHolder) convertView.getTag();
         }
-        holder = (ViewHolder) convertView.getTag();
+
+
+        if (p != null) {
+            mHolder.tvDuaNumber.setText("" + p.getReference());
+            mHolder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
+
+            final Spannable translation = new SpannableString(p.getTranslation());
+            mHolder.tvDuaTranslation.setText(translation);
+
+            if (p.getBook_reference() != null)
+                mHolder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
+            else
+                mHolder.tvDuaReference.setText("null");
+
+            if (p.getFav()) {
+                mHolder.favButton.setText("{faw-star}");
+            } else {
+                mHolder.favButton.setText("{faw-star-o}");
+            }
+
+            Log.d("DuaDetailAdapter", "getFav");
+            Log.d("DuaDetailAdapter", "asdasds");
+            Log.d("DuaDetailAdapter", Boolean.toString(p.getFav()));
+        }
+
 
         return convertView;
     }

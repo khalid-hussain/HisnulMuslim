@@ -48,5 +48,6 @@
     <string name="button_fav_icon">{faw-star}</string>
     <string name="button_fav_icon_no">{faw-star-o}</string>
     <string name="snackbar_text_begin">Removed Dua #</string>
-    <string name="snackbar_text_end">&#160;from bookmarks</string>
+    <string name="snackbar_text_end">" from bookmarks"</string>
+    <string name="snackbar_action">undo</string>
 </resources>

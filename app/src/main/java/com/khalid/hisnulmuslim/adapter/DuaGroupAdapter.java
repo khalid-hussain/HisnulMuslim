@@ -104,33 +104,34 @@ public class DuaGroupAdapter extends BaseAdapter implements Filterable {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder holder;
+        ViewHolder mHolder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.dua_group_item_card, parent, false);
-            holder = new ViewHolder();
-            holder.tvReference = (TextView) convertView.findViewById(R.id.txtReference);
-            holder.tvDuaName = (TextView) convertView.findViewById(R.id.txtDuaName);
-            holder.shape = (GradientDrawable) holder.tvReference.getBackground();
-            convertView.setTag(holder);
-        } else
-            holder = (ViewHolder) convertView.getTag();
+            mHolder = new ViewHolder();
+            mHolder.tvReference = (TextView) convertView.findViewById(R.id.txtReference);
+            mHolder.tvDuaName = (TextView) convertView.findViewById(R.id.txtDuaName);
+            mHolder.shape = (GradientDrawable) mHolder.tvReference.getBackground();
+            convertView.setTag(mHolder);
+        } else {
+            mHolder = (ViewHolder) convertView.getTag();
+        }
 
         Dua p = getItem(position);
         if (p != null) {
-            holder.tvReference.setText("" + p.getReference());
-            holder.tvDuaName.setText(p.getTitle());
+            mHolder.tvReference.setText("" + p.getReference());
+            mHolder.tvDuaName.setText(p.getTitle());
 
             String filter = mSearchText.toString();
-            String itemValue = holder.tvDuaName.getText().toString();
+            String itemValue = mHolder.tvDuaName.getText().toString();
 
             int startPos = itemValue.toLowerCase(Locale.US).indexOf(filter.toLowerCase(Locale.US));
             int endPos = startPos + filter.length();
 
             if (startPos != -1) { // This should always be true, just a sanity check
                 Spannable spannable = new SpannableString(itemValue);
-                holder.tvDuaName.setText(spannable);
+                mHolder.tvDuaName.setText(spannable);
             } else {
-              holder.tvDuaName.setText(itemValue);
+                mHolder.tvDuaName.setText(itemValue);
             }
         }
         return convertView;

@@ -12,11 +12,13 @@ import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
@@ -75,6 +77,10 @@ public class BookmarksDetailAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void updateData(List<Dua> items) {
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return mList == null ? 0 : mList.size();
@@ -92,37 +98,37 @@ public class BookmarksDetailAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
-        ViewHolder holder;
-
+        final ViewHolder mHolder;
+        final Dua p = getItem(position);
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.dua_detail_item_card, parent, false);
 
-            holder = new ViewHolder();
-            holder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
+            mHolder = new ViewHolder();
+            mHolder.tvDuaNumber = (TextView) convertView.findViewById(R.id.txtDuaNumber);
 
-            holder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
-            holder.tvDuaArabic.setTypeface(sCachedTypeface);
-            holder.tvDuaArabic.setTextSize(prefArabicFontSize);
+            mHolder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
+            mHolder.tvDuaArabic.setTypeface(sCachedTypeface);
+            mHolder.tvDuaArabic.setTextSize(prefArabicFontSize);
 
-            holder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
-            holder.tvDuaTranslation.setTextSize(prefOtherFontSize);
+            mHolder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
+            mHolder.tvDuaTranslation.setTextSize(prefOtherFontSize);
 
-            holder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
-            holder.tvDuaReference.setTextSize(prefOtherFontSize);
+            mHolder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
+            mHolder.tvDuaReference.setTextSize(prefOtherFontSize);
 
-            holder.shareButton = (IconicsButton) convertView.findViewById(R.id.button_share);
-            holder.favButton = (IconicsButton) convertView.findViewById(R.id.button_star);
+            mHolder.shareButton = (IconicsButton) convertView.findViewById(R.id.button_share);
+            mHolder.favButton = (IconicsButton) convertView.findViewById(R.id.button_star);
 
-            final ViewHolder finalHolder = holder;
-            holder.shareButton.setOnClickListener(new View.OnClickListener() {
+
+            mHolder.shareButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View convertView) {
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_SEND);
                     intent.putExtra(Intent.EXTRA_TEXT,
                             myToolbarTitle + "\n\n" +
-                                    finalHolder.tvDuaArabic.getText() + "\n\n" +
-                                    finalHolder.tvDuaTranslation.getText() + "\n\n" +
-                                    finalHolder.tvDuaReference.getText() + "\n\n" +
+                                    mHolder.tvDuaArabic.getText() + "\n\n" +
+                                    mHolder.tvDuaTranslation.getText() + "\n\n" +
+                                    mHolder.tvDuaReference.getText() + "\n\n" +
                                     convertView.getResources().getString(R.string.action_share_credit)
                     );
                     intent.setType("text/plain");
@@ -135,33 +141,23 @@ public class BookmarksDetailAdapter extends BaseAdapter {
                 }
             });
 
-            final Dua p = getItem(position);
-            if (p != null) {
-                holder.tvDuaNumber.setText("" + p.getReference());
-                holder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
-
-                final Spannable translation = new SpannableString(p.getTranslation());
-                holder.tvDuaTranslation.setText(translation);
-
-                if (p.getBook_reference() != null)
-                    holder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
-                else
-                    holder.tvDuaReference.setText("null");
-
-                if (p.getFav()) {
-                    holder.favButton.setText("{faw-star}");
-                } else {
-                    holder.favButton.setText("{faw-star-o}");
-                }
-            }
             final View finalConvertView = convertView;
-            holder.favButton.setOnClickListener(new View.OnClickListener() {
+            mHolder.favButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View ConvertView) {
                     boolean isFav = !p.getFav();
+
+                    int position = Integer.parseInt(mHolder.tvDuaNumber.getText().toString());
+                    position = -1;
+
+                    mList.remove(position);
+                    Log.d("KHALID_NUMBER", position + "");
+                    Log.d("KHALID_MList", mList.get(position).getTranslation());
+                    notifyDataSetChanged();
 
                     Resources resources = ConvertView.getResources();
                     String snack_begin = resources.getString(R.string.snackbar_text_begin);
                     String snack_end = resources.getString(R.string.snackbar_text_end);
+                    String snack_action = resources.getString(R.string.snackbar_action).toUpperCase();
 
                     // Following snippet taken from:
                     // http://developer.android.com/training/basics/data-storage/databases.html#UpdateDbRow
@@ -175,7 +171,7 @@ public class BookmarksDetailAdapter extends BaseAdapter {
 
                     // Which row to update, based on the ID
                     String selection = HisnDatabaseInfo.DuaTable.DUA_ID + " LIKE ?";
-                    String[] selectionArgs = {String.valueOf(finalHolder.tvDuaNumber.getText().toString())};
+                    String[] selectionArgs = {String.valueOf(mHolder.tvDuaNumber.getText().toString())};
 
                     int count = db.update(
                             HisnDatabaseInfo.DuaTable.TABLE_NAME,
@@ -185,22 +181,48 @@ public class BookmarksDetailAdapter extends BaseAdapter {
 
                     if (count == 1) {
                         if (isFav) {
-                            finalHolder.favButton.setText("{faw-star}");
+                            mHolder.favButton.setText("{faw-star}");
                         } else {
-                            finalHolder.favButton.setText("{faw-star-o}");
+                            mHolder.favButton.setText("{faw-star-o}");
                             Snackbar.make(finalConvertView,
                                     snack_begin + p.getReference() + snack_end,
                                     Snackbar.LENGTH_LONG)
-                                    .setAction("Action", null)
+                                    .setAction(snack_action, new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            // Snack bar action and animation
+                                            Toast.makeText(finalConvertView.getContext(), "Testing", Toast.LENGTH_LONG).show();
+                                        }
+                                    })
                                     .show();
                         }
                         p.setFav(isFav);
                     }
                 }
             });
-            convertView.setTag(holder);
+            convertView.setTag(mHolder);
+        } else {
+            mHolder = (ViewHolder) convertView.getTag();
         }
-        holder = (ViewHolder) convertView.getTag();
+
+        if (p != null) {
+            mHolder.tvDuaNumber.setText("" + p.getReference());
+            mHolder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
+
+            final Spannable translation = new SpannableString(p.getTranslation());
+            mHolder.tvDuaTranslation.setText(translation);
+
+            if (p.getBook_reference() != null)
+                mHolder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
+            else
+                mHolder.tvDuaReference.setText("null");
+
+            if (p.getFav()) {
+                mHolder.favButton.setText("{faw-star}");
+            } else {
+                mHolder.favButton.setText("{faw-star-o}");
+            }
+        }
 
         return convertView;
     }
