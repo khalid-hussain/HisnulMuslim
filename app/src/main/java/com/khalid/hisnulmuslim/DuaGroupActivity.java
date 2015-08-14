@@ -3,6 +3,7 @@ package com.khalid.hisnulmuslim;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
@@ -60,6 +62,13 @@ public class DuaGroupActivity extends AppCompatActivity implements
         if (Build.VERSION.SDK_INT >= 21) {
             mToolbarShadow.setVisibility(View.GONE);
         }
+
+
+        // For Beta Testing
+        Resources resource = getResources();
+        String beta_version = resource.getString(R.string.beta_version);
+        Toast.makeText(this, "Beta Version: " + beta_version, Toast.LENGTH_SHORT).show();
+        // End of Beta Testing
 
         getSupportLoaderManager().initLoader(0, null, this);
     }
