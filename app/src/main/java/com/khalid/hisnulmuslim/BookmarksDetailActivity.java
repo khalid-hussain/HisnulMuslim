@@ -80,11 +80,11 @@ public class BookmarksDetailActivity extends AppCompatActivity
         if (adapterRecycle == null) {
         // adapterRecycle = new BookmarksDetailRecycleAdapter(this, data, duaTitleFromDuaListActivity);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapterRecycle = new BookmarksDetailRecycleAdapter(this, data);
+            adapterRecycle = new BookmarksDetailRecycleAdapter(this, data, duaTitleFromDuaListActivity);
             recyclerView.setAdapter(adapterRecycle);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
         } else {
-            adapterRecycle = new BookmarksDetailRecycleAdapter(this, data);
+            adapterRecycle = new BookmarksDetailRecycleAdapter(this, data, duaTitleFromDuaListActivity);
             //adapter.setData(data);
         }
     }

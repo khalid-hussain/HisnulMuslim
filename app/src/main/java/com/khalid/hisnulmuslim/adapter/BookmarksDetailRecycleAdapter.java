@@ -1,20 +1,28 @@
 package com.khalid.hisnulmuslim.adapter;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
+import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 import com.khalid.hisnulmuslim.model.Dua;
 import com.mikepenz.iconics.view.IconicsButton;
 
@@ -28,16 +36,17 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
 
     private List<Dua> mDuaData;
     private LayoutInflater mInflater;
+    private ViewHolder mHolder;
 
     private static float prefArabicFontSize;
     private static float prefOtherFontSize;
     private static String prefArabicFontTypeface;
 
-    ExternalDbOpenHelper mDbHelper;
+    private static ExternalDbOpenHelper mDbHelper;
 
-    private String myToolbarTitle;
+    private static String myToolbarTitle;
 
-    public BookmarksDetailRecycleAdapter(Context context, List<Dua> items) {
+    public BookmarksDetailRecycleAdapter(Context context, List<Dua> items, String toolbarTitle) {
         mDuaData = items;
         // notifyDataSetChanged();
 
@@ -60,6 +69,8 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
             sCachedTypeface = Typeface.createFromAsset(
                     context.getAssets(), prefArabicFontTypeface);
         }
+
+        myToolbarTitle = toolbarTitle;
     }
 
     // Create new views (invoked by the layout manager)
@@ -71,7 +82,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
                 .inflate(R.layout.dua_detail_item_card, null);
 
         // create ViewHolder
-        ViewHolder mHolder = new ViewHolder(itemLayoutView);
+        mHolder = new ViewHolder(itemLayoutView);
         return mHolder;
     }
 
@@ -91,6 +102,92 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
             mHolder.tvDuaReference.setText(Html.fromHtml(mDuaData.get(position).getBook_reference()));
         else
             mHolder.tvDuaReference.setText("null");
+
+        final ViewHolder finalmHolder = mHolder;
+
+        mHolder.shareButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View convertView) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,
+                        myToolbarTitle + "\n\n" +
+                                finalmHolder.tvDuaArabic.getText() + "\n\n" +
+                                finalmHolder.tvDuaTranslation.getText() + "\n\n" +
+                                finalmHolder.tvDuaReference.getText() + "\n\n" +
+                                convertView.getResources().getString(R.string.action_share_credit)
+                );
+                intent.setType("text/plain");
+                convertView.getContext().startActivity(
+                        Intent.createChooser(
+                                intent,
+                                convertView.getResources().getString(R.string.action_share_title)
+                        )
+                );
+            }
+        });
+
+        finalmHolder.favButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // boolean isFav = !p.getFav();
+
+                int sql_position = Integer.parseInt(finalmHolder.tvDuaNumber.getText().toString());
+                sql_position -= 1;
+
+                Log.d("KHALID_NUMBER", sql_position + "");
+                // Log.d("KHALID_isFav", isFav + "");
+
+                // deleteRow(finalPosition);
+
+                Resources resources = v.getResources();
+                String snack_begin = resources.getString(R.string.snackbar_text_begin);
+                String snack_end = resources.getString(R.string.snackbar_text_end);
+                String snack_action = resources.getString(R.string.snackbar_action).toUpperCase();
+
+                // Following snippet taken from:
+                // http://developer.android.com/training/basics/data-storage/databases.html#UpdateDbRow
+                mDbHelper = new ExternalDbOpenHelper(v.getContext().getApplicationContext());
+
+                SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+                // New value for one column
+                ContentValues values = new ContentValues();
+                // values.put(HisnDatabaseInfo.DuaTable.FAV, isFav);
+
+                // Which row to update, based on the ID
+                String selection = HisnDatabaseInfo.DuaTable.DUA_ID + " LIKE ?";
+                String[] selectionArgs = {String.valueOf(finalmHolder.tvDuaNumber.getText().toString())};
+
+                int count = db.update(
+                        HisnDatabaseInfo.DuaTable.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs);
+
+                if (count == 1) {
+                    if (isFav) {
+                        finalmHolder.favButton.setText("{faw-star}");
+                    } else {
+                        finalmHolder.favButton.setText("{faw-star-o}");
+                        Snackbar.make(this,
+                                snack_begin + p.getReference() + snack_end,
+                                Snackbar.LENGTH_LONG)
+                                .setAction(snack_action, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        // Snack bar action and animation
+                                        // Toast.makeText(finalConvertView.getContext(), "Testing", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(this, "Testing", Toast.LENGTH_LONG).show();
+                                    }
+                                })
+                                .show();
+                    }
+                    p.setFav(isFav);
+                }
+                if (getCount() == 0) {
+                    // I don't even know if this block is needed. Review once you have some sleep.
+                }
+            }
+        });
     }
 
     // inner class to hold a reference to each item of RecyclerView
@@ -105,11 +202,11 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             tvDuaNumber = (TextView) itemLayoutView.findViewById(R.id.txtDuaNumber);
-            tvDuaArabic=(TextView) itemLayoutView.findViewById(R.id.txtDuaArabic);
-            tvDuaTranslation=(TextView)itemLayoutView.findViewById(R.id.txtDuaTranslation);
-            tvDuaReference=(TextView)itemLayoutView.findViewById(R.id.txtDuaReference);
-            shareButton=(IconicsButton)itemLayoutView.findViewById(R.id.button_share);
-            favButton=(IconicsButton)itemLayoutView.findViewById(R.id.button_star);
+            tvDuaArabic = (TextView) itemLayoutView.findViewById(R.id.txtDuaArabic);
+            tvDuaTranslation = (TextView) itemLayoutView.findViewById(R.id.txtDuaTranslation);
+            tvDuaReference = (TextView) itemLayoutView.findViewById(R.id.txtDuaReference);
+            shareButton = (IconicsButton) itemLayoutView.findViewById(R.id.button_share);
+            favButton = (IconicsButton) itemLayoutView.findViewById(R.id.button_star);
 
             tvDuaArabic.setTypeface(sCachedTypeface);
             tvDuaArabic.setTextSize(prefArabicFontSize);
