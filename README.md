@@ -37,7 +37,7 @@ bookmarked.
 - [VNTFontListPreference](https://github.com/vanniktech/VNTFontListPreference)
 - [VNTNumberPickerPreference](https://github.com/vanniktech/VNTNumberPickerPreference)
 - [AutofitTextview](https://github.com/grantland/android-autofittextview)
-- [Google Material Design Icons](https://github.com/google/material-design-icons)
+- [Android Iconics](https://github.com/mikepenz/Android-Iconics)
 
 # Text Sources
 - [Sharĥ Ĥiŝn al-Muslim](http://www.muslim-library.com/dl/books/arabic_sharh_hisn_almuslim_min_adhkar_alkitab_wa_alsunnah.pdf)
@@ -51,6 +51,7 @@ bookmarked.
 - [Abdul Majed Ahmed](https://www.facebook.com/abdulmajed.ahmed)
 - [Hussaini Zulkifli](https://twitter.com/HussainiZul)
 - [Moaz Mahdi](https://www.facebook.com/moaaz.mahdi)
+- [Hamzah Peer](https://www.facebook.com/peerhumza)
 - [StackOverFlow Question: Custom Adapter for ListView](http://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 - [StackOverFlow Question: Default Font Set on Android](http://stackoverflow.com/questions/6809944/default-font-set-on-android)
 - [Custom font for TextView](http://www.tutorialspoint.com/android/android_custom_fonts.htm)
@@ -67,6 +68,12 @@ bookmarked.
 - Create a nice landing page under the gh-pages branch.
 
 # Changelog
+4 Zhu Al-Q'adah, 19 August 2015:
+- RecyclerView adapter paritially implemented for BookmarksDetailActivity
+- Font bug has been discovered on a Samsung phone running stock 4.1.2.
+- Snackbar has been implemented for removing the bookmark. Undo button on it is yet to be implemented.
+- Search filter is back to not showing search text highlight. Cause is unknown at the moment.
+
 4 Shawwaal 1436, 20 July 2015:
 - Share function added to all dua cards. Simple color press selector applied.
 - Bookmark icon has been added.
