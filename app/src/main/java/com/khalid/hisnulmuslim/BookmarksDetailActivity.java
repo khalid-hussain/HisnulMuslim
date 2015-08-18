@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
@@ -21,14 +21,15 @@ import java.util.List;
 import me.grantland.widget.AutofitTextView;
 
 /**
- * Created by Khalid on 31 íæáíæ.
+ * Created by Khalid on 31 ÙŠÙˆÙ„ÙŠÙˆ.
  */
 public class BookmarksDetailActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Dua>> {
     private int duaIdFromDuaListActivity;
     private String duaTitleFromDuaListActivity;
     private BookmarksDetailAdapter adapter;
-    private ListView listView;
+    // private ListView listView;
+    private RecyclerView listView;
 
     private Toolbar toolbar;
     private TextView my_toolbar_duaGroup_number;
@@ -46,7 +47,7 @@ public class BookmarksDetailActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.listView = (ListView) findViewById(R.id.bookmarksDuaDetailListView);
+        this.listView = (RecyclerView) findViewById(R.id.bookmarksDuaDetailListView);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

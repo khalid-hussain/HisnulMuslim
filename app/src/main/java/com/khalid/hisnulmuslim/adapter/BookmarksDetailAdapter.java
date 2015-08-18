@@ -29,7 +29,7 @@ import com.mikepenz.iconics.view.IconicsButton;
 import java.util.List;
 
 /**
- * Created by Khalid on 31 íæáíæ.
+ * Created by Khalid on 31 ÙŠÙˆÙ„ÙŠÙˆ.
  */
 public class BookmarksDetailAdapter extends BaseAdapter {
     private static Typeface sCachedTypeface = null;
@@ -201,6 +201,10 @@ public class BookmarksDetailAdapter extends BaseAdapter {
                                     .show();
                         }
                         p.setFav(isFav);
+                    }
+                    if (getCount() == 0)
+                    {
+
                     }
                 }
             });
