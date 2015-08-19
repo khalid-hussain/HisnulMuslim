@@ -8,7 +8,7 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.UiThread;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spannable;
@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
@@ -48,7 +47,6 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
 
     public BookmarksDetailRecycleAdapter(Context context, List<Dua> items, String toolbarTitle) {
         mDuaData = items;
-        // notifyDataSetChanged();
 
         final SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(context);
@@ -86,11 +84,26 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
         return mHolder;
     }
 
+    public void deleteRow(int position){
+        mDuaData.remove(position); // this will remove row of data
+        notifyItemRemoved(position); // this will do the animation of removal
+        /*runOnUiThread(new Runnable() {
+            notifyDataSetChanged();
+        });*/
+        dataSetChanged();
+    }
+
+    @UiThread
+    protected void dataSetChanged() {
+        notifyDataSetChanged();
+    }
+
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder mHolder, int position) {
+    public void onBindViewHolder(ViewHolder mHolder, int position){//final RecyclerView rv) {
         // - get data from your itemsData at this position
         // - replace the contents of the view with that itemsData
+        final int finalPosition = position;
 
         mHolder.tvDuaNumber.setText(mDuaData.get(position).getReference() + "");
         mHolder.tvDuaArabic.setText(Html.fromHtml(mDuaData.get(position).getArabic()));
@@ -102,6 +115,12 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
             mHolder.tvDuaReference.setText(Html.fromHtml(mDuaData.get(position).getBook_reference()));
         else
             mHolder.tvDuaReference.setText("null");
+
+        if (mDuaData.get(position).getFav()) {
+            mHolder.favButton.setText("{faw-star}");
+        } else {
+            mHolder.favButton.setText("{faw-star-o}");
+        }
 
         final ViewHolder finalmHolder = mHolder;
 
@@ -129,6 +148,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
         finalmHolder.favButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // boolean isFav = !p.getFav();
+                boolean isFav = !mDuaData.get(finalPosition).getFav();
 
                 int sql_position = Integer.parseInt(finalmHolder.tvDuaNumber.getText().toString());
                 sql_position -= 1;
@@ -136,7 +156,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
                 Log.d("KHALID_NUMBER", sql_position + "");
                 // Log.d("KHALID_isFav", isFav + "");
 
-                // deleteRow(finalPosition);
+                deleteRow(finalPosition);
 
                 Resources resources = v.getResources();
                 String snack_begin = resources.getString(R.string.snackbar_text_begin);
@@ -151,7 +171,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
 
                 // New value for one column
                 ContentValues values = new ContentValues();
-                // values.put(HisnDatabaseInfo.DuaTable.FAV, isFav);
+                values.put(HisnDatabaseInfo.DuaTable.FAV, isFav);
 
                 // Which row to update, based on the ID
                 String selection = HisnDatabaseInfo.DuaTable.DUA_ID + " LIKE ?";
@@ -168,22 +188,23 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
                         finalmHolder.favButton.setText("{faw-star}");
                     } else {
                         finalmHolder.favButton.setText("{faw-star-o}");
-                        Snackbar.make(this,
-                                snack_begin + p.getReference() + snack_end,
+                        /*Snackbar.make(rv,
+                                // snack_begin + p.getReference() + snack_end,
+                                snack_begin + snack_end,
                                 Snackbar.LENGTH_LONG)
                                 .setAction(snack_action, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         // Snack bar action and animation
                                         // Toast.makeText(finalConvertView.getContext(), "Testing", Toast.LENGTH_LONG).show();
-                                        Toast.makeText(this, "Testing", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(rv.getContext(), "Testing", Toast.LENGTH_LONG).show();
                                     }
                                 })
-                                .show();
+                                .show();*/
                     }
-                    p.setFav(isFav);
+                    // mDuaData.get(finalPosition).setFav(isFav);
                 }
-                if (getCount() == 0) {
+                if (getItemCount() == 0) {
                     // I don't even know if this block is needed. Review once you have some sleep.
                 }
             }
