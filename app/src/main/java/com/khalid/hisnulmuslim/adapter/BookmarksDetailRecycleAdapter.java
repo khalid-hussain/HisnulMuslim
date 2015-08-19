@@ -30,6 +30,8 @@ import java.util.List;
 /**
  * Created by Khalid on 18 أغسطس.
  */
+
+// Class blueprint taken from: http://hmkcode.com/android-simple-recyclerview-widget-example/
 public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<BookmarksDetailRecycleAdapter.ViewHolder> {
     private static Typeface sCachedTypeface = null;
 
