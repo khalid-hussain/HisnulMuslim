@@ -8,7 +8,7 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <TextView
+    <!--TextView
         android:id="@+id/txtReference_duaDetail"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -18,6 +18,17 @@
         android:textColor="@color/colorPrimary"
         android:background="@drawable/circle_inverse"
         android:textSize="16sp"
+        android:textStyle="bold" /-->
+
+    <TextView
+        android:id="@+id/txtReference_duaDetail"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/material_actionbar_title"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <View
