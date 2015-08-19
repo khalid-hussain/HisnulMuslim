@@ -1,29 +1,35 @@
 package com.khalid.hisnulmuslim.adapter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
+import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 import com.khalid.hisnulmuslim.model.Dua;
 import com.mikepenz.iconics.view.IconicsButton;
 
 import java.util.List;
 
 /**
- * Created by Khalid on 31 íæáíæ.
+ * Created by Khalid on 31 ÙŠÙˆÙ„ÙŠÙˆ.
  */
 public class BookmarksDetailAdapter extends BaseAdapter {
     private static Typeface sCachedTypeface = null;
@@ -71,8 +77,10 @@ public class BookmarksDetailAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void updateData(List<Dua> items) {
+    public void deleteRow(int position){
+        mList.remove(position); // this will remove row of data
         notifyDataSetChanged();
+        //notifyItemRemoved(position); // this will do the animation of removal
     }
 
     @Override
@@ -94,6 +102,8 @@ public class BookmarksDetailAdapter extends BaseAdapter {
     public View getView(int position, View convertView, final ViewGroup parent) {
         final ViewHolder mHolder;
         final Dua p = getItem(position);
+        final int finalPosition = position;
+
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.dua_detail_item_card, parent, false);
 
@@ -137,32 +147,25 @@ public class BookmarksDetailAdapter extends BaseAdapter {
 
             final View finalConvertView = convertView;
             mHolder.favButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View ConvertView) {
-
-                    Snackbar.make(finalConvertView,
-                            "This doesn't work here yet.",
-                            Snackbar.LENGTH_SHORT)
-                            .show();
-
-                    /* Work in Progress
+                public void onClick(View v) {
                     boolean isFav = !p.getFav();
 
-                    int position = Integer.parseInt(mHolder.tvDuaNumber.getText().toString());
-                    position = -1;
+                    int sql_position = Integer.parseInt(mHolder.tvDuaNumber.getText().toString());
+                    sql_position -= 1;
 
-                    mList.remove(position);
-                    Log.d("KHALID_NUMBER", position + "");
-                    Log.d("KHALID_MList", mList.get(position).getTranslation());
-                    notifyDataSetChanged();
+                    Log.d("KHALID_NUMBER", sql_position + "");
+                    Log.d("KHALID_isFav", isFav + "");
 
-                    Resources resources = ConvertView.getResources();
+                    deleteRow(finalPosition);
+
+                    Resources resources = v.getResources();
                     String snack_begin = resources.getString(R.string.snackbar_text_begin);
                     String snack_end = resources.getString(R.string.snackbar_text_end);
                     String snack_action = resources.getString(R.string.snackbar_action).toUpperCase();
 
                     // Following snippet taken from:
                     // http://developer.android.com/training/basics/data-storage/databases.html#UpdateDbRow
-                    mDbHelper = new ExternalDbOpenHelper(finalConvertView.getContext().getApplicationContext());
+                    mDbHelper = new ExternalDbOpenHelper(v.getContext().getApplicationContext());
 
                     SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -198,7 +201,11 @@ public class BookmarksDetailAdapter extends BaseAdapter {
                                     .show();
                         }
                         p.setFav(isFav);
-                    }*/
+                    }
+                    if (getCount() == 0)
+                    {
+
+                    }
                 }
             });
             convertView.setTag(mHolder);

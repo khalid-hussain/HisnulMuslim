@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Khalid on 01 √€”ÿ”.
+ * Created by Khalid on 01 ÿ£ÿ∫ÿ≥ÿ∑ÿ≥.
  */
 public class BookmarkDetailsLoader extends AbstractQueryLoader<List<Dua>> {
     private int mGroup;

@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.BookmarksDetailAdapter;
+import com.khalid.hisnulmuslim.adapter.BookmarksDetailRecycleAdapter;
 import com.khalid.hisnulmuslim.loader.BookmarkDetailsLoader;
 import com.khalid.hisnulmuslim.model.Dua;
 
@@ -21,14 +24,16 @@ import java.util.List;
 import me.grantland.widget.AutofitTextView;
 
 /**
- * Created by Khalid on 31 íæáíæ.
+ * Created by Khalid on 31 ÙŠÙˆÙ„ÙŠÙˆ.
  */
 public class BookmarksDetailActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Dua>> {
     private int duaIdFromDuaListActivity;
     private String duaTitleFromDuaListActivity;
     private BookmarksDetailAdapter adapter;
-    private ListView listView;
+    private BookmarksDetailRecycleAdapter adapterRecycle;
+    // private ListView recyclerView;
+    private RecyclerView recyclerView;
 
     private Toolbar toolbar;
     private TextView my_toolbar_duaGroup_number;
@@ -46,7 +51,7 @@ public class BookmarksDetailActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.listView = (ListView) findViewById(R.id.bookmarksDuaDetailListView);
+        this.recyclerView = (RecyclerView) findViewById(R.id.bookmarksDuaDetailListView);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -72,18 +77,22 @@ public class BookmarksDetailActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<List<Dua>> loader, List<Dua> data) {
-        if (adapter == null) {
-            adapter = new BookmarksDetailAdapter(this, data, duaTitleFromDuaListActivity);
-            listView.setAdapter(adapter);
+        if (adapterRecycle == null) {
+        // adapterRecycle = new BookmarksDetailRecycleAdapter(this, data, duaTitleFromDuaListActivity);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapterRecycle = new BookmarksDetailRecycleAdapter(this, data, duaTitleFromDuaListActivity);
+            recyclerView.setAdapter(adapterRecycle);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
         } else {
-            adapter.setData(data);
+            adapterRecycle = new BookmarksDetailRecycleAdapter(this, data, duaTitleFromDuaListActivity);
+            //adapter.setData(data);
         }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Dua>> loader) {
-        if (adapter != null) {
-            adapter.setData(null);
+        if (adapterRecycle != null) {
+            //adapterRecycle.setData(null);
         }
     }
 }

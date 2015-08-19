@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by Khalid on 31 íæáíæ.
+ * Created by Khalid on 31 ÙŠÙˆÙ„ÙŠÙˆ.
  */
 public class BookmarksGroupAdapter extends BaseAdapter {
     private Context mContext;
