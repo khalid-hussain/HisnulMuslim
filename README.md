@@ -43,6 +43,8 @@ bookmarked.
 - [Sharĥ Ĥiŝn al-Muslim](http://www.muslim-library.com/dl/books/arabic_sharh_hisn_almuslim_min_adhkar_alkitab_wa_alsunnah.pdf)
 - [HisnulMuslim.Com](http://www.hisnulmuslim.com/index-page-liste-lang-en.html)
 	- However, a LOT of edits were made since a lot of the times, the tashkîl was incorrect or the English had formatting mistakes.
+- [Invocation for going to the Masjid](http://www.islamawareness.net/Dua/Fortress/012.html)
+	- Translation for this specific dua was used from here with edits to fit the with the formatting.
 
 # Credits
 - [Ahmed El-Helw](http://twitter.com/ahmedre)
