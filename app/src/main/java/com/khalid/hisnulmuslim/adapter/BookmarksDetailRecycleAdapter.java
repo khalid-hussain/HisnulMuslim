@@ -89,10 +89,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
     public void deleteRow(int position){
         mDuaData.remove(position); // this will remove row of data
         notifyItemRemoved(position); // this will do the animation of removal
-        /*runOnUiThread(new Runnable() {
-            notifyDataSetChanged();
-        });*/
-        dataSetChanged();
+        // dataSetChanged();
     }
 
     @UiThread

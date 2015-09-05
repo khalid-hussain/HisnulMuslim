@@ -27,9 +27,13 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/bookmarksDuaDetailListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fadeScrollbars="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical" />
 
         <View
             android:id="@+id/view_toolbar_shadow"
