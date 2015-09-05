@@ -13,7 +13,7 @@
     <string name="pref_font_directory">fonts</string>
     <string name="pref_font_arabic_typeface_title">الخط العربي</string>
     <string name="pref_font_arabic_typeface_summary">Font used for Arabic dua\'</string>
-    <string name="pref_font_arabic_typeface_default">fonts/Amiri.ttf</string>
+    <string name="pref_font_arabic_typeface_default">fonts_2/UthmanTN1 Ver09.otf</string>
     <string name="pref_font_arabic_typeface_preview">بِسْمِ اللهِ</string>
 
     <string name="pref_font_other_size">pref_font_other_size</string>

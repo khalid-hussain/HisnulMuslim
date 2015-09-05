@@ -32,7 +32,6 @@
             android:fadeScrollbars="true"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical" />
 
         <View
