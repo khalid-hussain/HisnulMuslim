@@ -8,8 +8,8 @@ Assalamuʻalaikum to all Muslims and greetings to everyone else,
 This repository is about an Android app which would include all the dua from Hisnul Muslim. The aim of this app is to create the
 best Hisnul Muslim app the Play Store has ever seen, in terms of usability and performance.
 
-![](http://s25.postimg.org/hsll1qsun/device_2015_07_05_013454.png)
-![](http://s25.postimg.org/ezsdhpsi7/device_2015_07_05_013519.png)
+![](http://s25.postimg.org/rvnvvmwlr/image.png)
+![](http://s25.postimg.org/s9p7v8gpb/image.png)
 
 # Requirements
 1. No Ads. The app should be given to the people free of charge with all features accessible.
@@ -43,6 +43,8 @@ bookmarked.
 - [Sharĥ Ĥiŝn al-Muslim](http://www.muslim-library.com/dl/books/arabic_sharh_hisn_almuslim_min_adhkar_alkitab_wa_alsunnah.pdf)
 - [HisnulMuslim.Com](http://www.hisnulmuslim.com/index-page-liste-lang-en.html)
 	- However, a LOT of edits were made since a lot of the times, the tashkîl was incorrect or the English had formatting mistakes.
+- [Invocation for going to the Masjid](http://www.islamawareness.net/Dua/Fortress/012.html)
+	- Translation for this specific dua was used from here with edits to fit the with the formatting.
 
 # Credits
 - [Ahmed El-Helw](http://twitter.com/ahmedre)
