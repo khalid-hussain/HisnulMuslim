@@ -22,7 +22,8 @@
 
     <TextView
         android:id="@+id/txtReference_duaDetail"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
+        android:minWidth="40dp"
         android:layout_height="40dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
