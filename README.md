@@ -61,10 +61,10 @@ bookmarked.
 - [Tips and Tricks for Android Material Support Library](http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/)
 
 # To Do
-- Sort out the contents, there is a lot of problem with the Arabic vowels and sometimes the translations.
-- Add references to all Du'a.
+- Sort out the contents, there is a lot of problem with the Arabic vowels and sometimes the translations. Please see [issue #40](https://github.com/khalid-hussain/HisnulMuslim/issues/40)
+- ~~Add references to all Du'a.~~
 - Implement the bookmark feature.
-	- Add button to each dua to enable bookmarking.
+	- ~~Add button to each dua to enable bookmarking.~~
 	- Implement a 'fetch' on the bookmarks activity/fragment depending on the stage the app is at.
 - Add fragments and a viewpager to switch between all du'a and bookmarks (For reference, please see YouTube android app).
 - Create a nice landing page under the gh-pages branch.
