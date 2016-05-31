@@ -89,6 +89,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
     public void deleteRow(int position){
         mDuaData.remove(position); // this will remove row of data
         notifyItemRemoved(position); // this will do the animation of removal
+        notifyItemRangeChanged(position, mDuaData.size()); // From GreenTech email
         // dataSetChanged();
     }
 
@@ -147,13 +148,14 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
         finalmHolder.favButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // boolean isFav = !p.getFav();
-                boolean isFav = !mDuaData.get(finalPosition).getFav();
+                // boolean isFav = !mDuaData.get(finalPosition).getFav();
+                boolean isFav = false;
+                Log.d("K12_isFav", "isFav: " + isFav);
 
                 int sql_position = Integer.parseInt(finalmHolder.tvDuaNumber.getText().toString());
-                sql_position -= 1;
+                // sql_position -= 1;
 
-                Log.d("KHALID_NUMBER", sql_position + "");
-                // Log.d("KHALID_isFav", isFav + "");
+                Log.d("K12_sqlPosition", sql_position + "");
 
                 deleteRow(finalPosition);
 
@@ -175,6 +177,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
                 // Which row to update, based on the ID
                 String selection = HisnDatabaseInfo.DuaTable.DUA_ID + " LIKE ?";
                 String[] selectionArgs = {String.valueOf(finalmHolder.tvDuaNumber.getText().toString())};
+                Log.d("K12_selectionArgs", "tvDuaNumber: " + String.valueOf(finalmHolder.tvDuaNumber.getText().toString()));
 
                 int count = db.update(
                         HisnDatabaseInfo.DuaTable.TABLE_NAME,

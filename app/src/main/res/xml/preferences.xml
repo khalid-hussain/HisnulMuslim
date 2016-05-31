@@ -8,21 +8,21 @@
             android:key="@string/pref_font_arabic_typeface"
             android:summary="Testing summary 1"
             android:title="@string/pref_font_arabic_typeface_title"
-            vntfontlistpreference:fontDirectory="@string/pref_font_directory"
-            vntfontlistpreference:fontPreviewString="@string/pref_font_arabic_typeface_preview"/>
+            vntfontlistpreference:vnt_fontDirectory="@string/pref_font_directory"
+            vntfontlistpreference:vnt_fontPreviewString="@string/pref_font_arabic_typeface_preview"/>
 
         <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference xmlns:vntnumberpickerpreference="http://schemas.android.com/apk/res-auto"
             android:defaultValue="@integer/pref_font_arabic_size_default"
             android:key="@string/pref_font_arabic_size"
             android:title="@string/pref_font_arabic_size_title"
-            vntnumberpickerpreference:maxValue="@integer/pref_font_arabic_size_max"
-            vntnumberpickerpreference:minValue="@integer/pref_font_arabic_size_min" />
+            vntnumberpickerpreference:vnt_maxValue="@integer/pref_font_arabic_size_max"
+            vntnumberpickerpreference:vnt_minValue="@integer/pref_font_arabic_size_min" />
 
         <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference xmlns:vntnumberpickerpreference="http://schemas.android.com/apk/res-auto"
             android:defaultValue="@integer/pref_font_other_size_default"
             android:key="@string/pref_font_other_size"
             android:title="@string/pref_font_other_size_title"
-            vntnumberpickerpreference:maxValue="@integer/pref_font_other_size_max"
-            vntnumberpickerpreference:minValue="@integer/pref_font_other_size_min" />
+            vntnumberpickerpreference:vnt_maxValue="@integer/pref_font_other_size_max"
+            vntnumberpickerpreference:vnt_minValue="@integer/pref_font_other_size_min" />
     </PreferenceCategory>
 </PreferenceScreen>
