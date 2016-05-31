@@ -70,7 +70,10 @@ bookmarked.
 - Create a nice landing page under the gh-pages branch.
 
 # Changelog
-4 Zhu Al-Q'adah, 19 August 2015:
+24 Shaʿbān 1437, 31 May:
+- Resume work
+
+4 Zhu Al-Q'adah 1436, 19 August 2015:
 - RecyclerView adapter paritially implemented for BookmarksDetailActivity
 - Font bug has been discovered on a Samsung phone running stock 4.1.2.
 - Snackbar has been implemented for removing the bookmark. Undo button on it is yet to be implemented.
