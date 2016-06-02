@@ -153,8 +153,8 @@ public class BookmarksDetailAdapter extends BaseAdapter {
                     int sql_position = Integer.parseInt(mHolder.tvDuaNumber.getText().toString());
                     sql_position -= 1;
 
-                    Log.d("KHALID_NUMBER", sql_position + "");
-                    Log.d("KHALID_isFav", isFav + "");
+                    Log.d("KHALID_NUMBER", Integer.toString(sql_position));
+                    Log.d("KHALID_isFav", Boolean.toString(isFav));
 
                     deleteRow(finalPosition);
 
