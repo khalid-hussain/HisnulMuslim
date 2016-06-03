@@ -54,7 +54,7 @@ public class DuaDetailActivity extends AppCompatActivity
         duaIdFromDuaListActivity = bundle.getInt("dua_id");
         duaTitleFromDuaListActivity = bundle.getString("dua_title");
 
-        my_toolbar_duaGroup_number.setText(duaIdFromDuaListActivity + "");
+        my_toolbar_duaGroup_number.setText(Integer.toString(duaIdFromDuaListActivity));
         my_autofit_toolbar_title.setText(duaTitleFromDuaListActivity);
         setTitle("");
 
