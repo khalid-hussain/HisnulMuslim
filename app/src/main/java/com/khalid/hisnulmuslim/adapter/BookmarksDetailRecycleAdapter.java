@@ -155,7 +155,7 @@ public class BookmarksDetailRecycleAdapter extends RecyclerView.Adapter<Bookmark
                 int sql_position = Integer.parseInt(finalmHolder.tvDuaNumber.getText().toString());
                 // sql_position -= 1;
 
-                Log.d("K12_sqlPosition", sql_position + "");
+                Log.d("K12_sqlPosition", Integer.toString(sql_position));
 
                 deleteRow(finalPosition);
 
