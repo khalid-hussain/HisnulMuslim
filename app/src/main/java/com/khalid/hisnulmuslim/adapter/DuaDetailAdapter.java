@@ -176,9 +176,7 @@ public class DuaDetailAdapter extends BaseAdapter {
         if (p != null) {
             mHolder.tvDuaNumber.setText("" + p.getReference());
             mHolder.tvDuaArabic.setText(Html.fromHtml(p.getArabic()));
-
-            final Spannable translation = new SpannableString(p.getTranslation());
-            mHolder.tvDuaTranslation.setText(translation);
+            mHolder.tvDuaTranslation.setText(Html.fromHtml(p.getTranslation()));
 
             if (p.getBook_reference() != null)
                 mHolder.tvDuaReference.setText(Html.fromHtml(p.getBook_reference()));
