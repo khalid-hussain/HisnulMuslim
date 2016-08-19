@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_font">Шрифты</string>
+
+    <string name="pref_font_arabic_size">pref_font_arabic_size</string>
+    <string name="pref_font_arabic_size_title">Размер арабского шрифта</string>
+    <string name="pref_font_arabic_size_summary">Font size of Arabic in dua\'</string>
+    <integer name="pref_font_arabic_size_default">24</integer>
+    <integer name="pref_font_arabic_size_max">30</integer>
+    <integer name="pref_font_arabic_size_min">20</integer>
+
+    <string name="pref_font_arabic_typeface">pref_font_arabic_typeface</string>
+    <string name="pref_font_directory">fonts_2</string>
+    <string name="pref_font_arabic_typeface_title">Арабский шрифт</string>
+    <string name="pref_font_arabic_typeface_summary">Шрифт используемый для арабского дуа\'</string>
+    <string name="pref_font_arabic_typeface_default">fonts_2/UthmanTN1 Ver09.otf</string>
+    <string name="pref_font_arabic_typeface_preview">بِسْمِ اللهِ</string>
+
+    <string name="pref_font_other_size">pref_font_other_size</string>
+    <string name="pref_font_other_size_title">Размер шрифта перевода и Reference</string>
+    <string name="pref_font_other_size_summary">Размер шрифта переводов и references</string>
+    <integer name="pref_font_other_size_default">14</integer>
+    <integer name="pref_font_other_size_max">24</integer>
+    <integer name="pref_font_other_size_min">12</integer>
+</resources>

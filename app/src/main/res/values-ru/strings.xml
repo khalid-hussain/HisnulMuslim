@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Крепость мусульманина</string>
+    <string name="app_name_about">Приложение "Крепость мусульманина"</string>
+    <string name="version_name">Версия 0.1.1</string>
+    <string name="beta_version">0.06 - RecyclerView</string>
+
+    <string name="action_search">Поиск</string>
+    <string name="action_bookmarks">Закладки</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_about">О приложении</string>
+    <string name="action_night_mode">Ночной режим</string>
+    <string name="duaDetailFragment">Dua Detail Fragment</string>
+    <string name="title_activity_dua_list">Крепость мусульманина</string>
+    <string name="title_activity_dua_detail">DuaDetail</string>
+    <string name="title_activity_about">About</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_bookmarks">Закладки</string>
+    <string name="search_hint">Поиск дуа</string>
+    <string name="title_activity_preferences">Настройки</string>
+    <string name="about_us">
+        <![CDATA[
+            Hisnul Muslim is a collection of supplications for various occasions compiled by Dr. Sa\'eed bin Ali bin Wahaf Al-Qahtani. The author is from amongst the senior students of the former Grand Mufti of Saudi Arabia, Shaykh Abdul Aziz bin Abdullah bin Baz (May Allah have mercy on him).
+            <br/><br/>
+            <big><b>Contributors</b></big><br/>
+            Ahmed El-Helw (<a href="http://twitter.com/ahmedre">@ahmedre</a>)<br/>
+            Azhar Ali (<a href="https://www.linkedin.com/pub/md-azhar-ali/90/251/140">LinkedIn</a>)<br/>
+            Abdul Majed Ahmed (<a href="https://twitter.com/AbdulMajed19">@AbdulMajed19</a>)<br/>
+            Hussaini Zulkifli (<a href="https://twitter.com/HussainiZul">@HussainiZul</a>)<br/>
+            Mohammad Khalid Hussain (<a href="https://www.github.com/khalid.hussain">GitHub</a>)
+            <br/><br/>
+
+            <big><b>OpenSource Projects</b></big><br/>
+            AutoFitTextView (<a href="https://github.com/grantland/android-autofittextview">GitHub</a>)<br/>
+            VNTNumberPicker Preference (<a href="https://github.com/vanniktech/VNTNumberPickerPreference"/>GitHub</a>)<br/>
+            VNTFontList Preference (<a href="https://github.com/vanniktech/VNTFontListPreference"/>GitHub</a>)
+            <br/><br/>
+
+            <big><b>Special Thanks</b></big><br/>
+            Ahmad Sabree (<a href="https://twitter.com/sabree01">@sabree01</a>)<br/>
+        ]]>
+    </string>
+
+    <string name="bookmarks_none">На данный момент у Вас нет закладок.</string>
+    <string name="action_share_title">Поделитесь дуа</string>
+    <string name="action_share_credit">via @HisnulMuslimApp</string>
+
+    <string name="button_share_icon"></string>
+    <string name="button_fav_icon">{faw-star}</string>
+    <string name="button_fav_icon_no">{faw-star-o}</string>
+    <string name="snackbar_text_begin">Removed Dua #</string>
+    <string name="snackbar_text_end">" from bookmarks"</string>
+    <string name="snackbar_action">undo</string>
+</resources>
