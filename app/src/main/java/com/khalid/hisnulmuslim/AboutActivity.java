@@ -2,8 +2,6 @@ package com.khalid.hisnulmuslim;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
@@ -12,6 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.khalid.hisnulmuslim.R;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class AboutActivity extends AppCompatActivity {
 

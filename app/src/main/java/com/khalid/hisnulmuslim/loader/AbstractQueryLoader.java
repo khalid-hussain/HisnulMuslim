@@ -1,9 +1,8 @@
 package com.khalid.hisnulmuslim.loader;
 
 import android.content.Context;
-import androidx.core.content.AsyncTaskLoader;
-
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
+import androidx.loader.content.AsyncTaskLoader;
 
 public abstract class AbstractQueryLoader<T> extends AsyncTaskLoader<T> {
     protected T mData;

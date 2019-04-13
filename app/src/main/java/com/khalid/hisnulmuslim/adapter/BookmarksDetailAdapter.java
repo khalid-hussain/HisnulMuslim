@@ -8,7 +8,6 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -21,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.khalid.hisnulmuslim.R;
+import com.google.android.material.snackbar.Snackbar;
 import com.khalid.hisnulmuslim.database.ExternalDbOpenHelper;
 import com.khalid.hisnulmuslim.database.HisnDatabaseInfo;
 import com.khalid.hisnulmuslim.model.Dua;

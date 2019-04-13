@@ -1,16 +1,12 @@
 package com.khalid.hisnulmuslim;
 
+
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.app.LoaderManager;
-import androidx.core.content.Loader;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +20,13 @@ import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+
 
 public class DuaGroupActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<List<Dua>> {

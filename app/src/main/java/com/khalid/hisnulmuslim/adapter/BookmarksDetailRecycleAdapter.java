@@ -8,8 +8,6 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
-import android.support.annotation.UiThread;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -26,6 +24,9 @@ import com.khalid.hisnulmuslim.model.Dua;
 import com.mikepenz.iconics.view.IconicsButton;
 
 import java.util.List;
+
+import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Khalid on 18 أغسطس.
