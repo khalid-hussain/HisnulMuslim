@@ -1,7 +1,6 @@
 package com.khalid.hisnulmuslim.loader;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -17,6 +16,7 @@ public class DuaGroupLoader extends AbstractQueryLoader<List<Dua>> {
     public DuaGroupLoader(Context context) {
         super(context);
     }
+
     public Locale deviceLocale;
     public String groupTitleLanguage;
 
