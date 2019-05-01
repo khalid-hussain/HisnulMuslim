@@ -14,18 +14,18 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.DuaGroupAdapter;
 import com.khalid.hisnulmuslim.loader.DuaGroupLoader;
 import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
 
 
 public class DuaGroupActivity extends AppCompatActivity implements
@@ -82,20 +82,21 @@ public class DuaGroupActivity extends AppCompatActivity implements
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
+        if(searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String s) {
-                mAdapter.getFilter().filter(s);
-                return true;
-            }
-        });
-
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    mAdapter.getFilter().filter(s);
+                    return true;
+                }
+            });
+        }
         return true;
     }
 
