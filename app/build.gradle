@@ -41,5 +41,4 @@ dependencies {
 
     implementation 'com.vanniktech:vntfontlistpreference:1.0.0'
     implementation 'com.vanniktech:vntfontlistpreference:1.0.1-SNAPSHOT'
-    implementation 'me.grantland:autofittextview:0.2.+'
 }

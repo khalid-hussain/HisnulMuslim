@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+
 import com.example.khalid.hisnulmuslim.R;
 import com.khalid.hisnulmuslim.adapter.DuaDetailAdapter;
 import com.khalid.hisnulmuslim.loader.DuaDetailsLoader;
@@ -16,11 +21,6 @@ import com.khalid.hisnulmuslim.model.Dua;
 
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
-import me.grantland.widget.AutofitTextView;
 
 
 public class DuaDetailActivity extends AppCompatActivity
@@ -32,7 +32,7 @@ public class DuaDetailActivity extends AppCompatActivity
 
     private Toolbar toolbar;
     private TextView my_toolbar_duaGroup_number;
-    private AutofitTextView my_autofit_toolbar_title;
+    private TextView my_autofit_toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class DuaDetailActivity extends AppCompatActivity
 
         toolbar = (Toolbar) findViewById(R.id.my_detail_action_bar);
         my_toolbar_duaGroup_number = (TextView) findViewById(R.id.txtReference_duaDetail);
-        my_autofit_toolbar_title = (AutofitTextView) findViewById(R.id.dua_detail_autofit_actionbar_title);
+        my_autofit_toolbar_title = (TextView) findViewById(R.id.dua_detail_autofit_actionbar_title);
         View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
