@@ -35,13 +35,21 @@
     <View
         android:layout_width="8dp"
         android:layout_height="?attr/actionBarSize"/>
-    
-    <me.grantland.widget.AutofitTextView
+
+    <TextView
         android:id="@+id/dua_detail_autofit_actionbar_title"
-        android:text="Testing titles over here with long text"
         android:textColor="@color/material_actionbar_title"
+        android:text="Testing titles over here with long text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="3" />
+        android:layout_height="match_parent"
+        app:autoSizeTextType="uniform" />
+
+    <!--<me.grantland.widget.AutofitTextView-->
+        <!--android:id="@+id/dua_detail_autofit_actionbar_title"-->
+        <!--android:text="Testing titles over here with long text"-->
+        <!--android:textColor="@color/material_actionbar_title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:maxLines="3" />-->
 
 </androidx.appcompat.widget.Toolbar>

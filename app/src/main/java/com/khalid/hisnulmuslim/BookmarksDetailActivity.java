@@ -6,14 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.khalid.hisnulmuslim.R;
-import com.khalid.hisnulmuslim.adapter.BookmarksDetailAdapter;
-import com.khalid.hisnulmuslim.adapter.BookmarksDetailRecycleAdapter;
-import com.khalid.hisnulmuslim.loader.BookmarkDetailsLoader;
-import com.khalid.hisnulmuslim.model.Dua;
-
-import java.util.List;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.loader.app.LoaderManager;
@@ -21,7 +13,14 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import me.grantland.widget.AutofitTextView;
+
+import com.example.khalid.hisnulmuslim.R;
+import com.khalid.hisnulmuslim.adapter.BookmarksDetailAdapter;
+import com.khalid.hisnulmuslim.adapter.BookmarksDetailRecycleAdapter;
+import com.khalid.hisnulmuslim.loader.BookmarkDetailsLoader;
+import com.khalid.hisnulmuslim.model.Dua;
+
+import java.util.List;
 
 /**
  * Created by Khalid on 31 يوليو.
@@ -32,12 +31,11 @@ public class BookmarksDetailActivity extends AppCompatActivity
     private String duaTitleFromDuaListActivity;
     private BookmarksDetailAdapter adapter;
     private BookmarksDetailRecycleAdapter adapterRecycle;
-    // private ListView recyclerView;
     private RecyclerView recyclerView;
 
     private Toolbar toolbar;
     private TextView my_toolbar_duaGroup_number;
-    private AutofitTextView my_autofit_toolbar_title;
+    private TextView my_autofit_toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class BookmarksDetailActivity extends AppCompatActivity
 
         toolbar = (Toolbar) findViewById(R.id.my_detail_action_bar);
         my_toolbar_duaGroup_number = (TextView) findViewById(R.id.txtReference_duaDetail);
-        my_autofit_toolbar_title = (AutofitTextView) findViewById(R.id.dua_detail_autofit_actionbar_title);
+        my_autofit_toolbar_title = (TextView) findViewById(R.id.dua_detail_autofit_actionbar_title);
         View mToolbarShadow = findViewById(R.id.view_toolbar_shadow);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
